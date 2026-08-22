@@ -107,10 +107,19 @@ available in any sandbox so far:
   test (schema was only exercised against SQLite via the portable types
   above — JSONB/ARRAY *storage semantics* like containment queries are
   Postgres-only and untested here).
-- No Android build was produced (no Android SDK available in any sandbox
-  so far; `flutter build windows --release` **was** run successfully in
-  the original build as evidence the shared codebase compiles for a real
-  target).
+- An Android SDK became available in a later session, and
+  `flutter build apk --release` **was** run successfully — the first
+  real Android build of this project. It caught a real release-blocking
+  bug in the process: `android/app/src/main/AndroidManifest.xml` (the
+  manifest release builds actually use) was missing
+  `<uses-permission android:name="android.permission.INTERNET" />`
+  entirely — only the debug/profile manifests had it (Flutter's default
+  template puts it there for hot-reload/VM-service purposes), so every
+  network call failed as a Dio error the moment the app was installed
+  from a real release build on a device, while `flutter run` in debug
+  mode masked it completely. Fixed and confirmed present in the actual
+  built APK's manifest (`aapt dump permissions`), not just the source
+  file.
 
 **Before relying on the backend in production, a developer with Docker
 or a real Postgres instance should**: bring up Postgres, generate and run

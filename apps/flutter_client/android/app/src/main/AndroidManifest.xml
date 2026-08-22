@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required for all network access (the static-GitHub and live-API
+         data sources both make HTTP requests) — without this, every
+         request fails as a DioException regardless of connectivity.
+         Desktop platforms don't require this declaration, which is why
+         its absence only showed up on Android. -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="PLC Election Intelligence"
         android:name="${applicationName}"
