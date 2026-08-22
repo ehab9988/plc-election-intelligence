@@ -28,5 +28,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": "#4472C4"
+  },
+  {
+    "id": "2d8ac0bd-cf9f-454c-8c85-d1b319b58d39",
+    "list_name_ar": "التحالف من أجل التغيير",
+    "list_name_en": "Alliance for Change",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

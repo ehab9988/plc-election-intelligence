@@ -1,5 +1,17 @@
 [
   {
+    "id": "ffd8a254-3ed9-4465-8c07-5fd4a12fe6c6",
+    "name_ar": "الجبهة الديمقراطية لتحرير فلسطين",
+    "name_en": "Democratic Front for the Liberation of Palestine",
+    "abbreviation": "DFLP",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
     "name_ar": "تيار الإصلاح الديمقراطي",
     "name_en": "Democratic Reform",
@@ -12,6 +24,18 @@
     "verification_confidence": "medium"
   },
   {
+    "id": "008ca231-8b48-47d3-905c-63a2d48a688f",
+    "name_ar": "فتح",
+    "name_en": "Fatah",
+    "abbreviation": "Fatah",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
     "name_ar": "حركة فتح",
     "name_en": "Fatah Movement",
@@ -22,6 +46,18 @@
     "registration_status": "announced_intention",
     "registration_status_verified_at": null,
     "verification_confidence": "medium"
+  },
+  {
+    "id": "49c04c57-41ca-4960-9096-b00982539317",
+    "name_ar": "حماس",
+    "name_en": "Hamas",
+    "abbreviation": "Hamas",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   },
   {
     "id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
@@ -58,6 +94,18 @@
     "registration_status": "considering",
     "registration_status_verified_at": null,
     "verification_confidence": "medium"
+  },
+  {
+    "id": "70b867fb-f5d8-43f4-b165-e4d4add683b1",
+    "name_ar": "حزب الشعب الفلسطيني",
+    "name_en": "Palestinian People's Party",
+    "abbreviation": "PPP",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   },
   {
     "id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",

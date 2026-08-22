@@ -48,5 +48,43 @@
         ]
       }
     ]
+  },
+  {
+    "id": "bf203a8b-2d75-456a-90f9-8570609089a0",
+    "pollster_id": "58f8a04b-b2a7-4f80-b033-bb9dc0e02b96",
+    "sponsor": null,
+    "publication_date": "2026-08-12",
+    "fieldwork_start": "2026-08-05",
+    "fieldwork_end": "2026-08-08",
+    "sample_size": 1270,
+    "margin_of_error": null,
+    "mode": "unknown",
+    "geographic_population": "West Bank and Gaza",
+    "west_bank_sample_size": null,
+    "gaza_sample_size": null,
+    "population": "likely_voters",
+    "manually_verified": true,
+    "questions": [
+      {
+        "id": "f6877df9-7483-4fe8-b759-7c42274455c7",
+        "question_text_ar": "(AI-discovered — original question wording not captured)",
+        "question_text_en": null,
+        "question_type": "vote_choice_if_today",
+        "results": [
+          {
+            "label": "Hamas",
+            "electoral_list_id": "bef7d940-1c02-4a88-8c26-0f275b04ab68",
+            "raw_response_pct": 33.0,
+            "normalized_pct": null
+          },
+          {
+            "label": "Fatah",
+            "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+            "raw_response_pct": 24.0,
+            "normalized_pct": null
+          }
+        ]
+      }
+    ]
   }
 ]
