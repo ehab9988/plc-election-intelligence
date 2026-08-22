@@ -109,7 +109,20 @@ jobs:
           git add data/
           if git diff --cached --quiet; then
             echo "No changes to publish."
-          else
-            git commit -m "Publish static data snapshot [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "Publish static data snapshot [skip ci]"
+          # main can move between this job's checkout and this push (a
+          # manual commit, or another trigger of this same workflow) — this
+          # commit only ever touches data/, so rebasing onto the new tip
+          # and retrying is safe rather than failing the whole run.
+          for attempt in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt) — fetching and rebasing onto the new origin/main..."
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "::error::Failed to push the static data snapshot after 5 attempts."
+          exit 1

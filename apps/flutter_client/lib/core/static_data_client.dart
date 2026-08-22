@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 import 'app_config.dart';
@@ -21,7 +23,12 @@ class StaticDataClient {
         ));
 
   Future<dynamic> getJson(String path) async {
-    final res = await dio.get('/$path.json');
-    return res.data;
+    // Dio's automatic JSON parsing keys off the response's Content-Type
+    // header, but raw.githubusercontent.com serves .json files as
+    // text/plain — so it never gets auto-decoded and res.data ends up
+    // as a raw String. Force plain-text and decode ourselves instead of
+    // relying on content-type sniffing.
+    final res = await dio.get<String>('/$path.json', options: Options(responseType: ResponseType.plain));
+    return jsonDecode(res.data!);
   }
 }
