@@ -19,13 +19,10 @@ be verified"). Run it with:
 from __future__ import annotations
 
 import sys
-import uuid
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "services" / "api"))
-
-from sqlalchemy.orm import Session
 
 from app.db import SessionLocal, engine
 from app.models import (
@@ -45,8 +42,16 @@ from app.models import (
     Pollster,
     Source,
 )
-from app.models.enums import PollMode, PollPopulation, RegistrationStatus, SourceTier, SourceType, VerificationConfidence
+from app.models.enums import (
+    PollMode,
+    PollPopulation,
+    RegistrationStatus,
+    SourceTier,
+    SourceType,
+    VerificationConfidence,
+)
 from app.services.forecast_runner import run_and_persist_forecast
+from sqlalchemy.orm import Session
 
 
 def seed(db: Session) -> None:
@@ -85,7 +90,7 @@ def seed(db: Session) -> None:
     rule_set = ElectionRuleSetORM(
         election_id=election.id,
         version="1.0.0",
-        effective_from=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        effective_from=datetime(2026, 1, 1, tzinfo=UTC),
         electoral_system="Nationwide closed-list proportional representation",
         district_structure="Single national constituency",
         total_seats=132,
@@ -107,7 +112,7 @@ def seed(db: Session) -> None:
         minimum_candidate_age=23,
         allows_individual_candidate_votes=False,
         source_document="CEC / Palestinian election law — baseline captured August 2026",
-        verified_at=datetime(2026, 8, 1, tzinfo=timezone.utc),
+        verified_at=datetime(2026, 8, 1, tzinfo=UTC),
     )
     db.add(rule_set)
 
@@ -118,8 +123,8 @@ def seed(db: Session) -> None:
                 milestone="election_day",
                 label_en="Election Day",
                 label_ar="يوم الانتخابات",
-                starts_at=datetime(2026, 11, 28, tzinfo=timezone.utc),
-                ends_at=datetime(2026, 11, 28, tzinfo=timezone.utc),
+                starts_at=datetime(2026, 11, 28, tzinfo=UTC),
+                ends_at=datetime(2026, 11, 28, tzinfo=UTC),
                 source_id=cec_source.id,
             ),
         ]
@@ -318,7 +323,7 @@ def seed(db: Session) -> None:
         geographic_population="West Bank and Gaza Strip",
         population=PollPopulation.LIKELY_VOTERS,
         manually_verified=True,
-        import_timestamp=datetime.now(timezone.utc),
+        import_timestamp=datetime.now(UTC),
     )
     db.add(poll)
     db.flush()
@@ -361,7 +366,7 @@ def seed(db: Session) -> None:
     from app.models.enums import ForecastRunStatus
 
     run.status = ForecastRunStatus.PUBLISHED
-    run.published_at = datetime.now(timezone.utc)
+    run.published_at = datetime.now(UTC)
     db.commit()
 
     print(f"Seeded election {election.id}, forecast run {run.id}")

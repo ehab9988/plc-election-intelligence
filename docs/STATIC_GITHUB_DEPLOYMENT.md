@@ -30,7 +30,16 @@ dispatch:
    doesn't exist yet, so the job seeds it (`scripts/seed_data.py`) with
    the same election/rules/parties/PCPSR-poll fixture the other
    deployment paths use as a starting point.
-2. Runs one ingestion cycle (`scripts/run_ingestion_cycle.py` — the exact
+2. Runs `scripts/sync_sqlite_schema.py`, which adds any model columns
+   missing from that committed database — `create_all()` in the step
+   above only creates brand-new *tables*, it silently does nothing for a
+   *column* added to a model whose table already existed. Every schema
+   change to a model needs this step to reach the committed database; a
+   commit that changed `services/api/app/models/coalition.py` without a
+   corresponding schema-sync actually broke this workflow in practice
+   (`no such column: coalition_evidence.implies_joint_list`) before this
+   script existed. A no-op once the schema is current.
+3. Runs one ingestion cycle (`scripts/run_ingestion_cycle.py` — the exact
    same code `docs/FREE_TIER_DEPLOYMENT.md`'s scheduler runs, just
    pointed at this SQLite file via `DATABASE_URL` instead of a hosted
    Postgres): fetches configured RSS sources (if any), **actively
@@ -42,12 +51,12 @@ dispatch:
    are always stored **unverified** and cannot move the published
    forecast until an analyst reviews and verifies them — see
    `poll_discovery.py`'s module docstring for why that gate matters.
-3. Runs `scripts/export_static_data.py`, which re-derives every JSON file
+4. Runs `scripts/export_static_data.py`, which re-derives every JSON file
    under `data/` from the current database state — the exact same
    Pydantic schemas and router functions the live FastAPI endpoints use
    (see that script's docstring), so the JSON shape here is always
    identical to what a live API would return for the same data.
-4. Commits and pushes `data/` (both the SQLite file and the JSON
+5. Commits and pushes `data/` (both the SQLite file and the JSON
    snapshot) back to the repo if anything changed.
 
 The Flutter client, in `DataSource.staticGithub` mode (the default),
@@ -129,6 +138,7 @@ cd services/api
 pip install -r requirements.txt
 
 DATABASE_URL=sqlite:///./dev.db python ../../scripts/seed_data.py
+DATABASE_URL=sqlite:///./dev.db python ../../scripts/sync_sqlite_schema.py  # if reusing an older dev.db
 DATABASE_URL=sqlite:///./dev.db python ../../scripts/run_ingestion_cycle.py
 DATABASE_URL=sqlite:///./dev.db python ../../scripts/export_static_data.py
 ```
@@ -140,6 +150,16 @@ server (see the README's "no Docker, no Postgres" quickstart).
 
 ## Honest limitations
 
+- **`sync_sqlite_schema.py` only ever ADDS columns, nothing else.** It
+  cannot rename or drop a column, change a column's type, or add/change
+  a constraint on an existing column — those all need a hand-written
+  migration (a one-off script run once, or dropping the affected table
+  and letting it reseed). Confirmed working against the exact failure
+  it was built to fix: reproduced "no such column:
+  coalition_evidence.implies_joint_list" locally against a database
+  missing that column, ran the sync script, confirmed the column landed
+  with the model's correct type/default/NOT NULL and the export script
+  then succeeded.
 - **AI news/poll discovery was not exercised against a real OpenAI
   account.** `sources/openai_search_adapter.py` and `poll_discovery.py`
   were written against the OpenAI Responses API's `web_search` tool and

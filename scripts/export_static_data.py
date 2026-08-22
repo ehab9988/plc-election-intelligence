@@ -24,29 +24,40 @@ from __future__ import annotations
 import json
 import sys
 import uuid
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "services" / "api"))
 
-from sqlalchemy import select  # noqa: E402
-from sqlalchemy.orm import Session  # noqa: E402
-
-from app.api.v1.coalitions import list_coalition_evidence  # noqa: E402
-from app.api.v1.elections import get_current_election, get_election_rules, get_election_timeline  # noqa: E402
-from app.api.v1.forecast import _to_out as forecast_to_out  # noqa: E402
-from app.api.v1.news import ArticleOut, list_news  # noqa: E402
-from app.api.v1.parties import get_candidate, list_candidates, list_parties  # noqa: E402
-from app.api.v1.polls import list_polls, polling_average  # noqa: E402
-from app.db import SessionLocal  # noqa: E402
-from app.models import ElectoralList, ForecastRun  # noqa: E402
-from app.models.enums import ForecastRunStatus  # noqa: E402
-from app.schemas.coalition import CoalitionEvidenceOut  # noqa: E402
-from app.schemas.election import ElectionOut, ElectionRuleSetOut, TimelineEventOut  # noqa: E402
-from app.schemas.party import CandidateOut, ElectoralListOut, PartyOut  # noqa: E402
-from app.schemas.poll import PollOut  # noqa: E402
+from app.api.v1.coalitions import list_coalition_evidence
+from app.api.v1.elections import (
+    get_current_election,
+    get_election_rules,
+    get_election_timeline,
+)
+from app.api.v1.forecast import _to_out as forecast_to_out
+from app.api.v1.news import ArticleOut, list_news
+from app.api.v1.parties import (
+    get_candidate,
+    list_candidates,
+    list_parties,
+)
+from app.api.v1.polls import list_polls, polling_average
+from app.db import SessionLocal
+from app.models import ElectoralList, ForecastRun
+from app.models.enums import ForecastRunStatus
+from app.schemas.coalition import CoalitionEvidenceOut
+from app.schemas.election import (
+    ElectionOut,
+    ElectionRuleSetOut,
+    TimelineEventOut,
+)
+from app.schemas.party import CandidateOut, ElectoralListOut, PartyOut
+from app.schemas.poll import PollOut
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 
 def _json_default(o: Any) -> Any:
@@ -133,7 +144,7 @@ def export(db: Session, out_dir: Path) -> None:
 
     _write(
         out_dir / "meta.json",
-        {"generated_at": datetime.utcnow().isoformat() + "Z", "election_id": str(election_id)},
+        {"generated_at": datetime.now(UTC).isoformat(), "election_id": str(election_id)},
     )
 
 

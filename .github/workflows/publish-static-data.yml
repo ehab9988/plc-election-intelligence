@@ -84,6 +84,15 @@ jobs:
             python scripts/seed_data.py
           fi
 
+      - name: Sync schema (add any model columns missing from the committed DB)
+        # The committed DB only ever gets NEW TABLES from create_all() above
+        # — it does not add new COLUMNS to a table that already existed when
+        # the model changes later. Runs every time, not just on first run;
+        # a no-op once the schema is current. See sync_sqlite_schema.py.
+        env:
+          DATABASE_URL: "sqlite:///${{ github.workspace }}/${{ env.DB_PATH }}"
+        run: python scripts/sync_sqlite_schema.py
+
       - name: Run ingestion cycle
         env:
           DATABASE_URL: "sqlite:///${{ github.workspace }}/${{ env.DB_PATH }}"
