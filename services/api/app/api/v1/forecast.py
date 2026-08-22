@@ -6,9 +6,11 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
+from election_rules_py import majority_threshold
+
 from ...core.deps import require_role
 from ...db import get_db
-from ...models import ElectoralList, ForecastCandidateResult, ForecastPartyResult, ForecastRun
+from ...models import ElectionRuleSetORM, ElectoralList, ForecastCandidateResult, ForecastPartyResult, ForecastRun
 from ...models.enums import ForecastRunStatus, UserRole
 from ...schemas.forecast import ForecastCandidateResultOut, ForecastPartyResultOut, ForecastRunOut
 from ...services.forecast_runner import run_and_persist_forecast
@@ -52,9 +54,23 @@ def _to_out(run: ForecastRun, db: Session) -> ForecastRunOut:
         for r in run.party_results
         if r.electoral_list_id in list_meta
     ]
-    out = ForecastRunOut.model_validate(run)
-    out.party_results = sorted(party_results, key=lambda r: -r.seats_median)
-    return out
+    rule_set = db.get(ElectionRuleSetORM, run.election_rule_set_id)
+    return ForecastRunOut(
+        id=run.id,
+        election_id=run.election_id,
+        model_version=run.model_version,
+        dataset_version=run.dataset_version,
+        data_cutoff_at=run.data_cutoff_at,
+        simulations_performed=run.simulations_performed,
+        random_seed=run.random_seed,
+        status=run.status,
+        assumptions_notes=run.assumptions_notes,
+        change_summary=run.change_summary,
+        published_at=run.published_at,
+        created_at=run.created_at,
+        majority_threshold=majority_threshold(rule_set.total_seats) if rule_set else 0,
+        party_results=sorted(party_results, key=lambda r: -r.seats_median),
+    )
 
 
 @router.get("/latest", response_model=ForecastRunOut)

@@ -33,6 +33,17 @@ def get_party(party_id: uuid.UUID, db: Session = Depends(get_db)) -> Party:
     return party
 
 
+@router.get("/electoral-lists", response_model=list[ElectoralListOut])
+def list_electoral_lists(
+    election_id: uuid.UUID | None = None,
+    db: Session = Depends(get_db),
+) -> list[ElectoralList]:
+    stmt = select(ElectoralList)
+    if election_id:
+        stmt = stmt.where(ElectoralList.election_id == election_id)
+    return list(db.scalars(stmt))
+
+
 @router.get("/candidates", response_model=list[CandidateOut])
 def list_candidates(
     electoral_list_id: uuid.UUID | None = None,

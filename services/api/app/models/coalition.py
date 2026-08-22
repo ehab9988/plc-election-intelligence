@@ -8,7 +8,7 @@ import uuid
 from datetime import date
 
 from sqlalchemy import Date, Enum, Float, ForeignKey, Integer, String, Text
-from sqlalchemy.dialects.postgresql import ARRAY, UUID
+from .types import ARRAY, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
