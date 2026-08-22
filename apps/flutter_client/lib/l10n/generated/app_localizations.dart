@@ -356,12 +356,6 @@ abstract class AppLocalizations {
   /// **'Insufficient data'**
   String get insufficientData;
 
-  /// No description provided for @demoDataBanner.
-  ///
-  /// In en, this message translates to:
-  /// **'Showing bundled demo data — connect to a live API in Settings for production use.'**
-  String get demoDataBanner;
-
   /// No description provided for @elevatedUncertainty.
   ///
   /// In en, this message translates to:
@@ -560,17 +554,41 @@ abstract class AppLocalizations {
   /// **'Mathematical feasibility only — political compatibility is shown separately and is never presented as a formation probability.'**
   String get mathematicalFeasibilityNote;
 
-  /// No description provided for @settingsDemoMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Demo mode (bundled sample data)'**
-  String get settingsDemoMode;
-
   /// No description provided for @settingsApiBaseUrl.
   ///
   /// In en, this message translates to:
   /// **'API base URL'**
   String get settingsApiBaseUrl;
+
+  /// No description provided for @settingsDataSource.
+  ///
+  /// In en, this message translates to:
+  /// **'Data source'**
+  String get settingsDataSource;
+
+  /// No description provided for @settingsDataSourceDemo.
+  ///
+  /// In en, this message translates to:
+  /// **'Demo (bundled sample data)'**
+  String get settingsDataSourceDemo;
+
+  /// No description provided for @settingsDataSourceLiveApi.
+  ///
+  /// In en, this message translates to:
+  /// **'Live API'**
+  String get settingsDataSourceLiveApi;
+
+  /// No description provided for @settingsDataSourceStatic.
+  ///
+  /// In en, this message translates to:
+  /// **'Static (GitHub)'**
+  String get settingsDataSourceStatic;
+
+  /// No description provided for @settingsStaticBaseUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Static data base URL'**
+  String get settingsStaticBaseUrl;
 
   /// No description provided for @settingsSave.
   ///

@@ -1,9 +1,11 @@
-/// Bundled offline demo data so the app has something real to render when
-/// no backend is configured/reachable (section 35 offline mode; section 67
-/// failure handling — never blank the UI, show clearly-labeled cached/demo
-/// data instead). Mirrors exactly what scripts/seed_data.py writes to a
-/// real database from the August 2026 PCPSR test fixture (spec section
-/// 51). These are TEST/SEED numbers only — see docs/POLLING_METHOD.md.
+/// Offline test fixture data — used ONLY by the widget test suite (via
+/// Riverpod provider overrides) so tests run deterministically without a
+/// network. This is not shipped in the app; there is no user-facing "demo
+/// mode" (see docs/STATIC_GITHUB_DEPLOYMENT.md for how the app actually
+/// gets data with no server: a static GitHub-hosted JSON snapshot, or a
+/// live API). Mirrors exactly what scripts/seed_data.py writes to a real
+/// database from the August 2026 PCPSR test fixture (spec section 51).
+/// These are TEST/SEED numbers only — see docs/POLLING_METHOD.md.
 ///
 /// Two different confidence levels live in this one file, and they must
 /// not be confused:

@@ -149,10 +149,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get insufficientData => 'بيانات غير كافية';
 
   @override
-  String get demoDataBanner =>
-      'تُعرض بيانات تجريبية مضمّنة — اتصل بواجهة برمجة تطبيقات حية من الإعدادات للاستخدام الفعلي.';
-
-  @override
   String elevatedUncertainty(String reason) {
     return 'درجة عدم اليقين في التوقع مرتفعة: $reason';
   }
@@ -259,10 +255,22 @@ class AppLocalizationsAr extends AppLocalizations {
       'جدوى رياضية فقط — يُعرض التوافق السياسي بشكل منفصل ولا يُقدَّم أبدًا كاحتمال تشكيل ائتلاف.';
 
   @override
-  String get settingsDemoMode => 'وضع تجريبي (بيانات نموذجية مضمّنة)';
+  String get settingsApiBaseUrl => 'رابط واجهة البرمجة';
 
   @override
-  String get settingsApiBaseUrl => 'رابط واجهة البرمجة';
+  String get settingsDataSource => 'مصدر البيانات';
+
+  @override
+  String get settingsDataSourceDemo => 'تجريبي (بيانات نموذجية مضمّنة)';
+
+  @override
+  String get settingsDataSourceLiveApi => 'واجهة برمجة مباشرة';
+
+  @override
+  String get settingsDataSourceStatic => 'ثابت (GitHub)';
+
+  @override
+  String get settingsStaticBaseUrl => 'رابط بيانات GitHub الثابتة';
 
   @override
   String get settingsSave => 'حفظ';

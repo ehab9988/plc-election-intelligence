@@ -5,13 +5,15 @@ import 'package:plc_election_client/main.dart';
 import 'package:plc_election_client/providers/locale_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../helpers/fixture_overrides.dart';
+
 void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues({});
   });
 
   testWidgets('switching to Arabic renders Arabic nav labels and RTL layout', (tester) async {
-    final container = ProviderContainer();
+    final container = ProviderContainer(overrides: fixtureProviderOverrides());
     addTearDown(container.dispose);
 
     await tester.pumpWidget(

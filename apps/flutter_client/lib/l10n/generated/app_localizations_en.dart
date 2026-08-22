@@ -148,10 +148,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get insufficientData => 'Insufficient data';
 
   @override
-  String get demoDataBanner =>
-      'Showing bundled demo data — connect to a live API in Settings for production use.';
-
-  @override
   String elevatedUncertainty(String reason) {
     return 'Forecast uncertainty is elevated: $reason';
   }
@@ -259,10 +255,22 @@ class AppLocalizationsEn extends AppLocalizations {
       'Mathematical feasibility only — political compatibility is shown separately and is never presented as a formation probability.';
 
   @override
-  String get settingsDemoMode => 'Demo mode (bundled sample data)';
+  String get settingsApiBaseUrl => 'API base URL';
 
   @override
-  String get settingsApiBaseUrl => 'API base URL';
+  String get settingsDataSource => 'Data source';
+
+  @override
+  String get settingsDataSourceDemo => 'Demo (bundled sample data)';
+
+  @override
+  String get settingsDataSourceLiveApi => 'Live API';
+
+  @override
+  String get settingsDataSourceStatic => 'Static (GitHub)';
+
+  @override
+  String get settingsStaticBaseUrl => 'Static data base URL';
 
   @override
   String get settingsSave => 'Save';

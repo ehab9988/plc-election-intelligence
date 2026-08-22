@@ -1,40 +1,31 @@
 import '../core/api_client.dart';
+import '../core/app_config.dart';
+import '../core/static_data_client.dart';
 import '../models/election.dart';
-import 'fixtures/demo_fixture.dart' as fixture;
+import 'remote_fetch.dart';
 
-class ElectionRepository {
-  final ApiClient _client;
-  final bool demoMode;
+class ElectionRepository with RemoteFetch {
+  @override
+  final ApiClient client;
+  @override
+  final StaticDataClient staticClient;
+  @override
+  final DataSource dataSource;
 
-  ElectionRepository(this._client, {required this.demoMode});
+  ElectionRepository(this.client, this.staticClient, {required this.dataSource});
 
   Future<Election> getCurrentElection() async {
-    if (demoMode) return Election.fromJson(fixture.demoElection);
-    try {
-      final res = await _client.dio.get('/elections/current');
-      return Election.fromJson(res.data as Map<String, dynamic>);
-    } catch (_) {
-      return Election.fromJson(fixture.demoElection);
-    }
+    final data = await fetch('/elections/current', 'elections/current');
+    return Election.fromJson(data as Map<String, dynamic>);
   }
 
   Future<ElectionRuleSetSummary> getRules(String electionId) async {
-    if (demoMode) return ElectionRuleSetSummary.fromJson(fixture.demoRuleSet);
-    try {
-      final res = await _client.dio.get('/elections/$electionId/rules');
-      return ElectionRuleSetSummary.fromJson(res.data as Map<String, dynamic>);
-    } catch (_) {
-      return ElectionRuleSetSummary.fromJson(fixture.demoRuleSet);
-    }
+    final data = await fetch('/elections/$electionId/rules', 'elections/$electionId/rules');
+    return ElectionRuleSetSummary.fromJson(data as Map<String, dynamic>);
   }
 
   Future<List<TimelineEvent>> getTimeline(String electionId) async {
-    if (demoMode) return fixture.demoTimeline.map(TimelineEvent.fromJson).toList();
-    try {
-      final res = await _client.dio.get('/elections/$electionId/timeline');
-      return (res.data as List<dynamic>).map((e) => TimelineEvent.fromJson(e as Map<String, dynamic>)).toList();
-    } catch (_) {
-      return fixture.demoTimeline.map(TimelineEvent.fromJson).toList();
-    }
+    final data = await fetch('/elections/$electionId/timeline', 'elections/$electionId/timeline');
+    return (data as List<dynamic>).map((e) => TimelineEvent.fromJson(e as Map<String, dynamic>)).toList();
   }
 }

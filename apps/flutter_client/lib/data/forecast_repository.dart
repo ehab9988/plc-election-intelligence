@@ -1,30 +1,34 @@
 import '../core/api_client.dart';
+import '../core/app_config.dart';
+import '../core/static_data_client.dart';
 import '../models/forecast.dart';
-import 'fixtures/demo_fixture.dart' as fixture;
+import 'remote_fetch.dart';
 
-class ForecastRepository {
-  final ApiClient _client;
-  final bool demoMode;
+class ForecastRepository with RemoteFetch {
+  @override
+  final ApiClient client;
+  @override
+  final StaticDataClient staticClient;
+  @override
+  final DataSource dataSource;
 
-  ForecastRepository(this._client, {required this.demoMode});
+  ForecastRepository(this.client, this.staticClient, {required this.dataSource});
 
   Future<ForecastRun> getLatest(String electionId) async {
-    if (demoMode) return ForecastRun.fromJson(fixture.demoForecastRun);
-    try {
-      final res = await _client.dio.get('/forecast/latest', queryParameters: {'election_id': electionId});
-      return ForecastRun.fromJson(res.data as Map<String, dynamic>);
-    } catch (_) {
-      return ForecastRun.fromJson(fixture.demoForecastRun);
-    }
+    final data = await fetch(
+      '/forecast/latest',
+      'forecast/latest/$electionId',
+      query: {'election_id': electionId},
+    );
+    return ForecastRun.fromJson(data as Map<String, dynamic>);
   }
 
   Future<List<ForecastRun>> getHistory(String electionId) async {
-    if (demoMode) return [ForecastRun.fromJson(fixture.demoForecastRun)];
-    try {
-      final res = await _client.dio.get('/forecast/history', queryParameters: {'election_id': electionId});
-      return (res.data as List<dynamic>).map((e) => ForecastRun.fromJson(e as Map<String, dynamic>)).toList();
-    } catch (_) {
-      return [ForecastRun.fromJson(fixture.demoForecastRun)];
-    }
+    final data = await fetch(
+      '/forecast/history',
+      'forecast/history/$electionId',
+      query: {'election_id': electionId},
+    );
+    return (data as List<dynamic>).map((e) => ForecastRun.fromJson(e as Map<String, dynamic>)).toList();
   }
 }

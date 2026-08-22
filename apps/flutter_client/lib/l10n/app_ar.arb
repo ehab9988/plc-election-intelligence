@@ -58,7 +58,6 @@
   "settingsThemeSystem": "النظام",
   "forecastVsResults": "توقع — وليس نتيجة رسمية",
   "insufficientData": "بيانات غير كافية",
-  "demoDataBanner": "تُعرض بيانات تجريبية مضمّنة — اتصل بواجهة برمجة تطبيقات حية من الإعدادات للاستخدام الفعلي.",
   "elevatedUncertainty": "درجة عدم اليقين في التوقع مرتفعة: {reason}",
   "@elevatedUncertainty": {
     "placeholders": { "reason": { "type": "String" } }
@@ -101,8 +100,12 @@
   "sourceCitationsHeading": "المصادر المرجعية",
   "politicalCompatibilityEvidence": "أدلة التوافق السياسي",
   "mathematicalFeasibilityNote": "جدوى رياضية فقط — يُعرض التوافق السياسي بشكل منفصل ولا يُقدَّم أبدًا كاحتمال تشكيل ائتلاف.",
-  "settingsDemoMode": "وضع تجريبي (بيانات نموذجية مضمّنة)",
   "settingsApiBaseUrl": "رابط واجهة البرمجة",
+  "settingsDataSource": "مصدر البيانات",
+  "settingsDataSourceDemo": "تجريبي (بيانات نموذجية مضمّنة)",
+  "settingsDataSourceLiveApi": "واجهة برمجة مباشرة",
+  "settingsDataSourceStatic": "ثابت (GitHub)",
+  "settingsStaticBaseUrl": "رابط بيانات GitHub الثابتة",
   "settingsSave": "حفظ",
   "reportPartyTitle": "تقرير الحزب",
   "reportCandidateTitle": "تقرير المرشح",

@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:plc_election_client/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../helpers/fixture_overrides.dart';
+
 void main() {
   setUp(() {
     // In-memory backing so AppConfig.load() (SharedPreferences.getInstance())
@@ -12,8 +14,8 @@ void main() {
     SharedPreferences.setMockInitialValues({});
   });
 
-  testWidgets('app boots to the dashboard and shows demo forecast data', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: PlcElectionApp()));
+  testWidgets('app boots to the dashboard and shows fixture forecast data', (tester) async {
+    await tester.pumpWidget(ProviderScope(overrides: fixtureProviderOverrides(), child: const PlcElectionApp()));
 
     // Splash screen shows first.
     expect(find.byIcon(Icons.how_to_vote), findsOneWidget);
@@ -26,8 +28,6 @@ void main() {
     }
 
     expect(find.text('PLC Election Intelligence'), findsWidgets);
-    // Demo mode banner should be visible since no live API is configured.
-    expect(find.textContaining('bundled demo data'), findsOneWidget);
     // Fixture forecast data (Fatah List) should render.
     expect(find.textContaining('Fatah List'), findsWidgets);
   });
@@ -38,7 +38,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const ProviderScope(child: PlcElectionApp()));
+    await tester.pumpWidget(ProviderScope(overrides: fixtureProviderOverrides(), child: const PlcElectionApp()));
     for (var i = 0; i < 10; i++) {
       await tester.pump(const Duration(milliseconds: 200));
     }

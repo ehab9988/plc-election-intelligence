@@ -16,7 +16,6 @@ class DashboardScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    final config = ref.watch(appConfigProvider).valueOrNull;
     final electionAsync = ref.watch(currentElectionProvider);
     final forecastAsync = ref.watch(latestForecastProvider);
     final rulesAsync = ref.watch(electionRulesProvider);
@@ -31,17 +30,6 @@ class DashboardScreen extends ConsumerWidget {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            if (config?.demoMode ?? true)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: MaterialBanner(
-                  content: Text(l10n.demoDataBanner),
-                  leading: const Icon(Icons.info_outline),
-                  actions: [
-                    TextButton(onPressed: () => context.go('/settings'), child: Text(l10n.navSettings)),
-                  ],
-                ),
-              ),
             AsyncView(
               value: electionAsync,
               builder: (context, election) => Card(

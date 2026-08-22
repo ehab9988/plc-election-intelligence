@@ -14,22 +14,29 @@ class SettingsScreen extends ConsumerStatefulWidget {
 }
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
-  late TextEditingController _urlController;
-  bool _demoMode = true;
+  late TextEditingController _apiUrlController;
+  late TextEditingController _staticUrlController;
+  DataSource _dataSource = DataSource.staticGithub;
 
   @override
   void initState() {
     super.initState();
-    _urlController = TextEditingController(text: AppConfig.defaultApiBaseUrl);
+    _apiUrlController = TextEditingController(text: AppConfig.defaultApiBaseUrl);
+    _staticUrlController = TextEditingController(text: AppConfig.defaultStaticBaseUrl);
     final config = ref.read(appConfigProvider).valueOrNull;
     if (config != null) {
-      _urlController.text = config.apiBaseUrl;
-      _demoMode = config.demoMode;
+      _apiUrlController.text = config.apiBaseUrl;
+      _staticUrlController.text = config.staticBaseUrl;
+      _dataSource = config.dataSource;
     }
   }
 
   Future<void> _save() async {
-    await AppConfig.save(apiBaseUrl: _urlController.text.trim(), demoMode: _demoMode);
+    await AppConfig.save(
+      apiBaseUrl: _apiUrlController.text.trim(),
+      staticBaseUrl: _staticUrlController.text.trim(),
+      dataSource: _dataSource,
+    );
     ref.invalidate(appConfigProvider);
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(context.l10n.reportGenerated)));
@@ -84,21 +91,27 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          SwitchListTile(
-            title: Text(l10n.settingsDemoMode),
-            subtitle: const Text(
-              'No live backend is configured yet — see README "Getting started" to run the API, '
-              'then turn this off and set the API base URL below.',
-            ),
-            value: _demoMode,
-            onChanged: (v) => setState(() => _demoMode = v),
-          ),
+          Text(l10n.settingsDataSource, style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
-          TextField(
-            controller: _urlController,
-            enabled: !_demoMode,
-            decoration: InputDecoration(labelText: l10n.settingsApiBaseUrl, border: const OutlineInputBorder()),
+          SegmentedButton<DataSource>(
+            segments: [
+              ButtonSegment(value: DataSource.staticGithub, label: Text(l10n.settingsDataSourceStatic)),
+              ButtonSegment(value: DataSource.liveApi, label: Text(l10n.settingsDataSourceLiveApi)),
+            ],
+            selected: {_dataSource},
+            onSelectionChanged: (s) => setState(() => _dataSource = s.first),
           ),
+          const SizedBox(height: 16),
+          if (_dataSource == DataSource.staticGithub)
+            TextField(
+              controller: _staticUrlController,
+              decoration: InputDecoration(labelText: l10n.settingsStaticBaseUrl, border: const OutlineInputBorder()),
+            )
+          else
+            TextField(
+              controller: _apiUrlController,
+              decoration: InputDecoration(labelText: l10n.settingsApiBaseUrl, border: const OutlineInputBorder()),
+            ),
           const SizedBox(height: 16),
           FilledButton(onPressed: _save, child: Text(l10n.settingsSave)),
           const Divider(height: 40),

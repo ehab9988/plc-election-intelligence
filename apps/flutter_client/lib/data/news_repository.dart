@@ -1,20 +1,21 @@
 import '../core/api_client.dart';
+import '../core/app_config.dart';
+import '../core/static_data_client.dart';
 import '../models/news.dart';
-import 'fixtures/demo_fixture.dart' as fixture;
+import 'remote_fetch.dart';
 
-class NewsRepository {
-  final ApiClient _client;
-  final bool demoMode;
+class NewsRepository with RemoteFetch {
+  @override
+  final ApiClient client;
+  @override
+  final StaticDataClient staticClient;
+  @override
+  final DataSource dataSource;
 
-  NewsRepository(this._client, {required this.demoMode});
+  NewsRepository(this.client, this.staticClient, {required this.dataSource});
 
   Future<List<NewsArticle>> listNews() async {
-    if (demoMode) return fixture.demoNews.map(NewsArticle.fromJson).toList();
-    try {
-      final res = await _client.dio.get('/news');
-      return (res.data as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList();
-    } catch (_) {
-      return fixture.demoNews.map(NewsArticle.fromJson).toList();
-    }
+    final data = await fetch('/news', 'news');
+    return (data as List<dynamic>).map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList();
   }
 }

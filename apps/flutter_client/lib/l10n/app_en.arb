@@ -58,7 +58,6 @@
   "settingsThemeSystem": "System",
   "forecastVsResults": "FORECAST — not an official result",
   "insufficientData": "Insufficient data",
-  "demoDataBanner": "Showing bundled demo data — connect to a live API in Settings for production use.",
   "elevatedUncertainty": "Forecast uncertainty is elevated: {reason}",
   "@elevatedUncertainty": {
     "placeholders": { "reason": { "type": "String" } }
@@ -101,8 +100,12 @@
   "sourceCitationsHeading": "Source Citations",
   "politicalCompatibilityEvidence": "Political Compatibility Evidence",
   "mathematicalFeasibilityNote": "Mathematical feasibility only — political compatibility is shown separately and is never presented as a formation probability.",
-  "settingsDemoMode": "Demo mode (bundled sample data)",
   "settingsApiBaseUrl": "API base URL",
+  "settingsDataSource": "Data source",
+  "settingsDataSourceDemo": "Demo (bundled sample data)",
+  "settingsDataSourceLiveApi": "Live API",
+  "settingsDataSourceStatic": "Static (GitHub)",
+  "settingsStaticBaseUrl": "Static data base URL",
   "settingsSave": "Save",
   "reportPartyTitle": "Party Report",
   "reportCandidateTitle": "Candidate Report",
