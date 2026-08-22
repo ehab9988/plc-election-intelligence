@@ -78,8 +78,16 @@ class _PartyDetailScreenState extends ConsumerState<PartyDetailScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(match.nameEn, style: Theme.of(context).textTheme.headlineSmall),
-                        Text(match.nameAr, textDirection: TextDirection.rtl, style: Theme.of(context).textTheme.titleMedium),
+                        Text(
+                          context.primaryName(en: match.nameEn, ar: match.nameAr),
+                          textDirection: context.isArabic ? TextDirection.rtl : TextDirection.ltr,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        Text(
+                          context.secondaryName(en: match.nameEn, ar: match.nameAr),
+                          textDirection: context.isArabic ? TextDirection.ltr : TextDirection.rtl,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                       ],
                     ),
                   ),

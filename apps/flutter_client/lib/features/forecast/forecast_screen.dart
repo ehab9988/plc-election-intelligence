@@ -96,7 +96,7 @@ class _ForecastScreenState extends ConsumerState<ForecastScreen> {
                           const SizedBox(height: 12),
                           ...points.map((p) => Card(
                                 child: ListTile(
-                                  title: Text(p.listNameEn),
+                                  title: Text(context.primaryName(en: p.listNameEn, ar: p.listNameAr)),
                                   subtitle: Text('${p.nPollsUsed} poll(s) · range ${p.trendLow}–${p.trendHigh}%'),
                                   trailing: Text('${p.weightedAveragePct.toStringAsFixed(1)}%',
                                       style: Theme.of(context).textTheme.titleMedium),
@@ -131,7 +131,11 @@ class _ForecastScreenState extends ConsumerState<ForecastScreen> {
                             const SizedBox(height: 12),
                             ...sorted.map((r) => Padding(
                                   padding: const EdgeInsets.only(bottom: 12),
-                                  child: PartyForecastCard(result: r, totalSeats: rulesAsync.valueOrNull?.totalSeats ?? 132),
+                                  child: PartyForecastCard(
+                                    result: r,
+                                    totalSeats: rulesAsync.valueOrNull?.totalSeats ?? 132,
+                                    useArabicName: context.isArabic,
+                                  ),
                                 )),
                           ],
                         );

@@ -17,6 +17,7 @@ class ParliamentScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
+    final isArabic = context.isArabic;
     final forecastAsync = ref.watch(latestForecastProvider);
     final rulesAsync = ref.watch(electionRulesProvider);
 
@@ -29,7 +30,8 @@ class ParliamentScreen extends ConsumerWidget {
           final majority = rulesAsync.valueOrNull?.majorityThreshold ?? ((totalSeats ~/ 2) + 1);
           final sorted = [...forecast.partyResults]..sort((a, b) => b.seatsMedian.compareTo(a.seatsMedian));
           final groups = sorted
-              .map((r) => HemicycleSeatGroup(label: r.listNameEn, seats: r.seatsMedian, color: _colorFor(r.colorHex)))
+              .map((r) => HemicycleSeatGroup(
+                  label: isArabic ? r.listNameAr : r.listNameEn, seats: r.seatsMedian, color: _colorFor(r.colorHex)))
               .toList();
 
           return ListView(
@@ -51,7 +53,7 @@ class ParliamentScreen extends ConsumerWidget {
                           children: [
                             Container(width: 10, height: 10, decoration: BoxDecoration(color: _colorFor(r.colorHex), shape: BoxShape.circle)),
                             const SizedBox(width: 6),
-                            Text('${r.listNameEn}: ${r.seatsMedian}'),
+                            Text('${isArabic ? r.listNameAr : r.listNameEn}: ${r.seatsMedian}'),
                           ],
                         ))
                     .toList(),

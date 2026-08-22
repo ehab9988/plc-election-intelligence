@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import date
 from uuid import UUID
 
 from .common import ORMModel
@@ -42,6 +42,7 @@ class PollOut(ORMModel):
 class PollingAveragePoint(ORMModel):
     electoral_list_id: UUID
     list_name_en: str
+    list_name_ar: str
     weighted_average_pct: float
     trend_low: float
     trend_high: float

@@ -31,6 +31,7 @@ class _CandidateDetailScreenState extends ConsumerState<CandidateDetailScreen> {
         fullNameAr: detail.person.fullNameAr,
         fullNameEn: detail.person.fullNameEn,
         listNameEn: detail.electoralList.listNameEn,
+        listNameAr: detail.electoralList.listNameAr,
         listRank: detail.candidate.listRank,
         hometown: detail.person.hometown,
         biography: isArabic ? detail.person.biographyAr : detail.person.biographyEn,
@@ -95,7 +96,9 @@ class _CandidateDetailScreenState extends ConsumerState<CandidateDetailScreen> {
               Text(detail.person.fullNameEn, style: theme.textTheme.headlineSmall),
               Text(detail.person.fullNameAr, textDirection: TextDirection.rtl, style: theme.textTheme.titleMedium),
               const SizedBox(height: 8),
-              Text('${detail.electoralList.listNameEn} · ${l10n.listRank(detail.candidate.listRank)}'),
+              Text(
+                  '${context.primaryName(en: detail.electoralList.listNameEn, ar: detail.electoralList.listNameAr)} · '
+                  '${l10n.listRank(detail.candidate.listRank)}'),
               if (detail.person.hometown != null) Text('${l10n.candidateHometown}: ${detail.person.hometown}'),
               const SizedBox(height: 16),
               if (detail.seatProbability != null)

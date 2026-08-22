@@ -170,6 +170,7 @@ class ReportService {
     required String fullNameAr,
     required String fullNameEn,
     required String listNameEn,
+    required String listNameAr,
     required int listRank,
     String? hometown,
     String? biography,
@@ -197,7 +198,7 @@ class ReportService {
           pw.Text('$generatedOnLabel: ${DateTime.now().toIso8601String()}', style: baseStyle),
           pw.SizedBox(height: 12),
           pw.Text(arabic ? fullNameAr : fullNameEn, style: pw.TextStyle(font: bold, fontSize: 16)),
-          pw.Text('$listNameEn · #$listRank', style: baseStyle),
+          pw.Text('${arabic ? listNameAr : listNameEn} · #$listRank', style: baseStyle),
           if (hometown != null) pw.Text('${arabic ? 'البلدة' : 'Hometown'}: $hometown', style: baseStyle),
           if (biography != null) ...[
             pw.SizedBox(height: 8),

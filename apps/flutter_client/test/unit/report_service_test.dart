@@ -104,6 +104,7 @@ void main() {
       fullNameAr: 'مرشح',
       fullNameEn: 'Test Candidate',
       listNameEn: 'List A',
+      listNameAr: 'القائمة أ',
       listRank: 5,
       seatProbability: 0.72,
       seatsMedian: 54,

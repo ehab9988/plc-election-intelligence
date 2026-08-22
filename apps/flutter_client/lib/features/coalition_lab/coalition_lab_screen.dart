@@ -96,13 +96,13 @@ class _CoalitionLabScreenState extends ConsumerState<CoalitionLabScreen> {
               runSpacing: 8,
               children: lists
                   .map((l) => FilterChip(
-                        label: Text(l.listNameEn),
+                        label: Text(context.primaryName(en: l.listNameEn, ar: l.listNameAr)),
                         selected: _selected.contains(l.id),
                         onSelected: (sel) {
                           setState(() {
                             if (sel) {
                               _selected.add(l.id);
-                              _selectedNames[l.id] = l.listNameEn;
+                              _selectedNames[l.id] = context.primaryName(en: l.listNameEn, ar: l.listNameAr);
                             } else {
                               _selected.remove(l.id);
                             }

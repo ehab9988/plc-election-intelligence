@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
 from ...db import get_db
-from ...models import ElectoralList, Poll, PollQuestion, PollResult
+from ...models import ElectoralList, Poll, PollQuestion
 from ...schemas.poll import PollingAveragePoint, PollOut
 
 router = APIRouter(tags=["polls"])
@@ -34,7 +34,11 @@ def get_poll(poll_id: uuid.UUID, db: Session = Depends(get_db)) -> Poll:
 def polling_average(election_id: uuid.UUID, db: Session = Depends(get_db)) -> list[PollingAveragePoint]:
     """Computes the weighted polling average on demand from stored polls.
     See forecasting/polling_average.py for the methodology (section 13)."""
-    from forecasting.polling_average import PollObservation, WeightingConfig, compute_polling_average
+    from forecasting.polling_average import (
+        PollObservation,
+        WeightingConfig,
+        compute_polling_average,
+    )
 
     stmt = (
         select(Poll)
@@ -67,14 +71,15 @@ def polling_average(election_id: uuid.UUID, db: Session = Depends(get_db)) -> li
     averages = compute_polling_average(observations, as_of=date.today(), cfg=WeightingConfig())
 
     list_names = {
-        str(el.id): el.list_name_en
+        str(el.id): (el.list_name_en, el.list_name_ar)
         for el in db.scalars(select(ElectoralList).where(ElectoralList.election_id == election_id))
     }
 
     return [
         PollingAveragePoint(
             electoral_list_id=uuid.UUID(list_id),
-            list_name_en=list_names.get(list_id, "Unknown"),
+            list_name_en=list_names.get(list_id, ("Unknown", "غير معروف"))[0],
+            list_name_ar=list_names.get(list_id, ("Unknown", "غير معروف"))[1],
             weighted_average_pct=avg.weighted_average_pct,
             trend_low=avg.trend_low,
             trend_high=avg.trend_high,

@@ -55,10 +55,12 @@ class _PartiesScreenState extends ConsumerState<PartiesScreen> {
             itemCount: filtered.length,
             itemBuilder: (context, i) {
               final party = filtered[i];
+              final primary = context.primaryName(en: party.nameEn, ar: party.nameAr);
+              final secondary = context.secondaryName(en: party.nameEn, ar: party.nameAr);
               return ListTile(
                 leading: CircleAvatar(child: Text(party.abbreviation?.substring(0, 1) ?? party.nameEn.substring(0, 1))),
-                title: Text(party.nameEn),
-                subtitle: Text(party.nameAr, textDirection: TextDirection.rtl),
+                title: Text(primary, textDirection: context.isArabic ? TextDirection.rtl : TextDirection.ltr),
+                subtitle: Text(secondary, textDirection: context.isArabic ? TextDirection.ltr : TextDirection.rtl),
                 trailing: RegistrationStatusBadge(status: party.registrationStatus),
                 onTap: () => context.go('/parties/${party.id}'),
               );

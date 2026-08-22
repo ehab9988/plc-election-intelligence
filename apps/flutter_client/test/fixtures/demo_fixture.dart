@@ -229,6 +229,7 @@ final List<Map<String, dynamic>> demoPollingAverage = [
   {
     'electoral_list_id': fatahListId,
     'list_name_en': 'Fatah List',
+    'list_name_ar': 'قائمة فتح',
     'weighted_average_pct': 32.0,
     'trend_low': 30.0,
     'trend_high': 34.0,
@@ -238,6 +239,7 @@ final List<Map<String, dynamic>> demoPollingAverage = [
   {
     'electoral_list_id': hamasListId,
     'list_name_en': 'Change and Reform List',
+    'list_name_ar': 'قائمة التغيير والإصلاح',
     'weighted_average_pct': 29.0,
     'trend_low': 27.0,
     'trend_high': 31.0,
@@ -247,6 +249,7 @@ final List<Map<String, dynamic>> demoPollingAverage = [
   {
     'electoral_list_id': thirdWayListId,
     'list_name_en': 'Third Way List',
+    'list_name_ar': 'قائمة الطريق الثالث',
     'weighted_average_pct': 18.0,
     'trend_low': 16.0,
     'trend_high': 20.0,

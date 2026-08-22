@@ -43,7 +43,8 @@ class DashboardScreen extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(election.nameEn, style: Theme.of(context).textTheme.titleMedium),
+                            Text(context.primaryName(en: election.nameEn, ar: election.nameAr),
+                                style: Theme.of(context).textTheme.titleMedium),
                             if (election.scheduledDate != null)
                               Text(_countdown(l10n, election.scheduledDate!), style: Theme.of(context).textTheme.bodyMedium),
                           ],
@@ -76,7 +77,7 @@ class DashboardScreen extends ConsumerWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 4, bottom: 12),
                         child: Text(
-                          '${l10n.projectedLargestList}: ${leader.listNameEn} · '
+                          '${l10n.projectedLargestList}: ${context.primaryName(en: leader.listNameEn, ar: leader.listNameAr)} · '
                           '${(leader.probabilityLargestList * 100).round()}%',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
@@ -86,6 +87,7 @@ class DashboardScreen extends ConsumerWidget {
                           child: PartyForecastCard(
                             result: r,
                             totalSeats: rulesAsync.valueOrNull?.totalSeats ?? 132,
+                            useArabicName: context.isArabic,
                             onTap: () => context.go('/forecast'),
                           ),
                         )),

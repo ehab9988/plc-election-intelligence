@@ -104,6 +104,7 @@ class Poll {
 class PollingAveragePoint {
   final String electoralListId;
   final String listNameEn;
+  final String listNameAr;
   final double weightedAveragePct;
   final double trendLow;
   final double trendHigh;
@@ -113,6 +114,7 @@ class PollingAveragePoint {
   const PollingAveragePoint({
     required this.electoralListId,
     required this.listNameEn,
+    required this.listNameAr,
     required this.weightedAveragePct,
     required this.trendLow,
     required this.trendHigh,
@@ -123,6 +125,7 @@ class PollingAveragePoint {
   factory PollingAveragePoint.fromJson(Map<String, dynamic> json) => PollingAveragePoint(
         electoralListId: json['electoral_list_id'] as String,
         listNameEn: json['list_name_en'] as String,
+        listNameAr: json['list_name_ar'] as String? ?? json['list_name_en'] as String,
         weightedAveragePct: (json['weighted_average_pct'] as num).toDouble(),
         trendLow: (json['trend_low'] as num).toDouble(),
         trendHigh: (json['trend_high'] as num).toDouble(),
