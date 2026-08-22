@@ -6,12 +6,20 @@ from __future__ import annotations
 import uuid
 from datetime import date, datetime
 
-from sqlalchemy import Boolean, Date, DateTime, Enum, Float, ForeignKey, Integer, String, Text
-from .types import JSONB, UUID
+from sqlalchemy import (
+    Boolean,
+    Date,
+    DateTime,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
-from .enums import ForecastRunStatus
+from .types import JSONB, UUID
 
 
 class Election(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -24,8 +32,8 @@ class Election(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     is_current: Mapped[bool] = mapped_column(Boolean, default=False)
     status: Mapped[str] = mapped_column(String(50), default="scheduled")
 
-    rule_sets: Mapped[list["ElectionRuleSetORM"]] = relationship(back_populates="election")
-    timeline_events: Mapped[list["ElectionTimelineEvent"]] = relationship(back_populates="election")
+    rule_sets: Mapped[list[ElectionRuleSetORM]] = relationship(back_populates="election")
+    timeline_events: Mapped[list[ElectionTimelineEvent]] = relationship(back_populates="election")
 
 
 class ElectionRuleSetORM(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -57,7 +65,7 @@ class ElectionRuleSetORM(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     source_document: Mapped[str] = mapped_column(Text)
     verified_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 
-    election: Mapped["Election"] = relationship(back_populates="rule_sets")
+    election: Mapped[Election] = relationship(back_populates="rule_sets")
 
     @property
     def majority_threshold(self) -> int:
@@ -81,4 +89,4 @@ class ElectionTimelineEvent(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         UUID(as_uuid=True), ForeignKey("sources.id"), nullable=True
     )
 
-    election: Mapped["Election"] = relationship(back_populates="timeline_events")
+    election: Mapped[Election] = relationship(back_populates="timeline_events")

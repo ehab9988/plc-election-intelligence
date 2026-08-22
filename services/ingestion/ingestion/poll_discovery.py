@@ -28,14 +28,13 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from uuid import UUID
-
-from sqlalchemy import select
-from sqlalchemy.orm import Session
 
 from app.models import Poll, PollQuestion, PollResult, Pollster, Source
 from app.models.enums import PollMode, PollPopulation, SourceTier, SourceType
+from sqlalchemy import select
+from sqlalchemy.orm import Session
 
 logger = logging.getLogger(__name__)
 
@@ -168,7 +167,7 @@ def draft_polls_from_ai_discovery(
     `manually_verified=True` — see module docstring."""
     found = OpenAiPollDiscovery(api_key=api_key, model=model).discover()
     stats = {"found": len(found), "drafted": 0, "skipped_existing": 0, "skipped_incomplete": 0}
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(UTC).date()
 
     for item in found:
         results = item.get("results") or []
@@ -214,7 +213,7 @@ def draft_polls_from_ai_discovery(
             mode=PollMode.UNKNOWN,
             population=PollPopulation.LIKELY_VOTERS,
             manually_verified=False,  # NEVER True here — see module docstring
-            import_timestamp=datetime.now(timezone.utc),
+            import_timestamp=datetime.now(UTC),
         )
         db.add(poll)
         db.flush()

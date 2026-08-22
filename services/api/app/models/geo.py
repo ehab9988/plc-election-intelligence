@@ -6,10 +6,10 @@ from __future__ import annotations
 import uuid
 
 from sqlalchemy import Float, ForeignKey, String
-from .types import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
+from .types import UUID
 
 
 class GeographicArea(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -25,4 +25,4 @@ class GeographicArea(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     latitude: Mapped[float | None] = mapped_column(Float, nullable=True)
     longitude: Mapped[float | None] = mapped_column(Float, nullable=True)
 
-    parent: Mapped["GeographicArea"] = relationship(remote_side="GeographicArea.id")
+    parent: Mapped[GeographicArea] = relationship(remote_side="GeographicArea.id")

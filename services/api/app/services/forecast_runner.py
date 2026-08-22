@@ -12,15 +12,18 @@ from __future__ import annotations
 
 import random
 import uuid
-from datetime import date, datetime, timezone
-
-from sqlalchemy import select
-from sqlalchemy.orm import Session, selectinload
+from datetime import UTC, date, datetime
 
 from election_rules_py import AllocationMethod, ElectionRuleSet
 from forecasting.candidate_forecast import compute_candidate_forecasts
 from forecasting.monte_carlo import ForecastInputs, run_monte_carlo
-from forecasting.polling_average import PollObservation, WeightingConfig, compute_polling_average
+from forecasting.polling_average import (
+    PollObservation,
+    WeightingConfig,
+    compute_polling_average,
+)
+from sqlalchemy import select
+from sqlalchemy.orm import Session, selectinload
 
 from ..config import settings
 from ..models import (
@@ -117,10 +120,11 @@ def run_and_persist_forecast(
                     )
                 )
 
-    averages = compute_polling_average(observations, as_of=date.today(), cfg=WeightingConfig())
+    today = datetime.now(UTC).date()
+    averages = compute_polling_average(observations, as_of=today, cfg=WeightingConfig())
     polling_average_pct = {lid: avg.weighted_average_pct for lid, avg in averages.items()}
 
-    days_stale = (date.today() - most_recent_fieldwork_end).days if most_recent_fieldwork_end else 999
+    days_stale = (today - most_recent_fieldwork_end).days if most_recent_fieldwork_end else 999
 
     seed = random_seed if random_seed is not None else random.randint(1, 2**31 - 1)
     sims = n_simulations or settings.default_monte_carlo_simulations
@@ -136,13 +140,13 @@ def run_and_persist_forecast(
 
     forecast_run = ForecastRun(
         id=uuid.uuid4(),
-        created_at=datetime.now(timezone.utc),
+        created_at=datetime.now(UTC),
         election_id=election_id,
         election_rule_set_id=orm_rules.id,
         model_version=MODEL_VERSION,
         model_git_commit=None,
-        dataset_version=f"polls-as-of-{date.today().isoformat()}",
-        data_cutoff_at=datetime.now(timezone.utc),
+        dataset_version=f"polls-as-of-{today.isoformat()}",
+        data_cutoff_at=datetime.now(UTC),
         configuration={
             "dirichlet_concentration": inputs.dirichlet_concentration,
             "house_effect_std_pct": inputs.house_effect_std_pct,
@@ -161,8 +165,6 @@ def run_and_persist_forecast(
     )
     db.add(forecast_run)
     db.flush()
-
-    list_name_map = {str(el.id): (el.list_name_ar, el.list_name_en) for el in electoral_lists}
 
     for lid, result in output.list_results.items():
         db.add(

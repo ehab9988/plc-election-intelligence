@@ -10,12 +10,9 @@ for dialect-generic types (or running against a real throwaway Postgres
 database instead of SQLite) — this was not verified in this sandbox."""
 
 import uuid
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-
 from app.models import (
     Base,
     Candidate,
@@ -31,6 +28,8 @@ from app.models import (
 )
 from app.models.enums import PollMode, PollPopulation, SourceTier, SourceType
 from app.services.forecast_runner import run_and_persist_forecast
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
 
 
 @pytest.fixture()
@@ -58,7 +57,7 @@ def _seed_minimal_election(db: Session):
         id=uuid.uuid4(),
         election_id=election.id,
         version="1.0.0",
-        effective_from=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        effective_from=datetime(2026, 1, 1, tzinfo=UTC),
         electoral_system="closed-list PR",
         district_structure="single national constituency",
         total_seats=132,
@@ -66,7 +65,7 @@ def _seed_minimal_election(db: Session):
         allocation_method="sainte_lague",
         minimum_candidate_age=23,
         source_document="test",
-        verified_at=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        verified_at=datetime(2026, 1, 1, tzinfo=UTC),
     )
     db.add(rules)
 
@@ -94,7 +93,7 @@ def _seed_minimal_election(db: Session):
         mode=PollMode.FACE_TO_FACE,
         population=PollPopulation.LIKELY_VOTERS,
         manually_verified=True,
-        import_timestamp=datetime.now(timezone.utc),
+        import_timestamp=datetime.now(UTC),
     )
     db.add(poll)
     db.flush()

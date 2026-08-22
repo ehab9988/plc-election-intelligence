@@ -1,0 +1,9 @@
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+# B008 flags `Depends(...)` in a function's default-argument position —
+# that IS how FastAPI's dependency injection works (fastapi/app/api/v1/*.py,
+# core/deps.py), not a bug. This is a well-known false positive for FastAPI
+# code; ruff itself documents this exception.
+ignore = ["B008"]

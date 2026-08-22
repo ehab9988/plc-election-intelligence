@@ -6,12 +6,23 @@ from __future__ import annotations
 import uuid
 from datetime import date, datetime
 
-from sqlalchemy import Boolean, Date, DateTime, Enum, ForeignKey, Integer, String, Text, UniqueConstraint
-from .types import UUID
+from sqlalchemy import (
+    Boolean,
+    Date,
+    DateTime,
+    Enum,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
-from .enums import RegistrationStatus, VerificationConfidence
+from .enums import RegistrationStatus
+from .party import Person
+from .types import UUID
 
 
 class ElectoralList(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -41,8 +52,8 @@ class ElectoralList(UUIDPrimaryKeyMixin, TimestampMixin, Base):
 
     color_hex: Mapped[str | None] = mapped_column(String(9), nullable=True)
 
-    parties: Mapped[list["ElectoralListParty"]] = relationship(back_populates="electoral_list")
-    candidates: Mapped[list["Candidate"]] = relationship(back_populates="electoral_list")
+    parties: Mapped[list[ElectoralListParty]] = relationship(back_populates="electoral_list")
+    candidates: Mapped[list[Candidate]] = relationship(back_populates="electoral_list")
 
 
 class ElectoralListParty(UUIDPrimaryKeyMixin, Base):
@@ -57,7 +68,7 @@ class ElectoralListParty(UUIDPrimaryKeyMixin, Base):
     )
     party_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("parties.id"))
 
-    electoral_list: Mapped["ElectoralList"] = relationship(back_populates="parties")
+    electoral_list: Mapped[ElectoralList] = relationship(back_populates="parties")
 
 
 class Candidate(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -78,8 +89,8 @@ class Candidate(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     is_reserved_seat_candidate: Mapped[bool] = mapped_column(Boolean, default=False)
     reserved_seat_category: Mapped[str | None] = mapped_column(String(100), nullable=True)
 
-    person: Mapped["Person"] = relationship()
-    electoral_list: Mapped["ElectoralList"] = relationship(back_populates="candidates")
+    person: Mapped[Person] = relationship()
+    electoral_list: Mapped[ElectoralList] = relationship(back_populates="candidates")
 
 
 class CandidateRanking(UUIDPrimaryKeyMixin, TimestampMixin, Base):

@@ -2,9 +2,8 @@
 working Python runtime, no Postgres) — see packages/election_rules_py/tests
 for details on what could and couldn't be verified in this build."""
 
-from fastapi.testclient import TestClient
-
 from app.main import app
+from fastapi.testclient import TestClient
 
 
 def test_health_ok():

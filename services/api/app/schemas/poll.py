@@ -3,6 +3,8 @@ from __future__ import annotations
 from datetime import date
 from uuid import UUID
 
+from pydantic import Field
+
 from .common import ORMModel
 
 
@@ -18,7 +20,7 @@ class PollQuestionOut(ORMModel):
     question_text_ar: str
     question_text_en: str | None
     question_type: str
-    results: list[PollResultOut] = []
+    results: list[PollResultOut] = Field(default_factory=list)
 
 
 class PollOut(ORMModel):
@@ -36,7 +38,7 @@ class PollOut(ORMModel):
     gaza_sample_size: int | None
     population: str
     manually_verified: bool
-    questions: list[PollQuestionOut] = []
+    questions: list[PollQuestionOut] = Field(default_factory=list)
 
 
 class PollingAveragePoint(ORMModel):

@@ -11,11 +11,11 @@ import uuid
 from datetime import date, datetime
 
 from sqlalchemy import Boolean, Date, DateTime, Enum, ForeignKey, String, Text
-from .types import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 from .enums import RegistrationStatus, RelationshipType, VerificationConfidence
+from .types import UUID
 
 
 class Party(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -48,7 +48,7 @@ class Party(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         default=VerificationConfidence.UNVERIFIED,
     )
 
-    aliases: Mapped[list["PartyAlias"]] = relationship(back_populates="party")
+    aliases: Mapped[list[PartyAlias]] = relationship(back_populates="party")
 
 
 class PartyAlias(UUIDPrimaryKeyMixin, Base):
@@ -59,7 +59,7 @@ class PartyAlias(UUIDPrimaryKeyMixin, Base):
     language: Mapped[str] = mapped_column(String(8), default="ar")
     alias_type: Mapped[str] = mapped_column(String(50), default="name_variant")  # name_variant | abbreviation | transliteration
 
-    party: Mapped["Party"] = relationship(back_populates="aliases")
+    party: Mapped[Party] = relationship(back_populates="aliases")
 
 
 class Person(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -85,7 +85,7 @@ class Person(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     )
     last_verified_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
-    aliases: Mapped[list["PersonAlias"]] = relationship(back_populates="person")
+    aliases: Mapped[list[PersonAlias]] = relationship(back_populates="person")
 
 
 class PersonAlias(UUIDPrimaryKeyMixin, Base):
@@ -96,7 +96,7 @@ class PersonAlias(UUIDPrimaryKeyMixin, Base):
     language: Mapped[str] = mapped_column(String(8), default="ar")
     alias_type: Mapped[str] = mapped_column(String(50), default="name_variant")
 
-    person: Mapped["Person"] = relationship(back_populates="aliases")
+    person: Mapped[Person] = relationship(back_populates="aliases")
 
 
 class PartyPersonRelationship(UUIDPrimaryKeyMixin, TimestampMixin, Base):

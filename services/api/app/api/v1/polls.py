@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from datetime import date
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
@@ -68,7 +68,9 @@ def polling_average(election_id: uuid.UUID, db: Session = Depends(get_db)) -> li
                     )
                 )
 
-    averages = compute_polling_average(observations, as_of=date.today(), cfg=WeightingConfig())
+    averages = compute_polling_average(
+        observations, as_of=datetime.now(UTC).date(), cfg=WeightingConfig()
+    )
 
     list_names = {
         str(el.id): (el.list_name_en, el.list_name_ar)

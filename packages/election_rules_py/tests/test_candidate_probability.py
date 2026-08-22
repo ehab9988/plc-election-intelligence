@@ -4,7 +4,6 @@ in this repo's development sandbox.
 """
 
 import pytest
-
 from election_rules_py import (
     SimulationSummary,
     candidate_seat_probabilities_for_list,

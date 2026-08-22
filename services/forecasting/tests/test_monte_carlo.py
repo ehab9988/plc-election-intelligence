@@ -4,13 +4,12 @@ details). Run with `pip install -r requirements.txt -r ../api/requirements.txt`
 plus `pip install pytest` in a real environment before relying on this
 module. Covers the acceptance criteria in spec section 79."""
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from election_rules_py import AllocationMethod, ElectionRuleSet
-
-from forecasting.monte_carlo import ForecastInputs, run_monte_carlo
 from forecasting.candidate_forecast import compute_candidate_forecasts
 from forecasting.coalition import simulate_coalition
+from forecasting.monte_carlo import ForecastInputs, run_monte_carlo
 
 
 def make_rules(total_seats=132):
@@ -18,7 +17,7 @@ def make_rules(total_seats=132):
         id="t",
         election_id="t",
         version="1.0.0",
-        effective_from=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        effective_from=datetime(2026, 1, 1, tzinfo=UTC),
         electoral_system="closed-list PR",
         district_structure="single national constituency",
         total_seats=total_seats,
@@ -26,7 +25,7 @@ def make_rules(total_seats=132):
         allocation_method=AllocationMethod.SAINTE_LAGUE,
         minimum_candidate_age=23,
         source_document="test",
-        verified_at=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        verified_at=datetime(2026, 1, 1, tzinfo=UTC),
     )
 
 

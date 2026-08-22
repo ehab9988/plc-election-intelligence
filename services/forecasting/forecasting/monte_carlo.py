@@ -21,13 +21,10 @@ from dataclasses import dataclass, field
 from typing import Protocol
 
 import numpy as np
-
 from election_rules_py import (
     ElectionRuleSet,
     SimulationSummary,
     allocate_seats_sainte_lague,
-    candidate_seat_probabilities_for_list,
-    coalition_majority_probability,
     majority_threshold,
 )
 

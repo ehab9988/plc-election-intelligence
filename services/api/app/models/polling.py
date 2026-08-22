@@ -7,12 +7,23 @@ from __future__ import annotations
 import uuid
 from datetime import date, datetime
 
-from sqlalchemy import Boolean, Date, DateTime, Enum, Float, ForeignKey, Integer, String, Text, UniqueConstraint
-from .types import JSONB, UUID
+from sqlalchemy import (
+    Boolean,
+    Date,
+    DateTime,
+    Enum,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 from .enums import PollMode, PollPopulation
+from .types import JSONB, UUID
 
 
 class Pollster(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -24,7 +35,7 @@ class Pollster(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     website_url: Mapped[str | None] = mapped_column(String(2000), nullable=True)
     methodology_transparency_notes: Mapped[str | None] = mapped_column(Text, nullable=True)
 
-    ratings: Mapped[list["PollsterRating"]] = relationship(back_populates="pollster")
+    ratings: Mapped[list[PollsterRating]] = relationship(back_populates="pollster")
 
 
 class PollsterRating(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -42,7 +53,7 @@ class PollsterRating(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     historical_error_mae: Mapped[float | None] = mapped_column(Float, nullable=True)
     based_on_n_elections: Mapped[int | None] = mapped_column(Integer, nullable=True)
 
-    pollster: Mapped["Pollster"] = relationship(back_populates="ratings")
+    pollster: Mapped[Pollster] = relationship(back_populates="ratings")
 
 
 class Poll(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -75,8 +86,8 @@ class Poll(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     manually_verified: Mapped[bool] = mapped_column(Boolean, default=False)
     import_timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 
-    questions: Mapped[list["PollQuestion"]] = relationship(back_populates="poll")
-    geographic_results: Mapped[list["PollGeographicResult"]] = relationship(back_populates="poll")
+    questions: Mapped[list[PollQuestion]] = relationship(back_populates="poll")
+    geographic_results: Mapped[list[PollGeographicResult]] = relationship(back_populates="poll")
 
     __table_args__ = (
         UniqueConstraint("pollster_id", "fieldwork_start", "fieldwork_end", "election_id",
@@ -100,8 +111,8 @@ class PollQuestion(UUIDPrimaryKeyMixin, Base):
     # e.g. "party_support" vs "if_elections_held_today_vote_choice" —
     # distinct question types must never be merged (section 11).
 
-    poll: Mapped["Poll"] = relationship(back_populates="questions")
-    results: Mapped[list["PollResult"]] = relationship(back_populates="question")
+    poll: Mapped[Poll] = relationship(back_populates="questions")
+    results: Mapped[list[PollResult]] = relationship(back_populates="question")
 
 
 class PollResult(UUIDPrimaryKeyMixin, Base):
@@ -115,7 +126,7 @@ class PollResult(UUIDPrimaryKeyMixin, Base):
     raw_response_pct: Mapped[float] = mapped_column(Float)
     normalized_pct: Mapped[float | None] = mapped_column(Float, nullable=True)
 
-    question: Mapped["PollQuestion"] = relationship(back_populates="results")
+    question: Mapped[PollQuestion] = relationship(back_populates="results")
 
 
 class PollGeographicResult(UUIDPrimaryKeyMixin, Base):
@@ -134,4 +145,4 @@ class PollGeographicResult(UUIDPrimaryKeyMixin, Base):
     value_pct: Mapped[float] = mapped_column(Float)
     insufficient_data: Mapped[bool] = mapped_column(Boolean, default=False)
 
-    poll: Mapped["Poll"] = relationship(back_populates="geographic_results")
+    poll: Mapped[Poll] = relationship(back_populates="geographic_results")

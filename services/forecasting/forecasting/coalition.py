@@ -6,7 +6,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from election_rules_py import SimulationSummary, coalition_majority_probability, majority_threshold
+from election_rules_py import (
+    SimulationSummary,
+    coalition_majority_probability,
+    majority_threshold,
+)
 
 from .monte_carlo import ForecastOutput
 

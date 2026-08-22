@@ -7,7 +7,7 @@ state — see README)."""
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from .base import RawDocument
 
@@ -28,7 +28,7 @@ class RssSourceAdapter:
         for entry in parsed.entries:
             published = getattr(entry, "published_parsed", None)
             published_at = (
-                datetime(*published[:6], tzinfo=timezone.utc) if published else datetime.now(timezone.utc)
+                datetime(*published[:6], tzinfo=UTC) if published else datetime.now(UTC)
             )
             documents.append(
                 RawDocument(

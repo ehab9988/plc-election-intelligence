@@ -8,10 +8,9 @@ executed via `dart test` and passed 24/24. Run these with
 before relying on this module in production — see docs/MODEL_VALIDATION.md.
 """
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pytest
-
 from election_rules_py import (
     AllocationMethod,
     ElectionRuleSet,
@@ -25,7 +24,7 @@ def make_rules(total_seats=132, threshold=0.01, method=AllocationMethod.SAINTE_L
         id="test-ruleset",
         election_id="test-election",
         version="1.0.0",
-        effective_from=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        effective_from=datetime(2026, 1, 1, tzinfo=UTC),
         electoral_system="Nationwide closed-list proportional representation",
         district_structure="Single national constituency",
         total_seats=total_seats,
@@ -33,7 +32,7 @@ def make_rules(total_seats=132, threshold=0.01, method=AllocationMethod.SAINTE_L
         allocation_method=method,
         minimum_candidate_age=23,
         source_document="test fixture",
-        verified_at=datetime(2026, 1, 1, tzinfo=timezone.utc),
+        verified_at=datetime(2026, 1, 1, tzinfo=UTC),
     )
 
 

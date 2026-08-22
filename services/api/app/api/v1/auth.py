@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
@@ -8,7 +8,12 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ...core.deps import get_current_user
-from ...core.security import create_access_token, create_refresh_token, hash_password, verify_password
+from ...core.security import (
+    create_access_token,
+    create_refresh_token,
+    hash_password,
+    verify_password,
+)
 from ...db import get_db
 from ...models import User
 from ...models.enums import UserRole
@@ -59,7 +64,7 @@ def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get
     user = db.scalar(select(User).where(User.email == form.username))
     if user is None or not verify_password(form.password, user.hashed_password):
         raise HTTPException(401, "Incorrect email or password")
-    user.last_login_at = datetime.now(timezone.utc)
+    user.last_login_at = datetime.now(UTC)
     db.commit()
     return TokenResponse(
         access_token=create_access_token(str(user.id), user.role.value),

@@ -9,11 +9,11 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import Boolean, DateTime, Enum, Float, ForeignKey, String, Text
-from .types import ARRAY, JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 from .enums import EventCategory, VerificationConfidence
+from .types import JSONB, UUID
 
 
 class NewsSource(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -47,7 +47,7 @@ class Article(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     nlp_confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
     human_reviewed: Mapped[bool] = mapped_column(Boolean, default=False)
 
-    entities: Mapped[list["ArticleEntity"]] = relationship(back_populates="article")
+    entities: Mapped[list[ArticleEntity]] = relationship(back_populates="article")
 
 
 class ArticleEntity(UUIDPrimaryKeyMixin, Base):
@@ -64,7 +64,7 @@ class ArticleEntity(UUIDPrimaryKeyMixin, Base):
     mention_text: Mapped[str] = mapped_column(String(500))
     extraction_confidence: Mapped[float] = mapped_column(Float)
 
-    article: Mapped["Article"] = relationship(back_populates="entities")
+    article: Mapped[Article] = relationship(back_populates="entities")
 
 
 class PoliticalEvent(UUIDPrimaryKeyMixin, TimestampMixin, Base):

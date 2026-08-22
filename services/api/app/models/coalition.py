@@ -8,11 +8,11 @@ import uuid
 from datetime import date
 
 from sqlalchemy import Boolean, Date, Enum, Float, ForeignKey, Integer, String, Text
-from .types import ARRAY, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 from .enums import VerificationConfidence
+from .types import ARRAY, UUID
 
 
 class CoalitionScenario(UUIDPrimaryKeyMixin, TimestampMixin, Base):

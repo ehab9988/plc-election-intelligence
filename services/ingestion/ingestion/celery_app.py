@@ -16,10 +16,9 @@ repository. See docs/DEPLOYMENT.md "24/7 ingestion & forecasting".
 
 from __future__ import annotations
 
+from app.config import settings
 from celery import Celery
 from celery.schedules import crontab
-
-from app.config import settings
 
 celery_app = Celery("plc_ingestion", broker=settings.redis_url, backend=settings.redis_url)
 

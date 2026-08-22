@@ -10,11 +10,11 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import DateTime, Enum, Float, ForeignKey, Integer, String, Text
-from .types import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
+from .base import Base, UUIDPrimaryKeyMixin
 from .enums import ForecastRunStatus
+from .types import JSONB, UUID
 
 
 class ForecastRun(UUIDPrimaryKeyMixin, Base):
@@ -45,8 +45,8 @@ class ForecastRun(UUIDPrimaryKeyMixin, Base):
         UUID(as_uuid=True), ForeignKey("forecast_runs.id"), nullable=True
     )
 
-    party_results: Mapped[list["ForecastPartyResult"]] = relationship(back_populates="run")
-    candidate_results: Mapped[list["ForecastCandidateResult"]] = relationship(back_populates="run")
+    party_results: Mapped[list[ForecastPartyResult]] = relationship(back_populates="run")
+    candidate_results: Mapped[list[ForecastCandidateResult]] = relationship(back_populates="run")
 
 
 class ForecastPartyResult(UUIDPrimaryKeyMixin, Base):
@@ -75,7 +75,7 @@ class ForecastPartyResult(UUIDPrimaryKeyMixin, Base):
     probability_cross_threshold: Mapped[float] = mapped_column(Float)
     probability_majority_alone: Mapped[float] = mapped_column(Float)
 
-    run: Mapped["ForecastRun"] = relationship(back_populates="party_results")
+    run: Mapped[ForecastRun] = relationship(back_populates="party_results")
 
 
 class ForecastCandidateResult(UUIDPrimaryKeyMixin, Base):
@@ -85,7 +85,7 @@ class ForecastCandidateResult(UUIDPrimaryKeyMixin, Base):
     candidate_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("candidates.id"))
     seat_probability: Mapped[float] = mapped_column(Float)  # derived ONLY from list-rank vs. simulated party seats
 
-    run: Mapped["ForecastRun"] = relationship(back_populates="candidate_results")
+    run: Mapped[ForecastRun] = relationship(back_populates="candidate_results")
 
 
 class ForecastDistribution(UUIDPrimaryKeyMixin, Base):

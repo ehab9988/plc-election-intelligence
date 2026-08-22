@@ -4,11 +4,11 @@ Importing this package registers every table on `Base.metadata`, which is
 what Alembic's autogenerate and `Base.metadata.create_all` rely on.
 """
 
-from .base import Base
 from .auth import ApiKey, AuditLog, Notification, Subscription, User
+from .base import Base
 from .coalition import CoalitionEvidence, CoalitionScenario
-from .electoral import Candidate, CandidateRanking, ElectoralList, ElectoralListParty
 from .election import Election, ElectionRuleSetORM, ElectionTimelineEvent
+from .electoral import Candidate, CandidateRanking, ElectoralList, ElectoralListParty
 from .forecast import (
     ForecastCandidateResult,
     ForecastDistribution,
@@ -26,48 +26,55 @@ from .party import (
     Person,
     PersonAlias,
 )
-from .polling import Poll, PollGeographicResult, Pollster, PollsterRating, PollQuestion, PollResult
+from .polling import (
+    Poll,
+    PollGeographicResult,
+    PollQuestion,
+    PollResult,
+    Pollster,
+    PollsterRating,
+)
 from .provenance import Citation, EntityConflict, Source
 
 __all__ = [
-    "Base",
     "ApiKey",
+    "Article",
+    "ArticleEntity",
     "AuditLog",
-    "Notification",
-    "Subscription",
-    "User",
-    "CoalitionEvidence",
-    "CoalitionScenario",
+    "Base",
     "Candidate",
     "CandidateRanking",
-    "ElectoralList",
-    "ElectoralListParty",
+    "Citation",
+    "CoalitionEvidence",
+    "CoalitionScenario",
     "Election",
     "ElectionRuleSetORM",
     "ElectionTimelineEvent",
+    "ElectoralList",
+    "ElectoralListParty",
+    "EntityConflict",
     "ForecastCandidateResult",
     "ForecastDistribution",
     "ForecastPartyResult",
     "ForecastRun",
-    "SimulationsSummary",
     "GeographicArea",
-    "Article",
-    "ArticleEntity",
     "NewsSource",
-    "PoliticalEvent",
+    "Notification",
     "Party",
     "PartyAlias",
     "PartyPartyRelationship",
     "PartyPersonRelationship",
     "Person",
     "PersonAlias",
+    "PoliticalEvent",
     "Poll",
     "PollGeographicResult",
-    "Pollster",
-    "PollsterRating",
     "PollQuestion",
     "PollResult",
-    "Citation",
-    "EntityConflict",
+    "Pollster",
+    "PollsterRating",
+    "SimulationsSummary",
     "Source",
+    "Subscription",
+    "User",
 ]

@@ -11,7 +11,7 @@ against the rules that were actually in force at the time.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 
 
@@ -88,12 +88,10 @@ class ElectionRuleSet:
     def is_active_on(self, date: datetime) -> bool:
         if date < self.effective_from:
             return False
-        if self.effective_until is not None and date >= self.effective_until:
-            return False
-        return True
+        return not (self.effective_until is not None and date >= self.effective_until)
 
     @staticmethod
-    def plc_2026_baseline(election_id: str) -> "ElectionRuleSet":
+    def plc_2026_baseline(election_id: str) -> ElectionRuleSet:
         """Verified baseline for the 2026 PLC election as of August 2026.
 
         Reserved seats and the gender quota are modeled but marked
@@ -103,7 +101,7 @@ class ElectionRuleSet:
             id="ruleset-plc-2026-v1",
             election_id=election_id,
             version="1.0.0",
-            effective_from=datetime(2026, 1, 1, tzinfo=timezone.utc),
+            effective_from=datetime(2026, 1, 1, tzinfo=UTC),
             electoral_system="Nationwide closed-list proportional representation",
             district_structure="Single national constituency",
             total_seats=132,
@@ -140,5 +138,5 @@ class ElectionRuleSet:
                 "law — baseline captured August 2026; supersede via a new "
                 "versioned ElectionRuleSet whenever the CEC publishes an update."
             ),
-            verified_at=datetime(2026, 8, 1, tzinfo=timezone.utc),
+            verified_at=datetime(2026, 8, 1, tzinfo=UTC),
         )

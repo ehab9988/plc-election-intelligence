@@ -8,7 +8,11 @@ from sqlalchemy.orm import Session
 
 from ...db import get_db
 from ...models import CoalitionEvidence, ElectionRuleSetORM, ForecastRun
-from ...schemas.coalition import CoalitionEvidenceOut, CoalitionSimulateRequest, CoalitionSimulateResponse
+from ...schemas.coalition import (
+    CoalitionEvidenceOut,
+    CoalitionSimulateRequest,
+    CoalitionSimulateResponse,
+)
 
 router = APIRouter(prefix="/coalitions", tags=["coalitions"])
 

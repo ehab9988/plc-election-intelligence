@@ -11,11 +11,11 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import Boolean, DateTime, Enum, ForeignKey, String, Text
-from .types import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 from .enums import SourceTier, SourceType, VerificationConfidence
+from .types import UUID
 
 
 class Source(UUIDPrimaryKeyMixin, TimestampMixin, Base):

@@ -86,7 +86,7 @@ class SimulationSummary:
     high95: float
 
     @staticmethod
-    def from_values(values: list[float]) -> "SimulationSummary":
+    def from_values(values: list[float]) -> SimulationSummary:
         if not values:
             return SimulationSummary(0, 0, 0, 0, 0, 0, 0, 0)
         sorted_values = sorted(values)

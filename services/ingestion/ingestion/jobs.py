@@ -18,8 +18,6 @@ from __future__ import annotations
 
 import logging
 
-from sqlalchemy import select
-
 from app.config import settings
 from app.db import SessionLocal
 from app.models import (
@@ -35,6 +33,7 @@ from app.models import (
 )
 from app.models.enums import SourceTier, SourceType, VerificationConfidence
 from app.services.forecast_runner import run_and_persist_forecast
+from sqlalchemy import select
 
 from .dedup import is_probable_duplicate
 from .nlp.factory import build_nlp_provider

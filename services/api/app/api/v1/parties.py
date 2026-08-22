@@ -8,7 +8,13 @@ from sqlalchemy.orm import Session
 
 from ...db import get_db
 from ...models import Candidate, ElectoralList, Party, Person
-from ...schemas.party import CandidateDetailOut, CandidateOut, ElectoralListOut, PartyOut, PersonOut
+from ...schemas.party import (
+    CandidateDetailOut,
+    CandidateOut,
+    ElectoralListOut,
+    PartyOut,
+    PersonOut,
+)
 
 router = APIRouter(tags=["parties"])
 

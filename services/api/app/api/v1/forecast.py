@@ -2,17 +2,25 @@ from __future__ import annotations
 
 import uuid
 
+from election_rules_py import majority_threshold
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
-from election_rules_py import majority_threshold
-
 from ...core.deps import require_role
 from ...db import get_db
-from ...models import ElectionRuleSetORM, ElectoralList, ForecastCandidateResult, ForecastPartyResult, ForecastRun
+from ...models import (
+    ElectionRuleSetORM,
+    ElectoralList,
+    ForecastCandidateResult,
+    ForecastRun,
+)
 from ...models.enums import ForecastRunStatus, UserRole
-from ...schemas.forecast import ForecastCandidateResultOut, ForecastPartyResultOut, ForecastRunOut
+from ...schemas.forecast import (
+    ForecastCandidateResultOut,
+    ForecastPartyResultOut,
+    ForecastRunOut,
+)
 from ...services.forecast_runner import run_and_persist_forecast
 
 router = APIRouter(prefix="/forecast", tags=["forecast"])

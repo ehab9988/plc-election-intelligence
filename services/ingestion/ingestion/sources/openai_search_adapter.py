@@ -23,7 +23,7 @@ from __future__ import annotations
 import json
 import logging
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from .base import RawDocument
 
@@ -143,11 +143,11 @@ class OpenAiSearchNewsAdapter:
             url = item.get("canonical_url", "")
             if not url:
                 continue
-            published_at = datetime.now(timezone.utc)
+            published_at = datetime.now(UTC)
             raw_date = item.get("published_date")
             if raw_date:
                 try:
-                    published_at = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+                    published_at = datetime.fromisoformat(raw_date)
                 except ValueError:
                     pass
             documents.append(

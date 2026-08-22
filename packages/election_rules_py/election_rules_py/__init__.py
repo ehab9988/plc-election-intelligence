@@ -9,8 +9,6 @@ and re-verified with `dart test` (the only runtime in this repo's
 development sandbox that could execute the tests directly).
 """
 
-from .rule_set import AllocationMethod, ElectionRuleSet, GenderQuota, ReservedSeatRule
-from .sainte_lague import SeatAllocationResult, allocate_seats_sainte_lague
 from .candidate_probability import (
     SimulationSummary,
     candidate_seat_probabilities_for_list,
@@ -18,6 +16,8 @@ from .candidate_probability import (
     coalition_majority_probability,
     majority_threshold,
 )
+from .rule_set import AllocationMethod, ElectionRuleSet, GenderQuota, ReservedSeatRule
+from .sainte_lague import SeatAllocationResult, allocate_seats_sainte_lague
 
 __all__ = [
     "AllocationMethod",
@@ -25,8 +25,8 @@ __all__ = [
     "GenderQuota",
     "ReservedSeatRule",
     "SeatAllocationResult",
-    "allocate_seats_sainte_lague",
     "SimulationSummary",
+    "allocate_seats_sainte_lague",
     "candidate_seat_probabilities_for_list",
     "candidate_seat_probability",
     "coalition_majority_probability",

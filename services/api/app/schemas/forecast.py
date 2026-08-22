@@ -8,6 +8,8 @@ from __future__ import annotations
 from datetime import datetime
 from uuid import UUID
 
+from pydantic import Field
+
 from .common import ORMModel
 
 
@@ -58,7 +60,7 @@ class ForecastRunOut(ORMModel):
     created_at: datetime
 
     majority_threshold: int
-    party_results: list[ForecastPartyResultOut] = []
+    party_results: list[ForecastPartyResultOut] = Field(default_factory=list)
 
 
 class ModelPerformanceOut(ORMModel):
