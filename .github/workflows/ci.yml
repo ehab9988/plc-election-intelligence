@@ -44,9 +44,19 @@ jobs:
       - name: Install election_rules_py
         run: pip install -e packages/election_rules_py[dev]
       - name: Install forecasting
-        run: pip install -r services/forecasting/requirements.txt pytest
+        # requirements.txt contains a relative `-e ../../packages/election_rules_py`
+        # line that pip resolves against the CURRENT directory, not the
+        # requirements.txt's own location — must install from within
+        # services/forecasting, not repo root (this is what was failing).
+        working-directory: services/forecasting
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
       - name: Install api
-        run: pip install -r services/api/requirements.txt
+        # Same relative-path issue as above (requirements.txt has
+        # `-e ../../packages/election_rules_py` and `-e ../forecasting`).
+        working-directory: services/api
+        run: pip install -r requirements.txt
       - name: Lint (ruff)
         run: |
           pip install ruff
