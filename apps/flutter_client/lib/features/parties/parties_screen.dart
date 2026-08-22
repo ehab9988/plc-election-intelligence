@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../providers/app_providers.dart';
+import '../../widgets/async_view.dart';
+import '../../widgets/registration_status_badge.dart';
+
+class PartiesScreen extends ConsumerStatefulWidget {
+  const PartiesScreen({super.key});
+
+  @override
+  ConsumerState<PartiesScreen> createState() => _PartiesScreenState();
+}
+
+class _PartiesScreenState extends ConsumerState<PartiesScreen> {
+  final _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final partiesAsync = ref.watch(partiesProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Parties'),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(56),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: TextField(
+              controller: _controller,
+              decoration: const InputDecoration(
+                hintText: 'Search parties, candidates, polls…',
+                prefixIcon: Icon(Icons.search),
+                isDense: true,
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (_) => setState(() {}),
+            ),
+          ),
+        ),
+      ),
+      body: AsyncView(
+        value: partiesAsync,
+        builder: (context, parties) {
+          final q = _controller.text.trim().toLowerCase();
+          final filtered = q.isEmpty
+              ? parties
+              : parties
+                  .where((p) => p.nameEn.toLowerCase().contains(q) || p.nameAr.contains(_controller.text))
+                  .toList();
+          return ListView.builder(
+            itemCount: filtered.length,
+            itemBuilder: (context, i) {
+              final party = filtered[i];
+              return ListTile(
+                leading: CircleAvatar(child: Text(party.abbreviation?.substring(0, 1) ?? party.nameEn.substring(0, 1))),
+                title: Text(party.nameEn),
+                subtitle: Text(party.nameAr, textDirection: TextDirection.rtl),
+                trailing: RegistrationStatusBadge(status: party.registrationStatus),
+                onTap: () => context.go('/parties/${party.id}'),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}

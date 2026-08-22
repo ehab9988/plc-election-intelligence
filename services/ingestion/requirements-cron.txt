@@ -1,0 +1,21 @@
+# Lean dependency set for scripts/run_ingestion_cycle.py — deliberately
+# excludes celery/redis (requirements.txt has those for the real-server
+# Celery-worker deployment path; a GitHub Actions run has no broker and
+# no long-running process, so they're dead weight here). See
+# docs/FREE_TIER_DEPLOYMENT.md.
+
+# The three local packages (election_rules_py, forecasting, api) are
+# installed as separate `pip install -e` steps in the workflow itself,
+# run from the repo root, to avoid relative-path ambiguity when this
+# file is referenced from a different directory. See
+# .github/workflows/ingestion-cron.yml.
+
+feedparser>=6.0
+beautifulsoup4>=4.12
+sqlalchemy>=2.0
+psycopg[binary]>=3.2
+
+# NLP providers — installing both is cheap; only the one selected by
+# NLP_PROVIDER is actually invoked at runtime.
+anthropic>=0.40
+openai>=1.50

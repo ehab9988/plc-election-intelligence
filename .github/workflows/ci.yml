@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  election-rules-dart:
+    name: election_rules (Dart) — lint + test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - working-directory: packages/election_rules
+        run: |
+          dart pub get
+          dart analyze
+          dart test
+
+  python-services:
+    name: Python services — lint + test
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: plc
+          POSTGRES_PASSWORD: plc
+          POSTGRES_DB: plc_election_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U plc"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install election_rules_py
+        run: pip install -e packages/election_rules_py[dev]
+      - name: Install forecasting
+        run: pip install -r services/forecasting/requirements.txt pytest
+      - name: Install api
+        run: pip install -r services/api/requirements.txt
+      - name: Lint (ruff)
+        run: |
+          pip install ruff
+          ruff check packages/election_rules_py services/api services/forecasting services/ingestion
+      - name: Test election_rules_py
+        run: pytest packages/election_rules_py/tests
+      - name: Test forecasting
+        run: pytest services/forecasting/tests
+      - name: Test api
+        env:
+          DATABASE_URL: postgresql+psycopg://plc:plc@localhost:5432/plc_election_test
+        run: pytest services/api/tests
+
+  flutter-client:
+    name: Flutter client — analyze + test
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - working-directory: apps/flutter_client
+        run: |
+          flutter pub get
+          flutter gen-l10n
+          flutter analyze
+          flutter test

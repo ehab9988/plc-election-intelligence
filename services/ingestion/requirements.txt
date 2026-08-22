@@ -1,0 +1,19 @@
+feedparser>=6.0
+beautifulsoup4>=4.12
+celery>=5.4
+redis>=5.0
+sqlalchemy>=2.0
+psycopg[binary]>=3.2
+
+# For the Celery worker to import services/api's models and forecast
+# runner (tasks.py cross-imports `app.*` — see docs/DEPLOYMENT.md):
+-e ../api
+-e ../forecasting
+-e ../../packages/election_rules_py
+
+# NLP providers (services/ingestion/ingestion/nlp/) — install whichever
+# your NLP_PROVIDER setting selects; both are optional at import time.
+anthropic>=0.40
+openai>=1.50
+
+pytest>=8.0

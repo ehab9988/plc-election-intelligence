@@ -1,0 +1,16 @@
+[project]
+name = "election-rules-py"
+version = "0.1.0"
+description = "Deterministic electoral mathematics for PLC Election Intelligence (Python port of packages/election_rules)"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["election_rules_py*"]

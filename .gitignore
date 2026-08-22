@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Env
+.env
+
+# Flutter / Dart
+apps/flutter_client/.dart_tool/
+apps/flutter_client/.flutter-plugins
+apps/flutter_client/.flutter-plugins-dependencies
+apps/flutter_client/build/
+apps/flutter_client/.packages
+packages/**/.dart_tool/
+packages/**/pubspec.lock
+apps/flutter_client/pubspec.lock
+**/*.iml
+.idea/
+
+# Windows build outputs
+apps/flutter_client/windows/flutter/ephemeral/
+
+# Node (tooling only, not part of the product)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

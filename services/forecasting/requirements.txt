@@ -1,0 +1,12 @@
+numpy>=1.26,<2.0
+pandas>=2.2
+scipy>=1.12
+statsmodels>=0.14
+scikit-learn>=1.4
+-e ../../packages/election_rules_py
+
+# Optional, not required by the currently-shipped simplified Monte Carlo
+# engine (see monte_carlo.py module docstring). Add when implementing the
+# full Bayesian dynamic state-space latent-support model (spec Model B):
+#   pymc>=5.10
+

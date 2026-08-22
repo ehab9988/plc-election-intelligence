@@ -1,0 +1,19 @@
+name: election_rules
+description: >
+  Deterministic, versioned electoral mathematics engine for PLC Election
+  Intelligence: rule sets, Sainte-Lague seat allocation, threshold handling,
+  and closed-list candidate seat-probability calculations. Pure Dart, no
+  Flutter dependency, so it can be unit tested in isolation and shared by
+  the Flutter client and any Dart-based tooling.
+version: 0.1.0
+publish_to: "none"
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  meta: ^1.15.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^4.0.0
