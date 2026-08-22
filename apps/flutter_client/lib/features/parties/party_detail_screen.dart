@@ -110,9 +110,8 @@ class _PartyDetailScreenState extends ConsumerState<PartyDetailScreen> {
                     children: [
                       const Icon(Icons.groups_outlined),
                       const SizedBox(width: 12),
-                      const Expanded(
-                        child: Text('Candidate list and per-candidate seat probabilities are available once this '
-                            'party\'s electoral list is linked to a published forecast run.'),
+                      Expanded(
+                        child: Text(l10n.candidateListPendingForecast),
                       ),
                     ],
                   ),

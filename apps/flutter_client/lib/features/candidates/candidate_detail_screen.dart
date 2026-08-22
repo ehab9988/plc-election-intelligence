@@ -68,8 +68,7 @@ class _CandidateDetailScreenState extends ConsumerState<CandidateDetailScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Text(
-                  'Candidate detail requires a live API connection (not available in bundled demo data). '
-                  'Configure a live API base URL in Settings.',
+                  l10n.candidateDetailUnavailable,
                   textAlign: TextAlign.center,
                 ),
               ),

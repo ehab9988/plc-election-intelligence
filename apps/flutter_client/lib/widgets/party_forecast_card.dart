@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/l10n_ext.dart';
 import '../models/forecast.dart';
 import 'uncertainty_range.dart';
 
@@ -28,6 +29,7 @@ class PartyForecastCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final theme = Theme.of(context);
     final name = useArabicName ? result.listNameAr : result.listNameEn;
 
@@ -50,7 +52,7 @@ class PartyForecastCard extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Text(
-                'seats · 80% range ${result.seatsLow80}–${result.seatsHigh80}',
+                l10n.seatsEightyRangeLabel(result.seatsLow80, result.seatsHigh80),
                 style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.outline),
               ),
               const SizedBox(height: 12),
@@ -67,9 +69,9 @@ class PartyForecastCard extends StatelessWidget {
                 spacing: 16,
                 runSpacing: 4,
                 children: [
-                  _stat(theme, 'Vote share', '${result.forecastVoteShareMedian.toStringAsFixed(1)}%'),
-                  _stat(theme, 'Largest-list prob.', _pct(result.probabilityLargestList)),
-                  _stat(theme, 'Majority prob.', _pct(result.probabilityMajorityAlone)),
+                  _stat(theme, l10n.voteShareLabel, '${result.forecastVoteShareMedian.toStringAsFixed(1)}%'),
+                  _stat(theme, l10n.largestListProbShort, _pct(result.probabilityLargestList)),
+                  _stat(theme, l10n.majorityProbShort, _pct(result.probabilityMajorityAlone)),
                 ],
               ),
             ],

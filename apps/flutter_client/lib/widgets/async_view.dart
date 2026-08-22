@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../core/l10n_ext.dart';
+
 /// Consistent loading/error/data handling for AsyncValue-backed screens —
 /// avoids blank screens on failure (section 67) by always showing a retry
 /// affordance instead of a silent stack trace.
@@ -27,7 +29,7 @@ class AsyncView<T> extends StatelessWidget {
               Text('$err', textAlign: TextAlign.center),
               if (onRetry != null) ...[
                 const SizedBox(height: 12),
-                OutlinedButton(onPressed: onRetry, child: const Text('Retry')),
+                OutlinedButton(onPressed: onRetry, child: Text(context.l10n.retry)),
               ],
             ],
           ),

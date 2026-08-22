@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../core/l10n_ext.dart';
 import '../../providers/app_providers.dart';
 import '../../widgets/async_view.dart';
 
@@ -10,11 +11,12 @@ class PollsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final pollsAsync = ref.watch(pollsProvider);
     final dateFormat = DateFormat.yMMMd();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Polls')),
+      appBar: AppBar(title: Text(l10n.pollsTitle)),
       body: AsyncView(
         value: pollsAsync,
         builder: (context, polls) => ListView.separated(
@@ -32,11 +34,13 @@ class PollsScreen extends ConsumerWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Fieldwork ${dateFormat.format(poll.fieldworkStart)}–${dateFormat.format(poll.fieldworkEnd)}',
+                        Text(
+                            l10n.fieldworkLabel(
+                                dateFormat.format(poll.fieldworkStart), dateFormat.format(poll.fieldworkEnd)),
                             style: Theme.of(context).textTheme.titleMedium),
                         if (poll.manuallyVerified)
                           Chip(
-                            label: const Text('Verified', style: TextStyle(fontSize: 11)),
+                            label: Text(l10n.verifiedLabel, style: const TextStyle(fontSize: 11)),
                             visualDensity: VisualDensity.compact,
                             avatar: const Icon(Icons.verified, size: 14),
                           ),

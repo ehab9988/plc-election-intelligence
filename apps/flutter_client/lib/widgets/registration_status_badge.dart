@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../core/l10n_ext.dart';
+import '../l10n/generated/app_localizations.dart';
+
 /// Never let a "considering" or "rumored" list read as officially
 /// registered (section 5) — every status gets a distinct label + color.
 class RegistrationStatusBadge extends StatelessWidget {
@@ -7,17 +10,18 @@ class RegistrationStatusBadge extends StatelessWidget {
 
   const RegistrationStatusBadge({super.key, required this.status});
 
-  static const _labels = {
-    'rumored': 'Rumored',
-    'considering': 'Considering',
-    'announced_intention': 'Announced Intention',
-    'submitted_registration': 'Registration Submitted',
-    'provisional': 'Provisional',
-    'officially_approved': 'Officially Approved',
-    'rejected': 'Rejected',
-    'withdrawn': 'Withdrawn',
-    'disqualified': 'Disqualified',
-  };
+  String _label(AppLocalizations l10n) => switch (status) {
+        'rumored' => l10n.registrationStatusRumored,
+        'considering' => l10n.registrationStatusConsidering,
+        'announced_intention' => l10n.registrationStatusAnnouncedIntention,
+        'submitted_registration' => l10n.registrationStatusSubmittedRegistration,
+        'provisional' => l10n.registrationStatusProvisional,
+        'officially_approved' => l10n.registrationStatusOfficiallyApproved,
+        'rejected' => l10n.registrationStatusRejected,
+        'withdrawn' => l10n.registrationStatusWithdrawn,
+        'disqualified' => l10n.registrationStatusDisqualified,
+        _ => status,
+      };
 
   static const _colors = {
     'rumored': Colors.grey,
@@ -47,7 +51,7 @@ class RegistrationStatusBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = _colors[status] ?? Colors.grey;
     final textColor = _textColors[status] ?? const Color(0xFF424242);
-    final label = _labels[status] ?? status;
+    final label = _label(context.l10n);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(

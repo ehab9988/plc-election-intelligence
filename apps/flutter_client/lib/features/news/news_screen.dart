@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../core/l10n_ext.dart';
 import '../../providers/app_providers.dart';
 import '../../widgets/async_view.dart';
 
@@ -10,11 +11,12 @@ class NewsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final newsAsync = ref.watch(newsProvider);
     final dateFormat = DateFormat.yMMMd().add_jm();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('News')),
+      appBar: AppBar(title: Text(l10n.newsTitle)),
       body: AsyncView(
         value: newsAsync,
         builder: (context, articles) => ListView.separated(

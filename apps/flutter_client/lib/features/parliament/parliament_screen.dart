@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n_ext.dart';
 import '../../providers/app_providers.dart';
 import '../../widgets/async_view.dart';
 import '../../widgets/parliament_hemicycle.dart';
@@ -15,11 +16,12 @@ class ParliamentScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final forecastAsync = ref.watch(latestForecastProvider);
     final rulesAsync = ref.watch(electionRulesProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Parliament')),
+      appBar: AppBar(title: Text(l10n.navParliament)),
       body: AsyncView(
         value: forecastAsync,
         builder: (context, forecast) {
@@ -34,7 +36,7 @@ class ParliamentScreen extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             children: [
               Text(
-                'Median-seat forecast. Majority line: $majority of $totalSeats seats.',
+                l10n.medianSeatForecastLine(majority, totalSeats),
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 16),

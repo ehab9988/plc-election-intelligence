@@ -90,8 +90,7 @@ class _ForecastScreenState extends ConsumerState<ForecastScreen> {
                       builder: (context, points) => ListView(
                         children: [
                           Text(
-                            'Weighted average of polls asking the same "if elections were held today" question. '
-                            'Not a forecast — see Methodology for the weighting formula.',
+                            l10n.pollingAverageExplanation,
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           const SizedBox(height: 12),
@@ -118,13 +117,16 @@ class _ForecastScreenState extends ConsumerState<ForecastScreen> {
                               crossAxisAlignment: WrapCrossAlignment.center,
                               children: [
                                 FreshnessBanner(timestamp: forecast.dataCutoffAt, labelPrefix: l10n.dataCutoffLabel),
-                                Text('Model ${forecast.modelVersion} · ${forecast.simulationsPerformed} simulations',
-                                    style: Theme.of(context).textTheme.labelSmall),
+                                Text(
+                                  l10n.modelSimulationsLabel(forecast.modelVersion, forecast.simulationsPerformed),
+                                  style: Theme.of(context).textTheme.labelSmall,
+                                ),
                               ],
                             ),
                             if (forecast.changeSummary != null) ...[
                               const SizedBox(height: 8),
-                              Text('Why this changed: ${forecast.changeSummary}', style: Theme.of(context).textTheme.bodySmall),
+                              Text(l10n.whyThisChangedLabel(forecast.changeSummary!),
+                                  style: Theme.of(context).textTheme.bodySmall),
                             ],
                             const SizedBox(height: 12),
                             ...sorted.map((r) => Padding(

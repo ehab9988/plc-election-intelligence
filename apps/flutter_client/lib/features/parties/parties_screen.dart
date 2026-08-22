@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/l10n_ext.dart';
 import '../../providers/app_providers.dart';
 import '../../widgets/async_view.dart';
 import '../../widgets/registration_status_badge.dart';
@@ -18,22 +19,23 @@ class _PartiesScreenState extends ConsumerState<PartiesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final partiesAsync = ref.watch(partiesProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Parties'),
+        title: Text(l10n.partiesTitle),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(56),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: TextField(
               controller: _controller,
-              decoration: const InputDecoration(
-                hintText: 'Search parties, candidates, polls…',
-                prefixIcon: Icon(Icons.search),
+              decoration: InputDecoration(
+                hintText: l10n.searchHint,
+                prefixIcon: const Icon(Icons.search),
                 isDense: true,
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
               ),
               onChanged: (_) => setState(() {}),
             ),
