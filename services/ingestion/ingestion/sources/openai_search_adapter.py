@@ -57,7 +57,11 @@ _RESULT_SCHEMA = {
                     },
                     "language": {"type": "string", "description": "e.g. 'en' or 'ar'"},
                 },
-                "required": ["headline", "canonical_url", "summary", "language"],
+                # OpenAI's strict json_schema mode requires every key in
+                # `properties` to also appear here, even nullable ones —
+                # optionality is expressed via `"type": [X, "null"]`
+                # above, not by omission from `required`.
+                "required": ["headline", "canonical_url", "published_date", "summary", "language"],
                 "additionalProperties": False,
             },
         },

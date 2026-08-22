@@ -71,7 +71,19 @@ _POLL_SCHEMA = {
                         },
                     },
                 },
-                "required": ["pollster_name", "source_url", "publication_date", "results"],
+                # OpenAI's strict json_schema mode requires every key in
+                # `properties` to also appear here, even nullable ones —
+                # optionality is expressed via `"type": [X, "null"]`
+                # above, not by omission from `required`.
+                "required": [
+                    "pollster_name",
+                    "source_url",
+                    "publication_date",
+                    "fieldwork_start",
+                    "fieldwork_end",
+                    "sample_size",
+                    "results",
+                ],
                 "additionalProperties": False,
             },
         },
