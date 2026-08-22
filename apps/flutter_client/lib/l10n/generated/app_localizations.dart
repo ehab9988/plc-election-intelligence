@@ -901,6 +901,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'AI estimate'**
   String get aiEstimateLabel;
+
+  /// No description provided for @reportPreviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report Preview'**
+  String get reportPreviewTitle;
 }
 
 class _AppLocalizationsDelegate

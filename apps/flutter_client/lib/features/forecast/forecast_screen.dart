@@ -43,7 +43,8 @@ class _ForecastScreenState extends ConsumerState<ForecastScreen> {
         disclaimer: l10n.reportDisclaimer,
         arabic: isArabic,
       );
-      await ReportService.previewOrPrint(bytes, 'forecast-report');
+      if (!mounted) return;
+      await ReportService.previewOrPrint(context, bytes, 'forecast-report');
     } finally {
       if (mounted) setState(() => _exporting = false);
     }

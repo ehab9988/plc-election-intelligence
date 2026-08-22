@@ -44,7 +44,8 @@ class _CandidateDetailScreenState extends ConsumerState<CandidateDetailScreen> {
         disclaimer: l10n.reportDisclaimer,
         arabic: isArabic,
       );
-      await ReportService.previewOrPrint(bytes, 'candidate-report-${detail.candidate.id}');
+      if (!mounted) return;
+      await ReportService.previewOrPrint(context, bytes, 'candidate-report-${detail.candidate.id}');
     } finally {
       if (mounted) setState(() => _exporting = false);
     }

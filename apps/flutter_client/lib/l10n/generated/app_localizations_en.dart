@@ -458,4 +458,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aiEstimateLabel => 'AI estimate';
+
+  @override
+  String get reportPreviewTitle => 'Report Preview';
 }

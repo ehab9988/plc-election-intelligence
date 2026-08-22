@@ -35,7 +35,8 @@ class _PartyDetailScreenState extends ConsumerState<PartyDetailScreen> {
         disclaimer: l10n.reportDisclaimer,
         arabic: isArabic,
       );
-      await ReportService.previewOrPrint(bytes, 'party-report-${party.id}');
+      if (!mounted) return;
+      await ReportService.previewOrPrint(context, bytes, 'party-report-${party.id}');
     } finally {
       if (mounted) setState(() => _exporting = false);
     }

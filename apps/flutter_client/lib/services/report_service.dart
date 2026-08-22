@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -8,6 +9,7 @@ import '../models/coalition.dart';
 import '../models/election.dart';
 import '../models/forecast.dart';
 import '../models/party.dart';
+import '../widgets/pdf_review_screen.dart';
 
 /// Generates PDF reports for parties, candidates, forecasts, and coalition
 /// scenarios (spec section 38 exports / section 64 "analyst reports").
@@ -270,10 +272,14 @@ class ReportService {
     return doc.save();
   }
 
-  /// Opens the OS print/preview dialog for [bytes] — works on Windows and
-  /// Android alike via the `printing` package, avoiding a separate
-  /// file-save flow.
-  static Future<void> previewOrPrint(Uint8List bytes, String documentName) {
-    return Printing.layoutPdf(onLayout: (_) async => bytes, name: documentName);
+  /// Opens an in-app review of [bytes] (PdfReviewScreen) before any
+  /// print/save/share action — the user sees the actual generated
+  /// document and only reaches the OS print dialog by explicitly asking
+  /// to print from within that review, on Windows and Android alike via
+  /// the `printing` package.
+  static Future<void> previewOrPrint(BuildContext context, Uint8List bytes, String documentName) {
+    return Navigator.of(context).push<void>(
+      MaterialPageRoute(builder: (_) => PdfReviewScreen(bytes: bytes, documentName: documentName)),
+    );
   }
 }

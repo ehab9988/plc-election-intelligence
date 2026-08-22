@@ -59,7 +59,8 @@ class _CoalitionLabScreenState extends ConsumerState<CoalitionLabScreen> {
         disclaimer: l10n.mathematicalFeasibilityNote,
         arabic: isArabic,
       );
-      await ReportService.previewOrPrint(bytes, 'coalition-report');
+      if (!mounted) return;
+      await ReportService.previewOrPrint(context, bytes, 'coalition-report');
     } finally {
       if (mounted) setState(() => _exporting = false);
     }

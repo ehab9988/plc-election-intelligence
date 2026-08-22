@@ -456,4 +456,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aiEstimateLabel => 'تقدير الذكاء الاصطناعي';
+
+  @override
+  String get reportPreviewTitle => 'معاينة التقرير';
 }
