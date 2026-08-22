@@ -1,0 +1,86 @@
+[
+  {
+    "id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "name_ar": "تيار الإصلاح الديمقراطي",
+    "name_en": "Democratic Reform",
+    "abbreviation": "Dahlan faction",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": "Breakaway Fatah faction led by Mohammed Dahlan; local leader Osama al-Farra.",
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "verification_confidence": "medium"
+  },
+  {
+    "id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "name_ar": "حركة فتح",
+    "name_en": "Fatah Movement",
+    "abbreviation": "Fatah",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "verification_confidence": "medium"
+  },
+  {
+    "id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "name_ar": "حركة المقاومة الإسلامية - حماس",
+    "name_en": "Islamic Resistance Movement (Hamas)",
+    "abbreviation": "Hamas",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "verification_confidence": "medium"
+  },
+  {
+    "id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "name_ar": "المبادرة الوطنية الفلسطينية",
+    "name_en": "National Initiative",
+    "abbreviation": "Al-Mubadara",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "verification_confidence": "medium"
+  },
+  {
+    "id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "name_ar": "حركة الجهاد الإسلامي في فلسطين",
+    "name_en": "Palestinian Islamic Jihad",
+    "abbreviation": "PIJ",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "verification_confidence": "medium"
+  },
+  {
+    "id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "name_ar": "الجبهة الشعبية لتحرير فلسطين",
+    "name_en": "Popular Front for the Liberation of Palestine",
+    "abbreviation": "PFLP",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "verification_confidence": "medium"
+  },
+  {
+    "id": "b1da0f9f-63da-4a0c-a820-e9b7856c53d0",
+    "name_ar": "الطريق الثالث",
+    "name_en": "Third Way",
+    "abbreviation": "TW",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  }
+]

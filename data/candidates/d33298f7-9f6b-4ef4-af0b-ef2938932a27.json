@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "id": "d33298f7-9f6b-4ef4-af0b-ef2938932a27",
+    "person_id": "63f0277a-a326-491d-978a-63a8db0d521e",
+    "electoral_list_id": "bef7d940-1c02-4a88-8c26-0f275b04ab68",
+    "list_rank": 10,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  "person": {
+    "id": "63f0277a-a326-491d-978a-63a8db0d521e",
+    "full_name_ar": "مرشح Hamas رقم 10",
+    "full_name_en": "Hamas Candidate #10",
+    "date_of_birth": null,
+    "birthplace": null,
+    "hometown": null,
+    "current_position": null,
+    "biography_ar": null,
+    "biography_en": null,
+    "photo_url": null,
+    "verification_confidence": "low",
+    "last_verified_at": null
+  },
+  "electoral_list": {
+    "id": "bef7d940-1c02-4a88-8c26-0f275b04ab68",
+    "list_name_ar": "قائمة التغيير والإصلاح",
+    "list_name_en": "Change and Reform List",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": "#00843D"
+  },
+  "projected_party_seats_median": null,
+  "seats_low80": null,
+  "seats_high80": null,
+  "seat_probability": null
+}

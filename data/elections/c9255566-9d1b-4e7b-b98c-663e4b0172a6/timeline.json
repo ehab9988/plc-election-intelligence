@@ -1,0 +1,11 @@
+[
+  {
+    "id": "24ab1921-043f-47ad-b37e-e09ed7ff10cb",
+    "milestone": "election_day",
+    "label_en": "Election Day",
+    "label_ar": "يوم الانتخابات",
+    "starts_at": "2026-11-28T00:00:00",
+    "ends_at": "2026-11-28T00:00:00",
+    "source_id": "f7946f3e-a132-4f15-8817-db331b4e76cb"
+  }
+]

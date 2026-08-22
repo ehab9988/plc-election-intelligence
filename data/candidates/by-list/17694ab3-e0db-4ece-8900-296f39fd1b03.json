@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1c065c8c-10fd-41a3-855b-66239e0612a5",
+    "person_id": "97740084-5718-4f4e-9b06-a6b1f0189469",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 1,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "e624a0fc-617c-4723-a90c-f99dd3cf3465",
+    "person_id": "fc647a87-c2dc-44e2-b13c-cb97883d4a50",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 2,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "8170d401-81d7-4414-8b56-f340ea78432e",
+    "person_id": "d3a26711-17dc-463c-9d9b-28c61785271d",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 3,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "33b8d1ab-0121-44d7-9e40-f31746da9abf",
+    "person_id": "cafb0379-a803-4b11-9348-ced8b112559a",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 4,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "dc8fd5fd-0e4a-4e9f-afa9-dabc29327de2",
+    "person_id": "22f766c2-fef4-4960-8c90-08f7c50d409c",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 5,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "37d2130c-7958-4a24-b21f-af57c70313f2",
+    "person_id": "399462f4-4d79-4242-84dc-498b35bc4d47",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 6,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "ca4ac230-d45f-49ad-80d5-41aaa567618b",
+    "person_id": "8a6b49f4-df2e-47d5-8e0f-34f69409eb1d",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 7,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "5326f119-8f32-4c8a-ac98-c59c2875ec24",
+    "person_id": "c30b46c0-9374-4b67-a0d8-cc2767d57205",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 8,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "96b00464-fca0-4c97-bb24-68cb1bbdf6a0",
+    "person_id": "a3fcf50f-5aec-401e-92b2-2e6a01a82ef4",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 9,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "6149cf69-aa96-4912-bdfc-f7e9e3fb3c77",
+    "person_id": "89bf6584-9eb4-4001-90a2-c82074359f2f",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 10,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "0e6370cd-cde6-4d3a-8e77-17800ece037f",
+    "person_id": "6a7e05dd-e831-4ae0-8fd7-16d20f81dacf",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 11,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "c4ceaab8-5015-435a-b5cc-d81555e8321e",
+    "person_id": "e87f503b-ccbf-476e-a720-066d36c27d90",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 12,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "9878ec71-3b25-4c13-8764-f31c74b654f7",
+    "person_id": "6a8ef13b-23aa-426e-9fd3-0ddc620fade8",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 13,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "1e726b49-e462-4334-9e45-efe810320690",
+    "person_id": "f49e9d1f-ede7-43b9-bd60-c59b7cef9c35",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 14,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  {
+    "id": "9d6ddb6b-7112-4cf6-ae6c-c46b5233dbdd",
+    "person_id": "cc2678fd-7bbf-4781-8fb3-1c465eef6bd7",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 15,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  }
+]

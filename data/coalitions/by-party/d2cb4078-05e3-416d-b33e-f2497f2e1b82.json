@@ -1,0 +1,11 @@
+[
+  {
+    "id": "fa2c8a45-1c64-49cb-8c18-36bdda5e194a",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "evidence_type": "supporting",
+    "statement_summary": "Hamas held meetings with the National Initiative on a broad electoral alliance.",
+    "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
+    "confidence": "medium"
+  }
+]

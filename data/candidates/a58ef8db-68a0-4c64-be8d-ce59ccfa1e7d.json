@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "id": "a58ef8db-68a0-4c64-be8d-ce59ccfa1e7d",
+    "person_id": "f6c04f1c-be2f-46b9-8c24-1b9b8e7e479b",
+    "electoral_list_id": "d87c73f0-72e6-40d9-b2ba-0626a6cd02ed",
+    "list_rank": 9,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  "person": {
+    "id": "f6c04f1c-be2f-46b9-8c24-1b9b8e7e479b",
+    "full_name_ar": "مرشح TW رقم 9",
+    "full_name_en": "TW Candidate #9",
+    "date_of_birth": null,
+    "birthplace": null,
+    "hometown": null,
+    "current_position": null,
+    "biography_ar": null,
+    "biography_en": null,
+    "photo_url": null,
+    "verification_confidence": "low",
+    "last_verified_at": null
+  },
+  "electoral_list": {
+    "id": "d87c73f0-72e6-40d9-b2ba-0626a6cd02ed",
+    "list_name_ar": "قائمة الطريق الثالث",
+    "list_name_en": "Third Way List",
+    "list_number": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": "#4472C4"
+  },
+  "projected_party_seats_median": null,
+  "seats_low80": null,
+  "seats_high80": null,
+  "seat_probability": null
+}

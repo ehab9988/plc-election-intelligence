@@ -1,0 +1,32 @@
+[
+  {
+    "id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_name_ar": "قائمة فتح",
+    "list_name_en": "Fatah List",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": "#FDB913"
+  },
+  {
+    "id": "bef7d940-1c02-4a88-8c26-0f275b04ab68",
+    "list_name_ar": "قائمة التغيير والإصلاح",
+    "list_name_en": "Change and Reform List",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": "#00843D"
+  },
+  {
+    "id": "d87c73f0-72e6-40d9-b2ba-0626a6cd02ed",
+    "list_name_ar": "قائمة الطريق الثالث",
+    "list_name_en": "Third Way List",
+    "list_number": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": "#4472C4"
+  }
+]

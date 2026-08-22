@@ -1,0 +1,38 @@
+{
+  "candidate": {
+    "id": "0e6370cd-cde6-4d3a-8e77-17800ece037f",
+    "person_id": "6a7e05dd-e831-4ae0-8fd7-16d20f81dacf",
+    "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_rank": 11,
+    "candidate_status": "listed",
+    "is_reserved_seat_candidate": false
+  },
+  "person": {
+    "id": "6a7e05dd-e831-4ae0-8fd7-16d20f81dacf",
+    "full_name_ar": "مرشح Fatah رقم 11",
+    "full_name_en": "Fatah Candidate #11",
+    "date_of_birth": null,
+    "birthplace": null,
+    "hometown": null,
+    "current_position": null,
+    "biography_ar": null,
+    "biography_en": null,
+    "photo_url": null,
+    "verification_confidence": "low",
+    "last_verified_at": null
+  },
+  "electoral_list": {
+    "id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+    "list_name_ar": "قائمة فتح",
+    "list_name_en": "Fatah List",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": "#FDB913"
+  },
+  "projected_party_seats_median": null,
+  "seats_low80": null,
+  "seats_high80": null,
+  "seat_probability": null
+}

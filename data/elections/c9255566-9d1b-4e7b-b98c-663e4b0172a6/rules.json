@@ -1,0 +1,27 @@
+{
+  "id": "4ebecf1c-7d2e-4020-8e22-44b6a4352f41",
+  "version": "1.0.0",
+  "effective_from": "2026-01-01T00:00:00",
+  "effective_until": null,
+  "electoral_system": "Nationwide closed-list proportional representation",
+  "district_structure": "Single national constituency",
+  "total_seats": 132,
+  "threshold_fraction": 0.01,
+  "allocation_method": "sainte_lague",
+  "reserved_seats": [
+    {
+      "category": "Christian",
+      "count": 7,
+      "verified": false,
+      "mechanism_description": "At least seven PLC seats allocated to Christian citizens under the relevant decree; mechanism pending full-text legal confirmation."
+    }
+  ],
+  "gender_quota": {
+    "minimum_fraction": 0.33,
+    "description": "At least 33% women on candidate lists."
+  },
+  "minimum_candidate_age": 23,
+  "allows_individual_candidate_votes": false,
+  "source_document": "CEC / Palestinian election law — baseline captured August 2026",
+  "verified_at": "2026-08-01T00:00:00"
+}

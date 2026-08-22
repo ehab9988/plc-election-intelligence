@@ -1,0 +1,52 @@
+[
+  {
+    "id": "7ef6a017-9e29-43d9-850b-9bd9412b755c",
+    "pollster_id": "0ff50634-71c7-4b1a-bec4-5cbb0c20df4f",
+    "sponsor": null,
+    "publication_date": "2026-08-10",
+    "fieldwork_start": "2026-08-05",
+    "fieldwork_end": "2026-08-08",
+    "sample_size": 1270,
+    "margin_of_error": 3.0,
+    "mode": "face_to_face",
+    "geographic_population": "West Bank and Gaza Strip",
+    "west_bank_sample_size": null,
+    "gaza_sample_size": null,
+    "population": "likely_voters",
+    "manually_verified": true,
+    "questions": [
+      {
+        "id": "11e86d78-a456-45f4-850d-c6e93e5b42c1",
+        "question_text_ar": "لو أجريت الانتخابات التشريعية اليوم لمن كنت تعطي صوتك؟",
+        "question_text_en": "If legislative elections were held today, which list would you vote for?",
+        "question_type": "vote_choice_if_today",
+        "results": [
+          {
+            "label": "Fatah List",
+            "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
+            "raw_response_pct": 32.0,
+            "normalized_pct": 32.0
+          },
+          {
+            "label": "Change and Reform List",
+            "electoral_list_id": "bef7d940-1c02-4a88-8c26-0f275b04ab68",
+            "raw_response_pct": 29.0,
+            "normalized_pct": 29.0
+          },
+          {
+            "label": "Third Way List",
+            "electoral_list_id": "d87c73f0-72e6-40d9-b2ba-0626a6cd02ed",
+            "raw_response_pct": 18.0,
+            "normalized_pct": 18.0
+          },
+          {
+            "label": "undecided",
+            "electoral_list_id": null,
+            "raw_response_pct": 21.0,
+            "normalized_pct": 21.0
+          }
+        ]
+      }
+    ]
+  }
+]

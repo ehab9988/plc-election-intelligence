@@ -1,0 +1,11 @@
+[
+  {
+    "id": "eb8f9002-7c18-4899-a2d0-f9bf82c1e017",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "evidence_type": "conflicting",
+    "statement_summary": "Fatah spokesperson Munther al-Hayek: \"organisational bases of the Fatah movement refuse to participate with Hamas in a single list while the door remains open to alliances with the rest of the factions.\"",
+    "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
+    "confidence": "high"
+  }
+]
