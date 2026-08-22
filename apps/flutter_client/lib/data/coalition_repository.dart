@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 import '../core/api_client.dart';
 import '../core/app_config.dart';
 import '../core/static_data_client.dart';
@@ -26,11 +28,25 @@ class CoalitionRepository with RemoteFetch {
   /// AI-generated estimates only — never a calibrated statistic, see
   /// CoalitionFormationEstimate's doc comment.
   Future<List<CoalitionFormationEstimate>> listFormationEstimates({String? partyId}) async {
-    final data = await fetch(
-      '/coalitions/formation-estimates',
-      'coalitions/formation-estimates',
-      query: {'party_id': ?partyId},
-    );
+    dynamic data;
+    try {
+      data = await fetch(
+        '/coalitions/formation-estimates',
+        'coalitions/formation-estimates',
+        query: {'party_id': ?partyId},
+      );
+    } on DioException catch (e) {
+      // This file is genuinely optional in the static snapshot: it
+      // didn't exist before this feature shipped, and older published
+      // snapshots won't have it yet. A 404 here means "no AI estimates
+      // published yet", not a broken app — treat it as an empty list
+      // rather than a hard error. Any other failure (network, 500,
+      // live-API mode) still propagates normally.
+      if (dataSource == DataSource.staticGithub && e.response?.statusCode == 404) {
+        return const [];
+      }
+      rethrow;
+    }
     final all = (data as List<dynamic>)
         .map((e) => CoalitionFormationEstimate.fromJson(e as Map<String, dynamic>))
         .toList();
