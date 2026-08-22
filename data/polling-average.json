@@ -3,20 +3,20 @@
     "electoral_list_id": "17694ab3-e0db-4ece-8900-296f39fd1b03",
     "list_name_en": "Fatah List",
     "list_name_ar": "قائمة فتح",
-    "weighted_average_pct": 28.0,
-    "trend_low": 24.0,
-    "trend_high": 32.0,
-    "n_polls_used": 2,
+    "weighted_average_pct": 28.51,
+    "trend_low": 24.54,
+    "trend_high": 32.48,
+    "n_polls_used": 3,
     "most_recent_fieldwork_end": "2026-08-08"
   },
   {
     "electoral_list_id": "bef7d940-1c02-4a88-8c26-0f275b04ab68",
     "list_name_en": "Change and Reform List",
     "list_name_ar": "قائمة التغيير والإصلاح",
-    "weighted_average_pct": 31.0,
-    "trend_low": 29.0,
-    "trend_high": 33.0,
-    "n_polls_used": 2,
+    "weighted_average_pct": 30.75,
+    "trend_low": 28.76,
+    "trend_high": 32.73,
+    "n_polls_used": 3,
     "most_recent_fieldwork_end": "2026-08-08"
   },
   {

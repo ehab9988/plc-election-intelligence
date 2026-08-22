@@ -12,6 +12,18 @@
     "importance_score": null
   },
   {
+    "id": "c6416584-40af-4d18-81c2-2b72bca37ad0",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Fatah and Hamas Explore Potential Alliance Ahead of November Elections",
+    "author": null,
+    "published_at": "2026-08-19T00:00:00",
+    "canonical_url": "https://1-e8259.azureedge.net/news/2026/8/19/palestinian-factions-explore-broad-alliance-for-november-elections",
+    "permitted_snippet": "Hamas and other Palestinian factions opposed to Fatah are considering forming a broad electoral coalition for the upcoming November elections, while Fatah plans to run independently.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "56ce35c9-6c1c-44eb-9f03-7c0cfa84286d",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Palestinian Voter Registration Begins Ahead of 2026 Legislative Elections",
@@ -43,6 +55,18 @@
     "published_at": "2026-08-12T00:00:00",
     "canonical_url": "https://www.anadoluagency.com/en/middle-east/hamas-says-it-will-take-part-in-palestinian-elections-under-broadest-possible-coalition/4025785",
     "permitted_snippet": "Hamas has announced its intention to participate in the upcoming Palestinian legislative elections under the broadest possible national coalition. Senior Hamas official Hussam Badran emphasized the group's opposition to imposing political conditions on candidates and described the elections as a 'historic opportunity' to change the Palestinian political landscape.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "b6455cc7-7f5d-4bfd-a04e-72e5b54e9661",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas Announces Participation in Upcoming Palestinian Legislative Elections Under Broad Coalition",
+    "author": null,
+    "published_at": "2026-08-12T00:00:00",
+    "canonical_url": "https://www.anews.com.tr/middle-east/2026/08/12/hamas-says-it-will-take-part-in-palestinian-elections-under-broadest-possible-coalition/amp",
+    "permitted_snippet": "Hamas declares its intention to participate in the November 2026 Palestinian legislative elections, aiming to form a broad national coalition and rejecting political conditions for candidates.",
     "image_url": null,
     "language": "en",
     "importance_score": null
