@@ -4,6 +4,7 @@
     "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
     "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "evidence_type": "conflicting",
+    "implies_joint_list": false,
     "statement_summary": "Fatah spokesperson Munther al-Hayek: \"organisational bases of the Fatah movement refuse to participate with Hamas in a single list while the door remains open to alliances with the rest of the factions.\"",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "high"
@@ -13,6 +14,7 @@
     "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
     "evidence_type": "supporting",
+    "implies_joint_list": false,
     "statement_summary": "Hamas held meetings with Palestinian Islamic Jihad on a broad electoral alliance. Hamas official Husam Badran: \"We do not need permission or a guarantee from any party to participate in the Palestinian elections.\"",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
@@ -22,6 +24,7 @@
     "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
     "evidence_type": "supporting",
+    "implies_joint_list": false,
     "statement_summary": "Hamas held meetings with the PFLP on a broad electoral alliance.",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
@@ -31,6 +34,7 @@
     "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
     "evidence_type": "supporting",
+    "implies_joint_list": false,
     "statement_summary": "Hamas held meetings with the National Initiative on a broad electoral alliance.",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
@@ -40,6 +44,7 @@
     "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
     "evidence_type": "supporting",
+    "implies_joint_list": false,
     "statement_summary": "Democratic Reform leader Osama al-Farra confirmed Dahlan's faction decided to participate, favoring a \"broad national alliance\" comprising factions, professionals, and community figures.",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"

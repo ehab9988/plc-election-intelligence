@@ -4,6 +4,7 @@
     "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
     "evidence_type": "supporting",
+    "implies_joint_list": false,
     "statement_summary": "Hamas held meetings with the PFLP on a broad electoral alliance.",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
