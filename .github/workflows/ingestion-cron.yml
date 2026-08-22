@@ -43,10 +43,19 @@ jobs:
           python-version: "3.12"
 
       - name: Install local packages
+        # services/forecasting and services/api's pyproject.toml declare
+        # almost no dependencies (their real dependency lists live in
+        # requirements.txt) — `pip install -e <path>` alone only makes the
+        # package importable, it does NOT install fastapi/pydantic-settings/
+        # sqlalchemy/numpy/pandas/etc. Installing each requirements.txt
+        # from its own directory (not repo root) also matters: both files
+        # contain relative `-e ../../packages/election_rules_py`-style
+        # lines that pip resolves against the CURRENT directory, not the
+        # requirements.txt's location.
         run: |
           pip install -e packages/election_rules_py
-          pip install -e services/forecasting
-          pip install -e services/api
+          (cd services/forecasting && pip install -r requirements.txt)
+          (cd services/api && pip install -r requirements.txt)
           pip install -r services/ingestion/requirements-cron.txt
 
       - name: Run ingestion cycle
