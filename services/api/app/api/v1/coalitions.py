@@ -7,9 +7,15 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from ...db import get_db
-from ...models import CoalitionEvidence, ElectionRuleSetORM, ForecastRun
+from ...models import (
+    CoalitionEvidence,
+    CoalitionFormationEstimate,
+    ElectionRuleSetORM,
+    ForecastRun,
+)
 from ...schemas.coalition import (
     CoalitionEvidenceOut,
+    CoalitionFormationEstimateOut,
     CoalitionSimulateRequest,
     CoalitionSimulateResponse,
 )
@@ -25,6 +31,21 @@ def list_coalition_evidence(
     if party_id:
         stmt = stmt.where(
             (CoalitionEvidence.party_a_id == party_id) | (CoalitionEvidence.party_b_id == party_id)
+        )
+    return list(db.scalars(stmt))
+
+
+@router.get("/formation-estimates", response_model=list[CoalitionFormationEstimateOut])
+def list_formation_estimates(
+    party_id: uuid.UUID | None = None, db: Session = Depends(get_db)
+) -> list[CoalitionFormationEstimate]:
+    """AI-generated estimates only — never a calibrated statistic. See
+    CoalitionFormationEstimate's docstring."""
+    stmt = select(CoalitionFormationEstimate)
+    if party_id:
+        stmt = stmt.where(
+            (CoalitionFormationEstimate.party_a_id == party_id)
+            | (CoalitionFormationEstimate.party_b_id == party_id)
         )
     return list(db.scalars(stmt))
 

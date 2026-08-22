@@ -446,4 +446,14 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get jointListReportedTooltip =>
       'أفاد مصدر واحد على الأقل بأن هذين الحزبين سيخوضان الانتخابات بقائمة انتخابية واحدة مشتركة — هذا ليس احتمالاً إحصائيًا، راجع الأدلة أدناه.';
+
+  @override
+  String get aiFormationEstimatesTitle => 'تقديرات الائتلاف بالذكاء الاصطناعي';
+
+  @override
+  String get aiEstimateDisclaimer =>
+      'تقدير خاص بنموذج لغوي مستند إلى بحث على الويب — وليس إحصاءً معايَرًا كالجدوى الرياضية أعلاه. تعامل معه كمؤشر تقريبي لا كحقيقة.';
+
+  @override
+  String get aiEstimateLabel => 'تقدير الذكاء الاصطناعي';
 }

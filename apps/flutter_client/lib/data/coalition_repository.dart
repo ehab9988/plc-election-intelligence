@@ -23,6 +23,23 @@ class CoalitionRepository with RemoteFetch {
     return (data as List<dynamic>).map((e) => CoalitionEvidence.fromJson(e as Map<String, dynamic>)).toList();
   }
 
+  /// AI-generated estimates only — never a calibrated statistic, see
+  /// CoalitionFormationEstimate's doc comment.
+  Future<List<CoalitionFormationEstimate>> listFormationEstimates({String? partyId}) async {
+    final data = await fetch(
+      '/coalitions/formation-estimates',
+      'coalitions/formation-estimates',
+      query: {'party_id': ?partyId},
+    );
+    final all = (data as List<dynamic>)
+        .map((e) => CoalitionFormationEstimate.fromJson(e as Map<String, dynamic>))
+        .toList();
+    if (partyId == null || dataSource != DataSource.staticGithub) return all;
+    // The static snapshot is one flat file (no per-party split like
+    // coalitions/by-party/ has) — filter client-side instead.
+    return all.where((e) => e.partyAId == partyId || e.partyBId == partyId).toList();
+  }
+
   /// The static snapshot has no server to run this on, so it approximates
   /// the same math the live endpoint runs
   /// (services/api/app/api/v1/coalitions.py) from the already-published

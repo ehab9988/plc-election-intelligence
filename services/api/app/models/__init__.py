@@ -6,7 +6,7 @@ what Alembic's autogenerate and `Base.metadata.create_all` rely on.
 
 from .auth import ApiKey, AuditLog, Notification, Subscription, User
 from .base import Base
-from .coalition import CoalitionEvidence, CoalitionScenario
+from .coalition import CoalitionEvidence, CoalitionFormationEstimate, CoalitionScenario
 from .election import Election, ElectionRuleSetORM, ElectionTimelineEvent
 from .electoral import Candidate, CandidateRanking, ElectoralList, ElectoralListParty
 from .forecast import (
@@ -46,6 +46,7 @@ __all__ = [
     "CandidateRanking",
     "Citation",
     "CoalitionEvidence",
+    "CoalitionFormationEstimate",
     "CoalitionScenario",
     "Election",
     "ElectionRuleSetORM",

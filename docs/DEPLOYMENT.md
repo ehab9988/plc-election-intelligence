@@ -75,8 +75,12 @@ What the schedule does (see `services/ingestion/ingestion/celery_app.py` /
 | Task | Cadence (`.env`) | What it does |
 |---|---|---|
 | `ingest_all_sources_task` | `INGESTION_POLL_INTERVAL_MINUTES` (default 15) | Fetches active RSS `NewsSource` rows, dedupes, stores permitted metadata + snippet only, runs the configured `PoliticalNlpProvider`, flags high-impact/low-confidence extractions for review. |
-| `maybe_recompute_forecast_task` | `FORECAST_RECOMPUTE_INTERVAL_MINUTES` (default 60) | Re-runs the forecast if a new **manually-verified** poll exists — never on unverified data. |
-| `scan_coalition_signals_task` | nightly, 02:00 UTC | Re-extracts `coalition_with` relationships from recent articles and drafts low-confidence `CoalitionEvidence` rows for analyst review — never auto-verified. |
+| `discover_news_via_ai_task` | `INGESTION_POLL_INTERVAL_MINUTES` | No-ops unless `OPENAI_API_KEY` is set — otherwise searches the web for news via OpenAI's `web_search` tool (`sources/openai_search_adapter.py`), no per-outlet feed URL needed, and runs it through the same dedupe/extraction pipeline as RSS. |
+| `discover_polls_via_ai_task` | `FORECAST_RECOMPUTE_INTERVAL_MINUTES` | No-ops unless `OPENAI_API_KEY` is set — otherwise searches the web for polls and writes them `manually_verified=True` **immediately, with no human review step** (`poll_discovery.py`) — this DOES move the published forecast on the next recompute. See that module's docstring for the accuracy tradeoff. |
+| `discover_parties_via_ai_task` | `FORECAST_RECOMPUTE_INTERVAL_MINUTES` | No-ops unless `OPENAI_API_KEY` is set — otherwise searches the web for electoral lists/parties not yet in the database (`party_discovery.py`); registration status is still clamped to the "considering" family, since that clamp is about not asserting an unconfirmed legal outcome, not about requiring a human. |
+| `estimate_coalition_likelihoods_via_ai_task` | `FORECAST_RECOMPUTE_INTERVAL_MINUTES` | No-ops unless `OPENAI_API_KEY` is set — otherwise asks the model for its own numeric estimate of coalition-formation likelihood per party pair (`coalition_likelihood.py`) — an AI guess, always labeled as such, never a calibrated statistic. See `docs/COALITION_MODEL.md` section C. |
+| `maybe_recompute_forecast_task` | `FORECAST_RECOMPUTE_INTERVAL_MINUTES` (default 60) | Re-runs the forecast if a new verified poll exists (manually entered, or AI-discovered — both set the same flag) — never on unverified data. |
+| `scan_coalition_signals_task` | nightly, 02:00 UTC | Re-extracts `coalition_with`/`joint_list_with` relationships from recent articles and drafts low-confidence `CoalitionEvidence` rows — this one still stays low-confidence/drafted rather than auto-verified, since it's evidence about a specific claim, not a numeric estimate. |
 
 Set `NLP_PROVIDER` and the matching API key in `.env` (`anthropic_compatible`
 + `ANTHROPIC_API_KEY`, or `openai_compatible` + `OPENAI_API_KEY`) to enable

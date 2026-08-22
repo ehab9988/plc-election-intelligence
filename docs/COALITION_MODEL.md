@@ -1,7 +1,6 @@
 # Coalition Model
 
-Two deliberately separate concepts (spec section 22) — never merged into
-one number:
+Three deliberately separate concepts — never merged into one number:
 
 ## A. Mathematical coalition feasibility
 
@@ -40,7 +39,33 @@ If a future calibrated coalition-formation model is built from sufficient
 historical data, it should be exposed as a distinctly-labeled
 "coalition formation probability" field, not silently substituted for
 `CoalitionEvidence` — see spec section 22's explicit instruction to call
-it a "compatibility score" absent a calibrated methodology.
+it a "compatibility score" absent a calibrated methodology. Category C
+below is NOT that model — it is explicitly an interim, uncalibrated
+stand-in the product owner chose to add ahead of one existing (see that
+section for the honest tradeoff).
+
+## C. AI-estimated coalition-formation likelihood
+
+Added later, and different in kind from A and B — not a third way of
+computing the same objective feasibility number, and not another sourced
+evidence row. `CoalitionFormationEstimate`
+(`services/ingestion/ingestion/coalition_likelihood.py`) asks an LLM,
+with web search, for its own numeric guess (0-100) at how likely two
+parties are to end up on one shared list, run automatically with no
+human review step (an explicit product decision — see
+`poll_discovery.py`'s module docstring for the fuller reasoning, applied
+here to a still-more-speculative kind of claim). It is a single model's
+synthesis, not a calibrated statistic — there is no backtested
+methodology behind the number the way there is behind the seat forecast.
+
+Every place this is shown must label it as an AI estimate and must never
+render it next to the mathematical feasibility percentage in a way that
+could read as the same kind of number (see
+`CoalitionFormationEstimate`'s and the Flutter
+`CoalitionFormationEstimate` model's doc comments). This is the
+calibrated-methodology gap the paragraph above warns against — closing
+it honestly requires backtesting against real historical outcomes, which
+this build does not have.
 
 ## Auto-generated scenarios
 

@@ -43,14 +43,20 @@ dispatch:
    same code `docs/FREE_TIER_DEPLOYMENT.md`'s scheduler runs, just
    pointed at this SQLite file via `DATABASE_URL` instead of a hosted
    Postgres): fetches configured RSS sources (if any), **actively
-   searches the web for recent news and polls via OpenAI's `web_search`
-   tool if `OPENAI_API_KEY` is set** (no per-outlet feed URL needed —
-   `sources/openai_search_adapter.py` and `poll_discovery.py`), dedupes,
-   runs NLP extraction, drafts coalition evidence, and recomputes the
-   forecast if a new manually-verified poll exists. AI-discovered polls
-   are always stored **unverified** and cannot move the published
-   forecast until an analyst reviews and verifies them — see
-   `poll_discovery.py`'s module docstring for why that gate matters.
+   searches the web for recent news, polls, electoral lists/parties, and
+   coalition-formation signals via OpenAI's `web_search` tool if
+   `OPENAI_API_KEY` is set** (no per-outlet feed URL needed —
+   `sources/openai_search_adapter.py`, `poll_discovery.py`,
+   `party_discovery.py`, `coalition_likelihood.py`), dedupes, runs NLP
+   extraction, drafts coalition evidence, and recomputes the forecast if
+   a new verified poll exists. **Product decision: none of this has a
+   human review step.** AI-discovered polls are written trusted
+   (`manually_verified=True`) immediately and DO move the published
+   forecast on the next recompute — see `poll_discovery.py`'s module
+   docstring for the accuracy tradeoff this implies and the automated
+   (non-human) sanity checks that remain in place of a review step.
+   Coalition-formation likelihood is a separate, always AI-estimate-
+   labeled number — see `docs/COALITION_MODEL.md` section C.
 4. Runs `scripts/export_static_data.py`, which re-derives every JSON file
    under `data/` from the current database state — the exact same
    Pydantic schemas and router functions the live FastAPI endpoints use
@@ -171,14 +177,20 @@ server (see the README's "no Docker, no Postgres" quickstart).
   it works, before relying on the schedule. If the tool name has changed,
   the adapter fails closed (logs and returns no documents / no polls;
   never fabricates a result), it doesn't silently invent data.
-- **Poll discovery quality depends entirely on what the model finds and
-  reports faithfully.** The prompt instructs it to never invent numbers
-  and to always cite a real `source_url`, and every discovered poll is
-  stored `manually_verified=False` specifically because that instruction
-  cannot be verified in code — an analyst must check each discovered
-  poll's `source_url` before verifying it. This is a hard requirement,
-  not a suggestion: nothing in this codebase auto-verifies an
-  AI-discovered poll.
+- **Poll (and party/list, and coalition-estimate) discovery quality
+  depends entirely on what the model finds and reports faithfully, and
+  nothing here checks that beyond code-level sanity checks.** By
+  explicit product decision, none of this has a human review step —
+  every discovered poll is written `manually_verified=True`
+  immediately and DOES move the published forecast on the next
+  recompute. The prompt instructs the model to never invent numbers and
+  to always cite a real `source_url`, and `poll_discovery.py` rejects a
+  poll outright if its percentages fall outside 0-100 or it has no real
+  URL — but neither of those catches a plausible-looking wrong number, a
+  misread rumor reported as a confirmed poll, or a source that turns out
+  unreliable. That is a real, accepted risk on a platform about a real
+  election, not an oversight: it was chosen over requiring a human step
+  the shipped app has no screen to perform anyway.
 - **Git-as-database bloat.** `data/.state/plc_election.db` is committed
   on every run that changes it. SQLite files compress reasonably well in
   git's delta storage, but this will grow the repo's `.git` size

@@ -123,4 +123,7 @@ final electoralListsProvider = FutureProvider((ref) async {
 
 final coalitionEvidenceProvider = FutureProvider((ref) => ref.watch(coalitionRepositoryProvider).listEvidence());
 
+final coalitionFormationEstimatesProvider =
+    FutureProvider((ref) => ref.watch(coalitionRepositoryProvider).listFormationEstimates());
+
 final newsProvider = FutureProvider((ref) => ref.watch(newsRepositoryProvider).listNews());

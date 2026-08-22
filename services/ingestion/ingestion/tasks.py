@@ -34,6 +34,11 @@ def discover_parties_via_ai_task() -> dict:
     return jobs.discover_parties_via_ai()
 
 
+@shared_task(name="ingestion.tasks.estimate_coalition_likelihoods_via_ai_task")
+def estimate_coalition_likelihoods_via_ai_task() -> dict:
+    return jobs.estimate_coalition_likelihoods_via_ai()
+
+
 @shared_task(name="ingestion.tasks.maybe_recompute_forecast_task")
 def maybe_recompute_forecast_task() -> dict:
     return jobs.maybe_recompute_forecast()

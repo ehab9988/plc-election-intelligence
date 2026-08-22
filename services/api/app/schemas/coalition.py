@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime
 from uuid import UUID
 
 from pydantic import BaseModel
@@ -30,3 +31,16 @@ class CoalitionEvidenceOut(ORMModel):
     statement_summary: str
     source_id: UUID
     confidence: str
+
+
+class CoalitionFormationEstimateOut(ORMModel):
+    """An AI-generated estimate, never a calibrated statistic — see
+    app/models/coalition.py::CoalitionFormationEstimate's docstring."""
+
+    id: UUID
+    party_a_id: UUID
+    party_b_id: UUID
+    likelihood_pct: float
+    reasoning: str
+    model: str
+    generated_at: datetime

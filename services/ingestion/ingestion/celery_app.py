@@ -41,6 +41,10 @@ celery_app.conf.beat_schedule = {
         "task": "ingestion.tasks.discover_parties_via_ai_task",
         "schedule": settings.forecast_recompute_interval_minutes * 60,
     },
+    "estimate-coalition-likelihoods-via-ai": {
+        "task": "ingestion.tasks.estimate_coalition_likelihoods_via_ai_task",
+        "schedule": settings.forecast_recompute_interval_minutes * 60,
+    },
     "recompute-forecast-if-warranted": {
         "task": "ingestion.tasks.maybe_recompute_forecast_task",
         "schedule": settings.forecast_recompute_interval_minutes * 60,

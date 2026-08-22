@@ -175,5 +175,8 @@
   "registrationStatusDisqualified": "Disqualified",
   "confidenceLabel": "Confidence",
   "jointListReportedLabel": "Joint list reported",
-  "jointListReportedTooltip": "At least one source reports these parties running on one shared electoral list — not a probability, see the evidence below."
+  "jointListReportedTooltip": "At least one source reports these parties running on one shared electoral list — not a probability, see the evidence below.",
+  "aiFormationEstimatesTitle": "AI Coalition Estimates",
+  "aiEstimateDisclaimer": "A language model's own estimate from web search — not a calibrated statistic like the mathematical feasibility above. Treat as a rough guide, not a fact.",
+  "aiEstimateLabel": "AI estimate"
 }

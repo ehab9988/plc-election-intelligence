@@ -31,7 +31,7 @@ from typing import Any
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "services" / "api"))
 
-from app.api.v1.coalitions import list_coalition_evidence
+from app.api.v1.coalitions import list_coalition_evidence, list_formation_estimates
 from app.api.v1.elections import (
     get_current_election,
     get_election_rules,
@@ -48,7 +48,7 @@ from app.api.v1.polls import list_polls, polling_average
 from app.db import SessionLocal
 from app.models import ElectoralList, ForecastRun
 from app.models.enums import ForecastRunStatus
-from app.schemas.coalition import CoalitionEvidenceOut
+from app.schemas.coalition import CoalitionEvidenceOut, CoalitionFormationEstimateOut
 from app.schemas.election import (
     ElectionOut,
     ElectionRuleSetOut,
@@ -141,6 +141,11 @@ def export(db: Session, out_dir: Path) -> None:
             out_dir / "coalitions" / "by-party" / f"{pid}.json",
             [e for e in evidence if e.party_a_id == pid or e.party_b_id == pid],
         )
+
+    estimates = [
+        CoalitionFormationEstimateOut.model_validate(e) for e in list_formation_estimates(party_id=None, db=db)
+    ]
+    _write(out_dir / "coalitions" / "formation-estimates.json", estimates)
 
     _write(
         out_dir / "meta.json",

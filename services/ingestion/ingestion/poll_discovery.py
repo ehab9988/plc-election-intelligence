@@ -1,21 +1,25 @@
 """OpenAI web-search-based poll discovery. Finds recently published
-Palestinian election polls and drafts them into the database as
-UNVERIFIED rows (`Poll.manually_verified=False`) for analyst review —
-mirrors how `jobs.scan_coalition_signals()` drafts `CoalitionEvidence`
-rather than writing verified facts (spec section 53).
+Palestinian election polls and writes them straight into the database as
+trusted `Poll` rows (`manually_verified=True`) that immediately feed the
+seat forecast — no human review step, by explicit product decision: this
+platform runs fully autonomously on whatever OpenAI's web search finds,
+end to end.
 
-This is intentional and load-bearing, not an oversight:
-`jobs.maybe_recompute_forecast()` only ever triggers on a
-manually-verified poll, so an AI-discovered poll can NEVER move the
-published forecast until a human (or a documented trusted-pollster
-auto-verification policy this build does not implement) marks it
-verified. Discovered results are also stored with `electoral_list_id`
-unset (the AI-reported party/list label isn't resolved to a canonical
-`ElectoralList` row here — see `_resolve_party_mention`-style gap noted
-in jobs.py), which additionally keeps them out of
-`polling_average()` (services/api/app/api/v1/polls.py skips any
-`PollResult` with `electoral_list_id is None`) until an analyst maps the
-label and verifies the poll.
+That is a real accuracy tradeoff, stated plainly rather than hidden: an
+LLM web search can misread a rumor as a real poll, get a number wrong, or
+find a source that turns out unreliable, and there is no human check left
+to catch that before it moves the published forecast. Two automated
+(non-human) safeguards remain, because they're just code, not a workflow
+gate:
+  - a poll is only accepted if it cites a real source_url and reports
+    numeric results — see `_looks_plausible` below;
+  - `electoral_list_id` on each result is only set when the AI-reported
+    label can actually be matched to a real `ElectoralList` for this
+    election (`_resolve_electoral_list`) — an unmatched label is stored
+    for visibility but excluded from `polling_average()`/the forecast,
+    the same way it always was, since "we can't tell which list this is"
+    is a genuine data gap, not something a verification step used to
+    catch.
 
 Could not be exercised against a real OpenAI account in this development
 sandbox — see README "What could not be verified" and
@@ -31,7 +35,16 @@ from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from uuid import UUID
 
-from app.models import Poll, PollQuestion, PollResult, Pollster, Source
+from app.models import (
+    ElectoralList,
+    ElectoralListParty,
+    Party,
+    Poll,
+    PollQuestion,
+    PollResult,
+    Pollster,
+    Source,
+)
 from app.models.enums import PollMode, PollPopulation, SourceTier, SourceType
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -160,20 +173,67 @@ def _parse_date(value: str | None, fallback: date) -> date:
         return fallback
 
 
+def _looks_plausible(item: dict) -> bool:
+    """Automated (not human) sanity check: a real source URL, at least
+    one result, and every percentage in a physically sensible 0-100
+    range. Rejects obvious garbage without a person looking at it."""
+    if not item.get("source_url", "").startswith(("http://", "https://")):
+        return False
+    results = item.get("results") or []
+    if not results:
+        return False
+    return all(0 <= float(r.get("pct", -1)) <= 100 for r in results)
+
+
+def _resolve_electoral_list(db: Session, election_id: UUID, label: str) -> ElectoralList | None:
+    """Best-effort match of an AI-reported label to a real ElectoralList
+    for this election — by list name, or by a member party's name.
+    Returns None (leaving the result unlinked) rather than guessing."""
+    needle = f"%{label.strip()}%"
+    match = db.scalar(
+        select(ElectoralList).where(
+            ElectoralList.election_id == election_id,
+            (ElectoralList.list_name_en.ilike(needle)) | (ElectoralList.list_name_ar.ilike(needle)),
+        )
+    )
+    if match:
+        return match
+    party = db.scalar(select(Party).where((Party.name_en.ilike(needle)) | (Party.name_ar.ilike(needle))))
+    if party is None:
+        return None
+    link = db.scalar(select(ElectoralListParty).where(ElectoralListParty.party_id == party.id))
+    if link is None:
+        return None
+    return db.get(ElectoralList, link.electoral_list_id)
+
+
 def draft_polls_from_ai_discovery(
     db: Session, election_id: UUID, api_key: str | None, model: str = DEFAULT_MODEL
 ) -> dict:
-    """Drafts UNVERIFIED Poll rows from AI web search. Never sets
-    `manually_verified=True` — see module docstring."""
+    """Writes trusted Poll rows straight from AI web search —
+    manually_verified=True, feeding the forecast on the next recompute
+    with no human step. See module docstring for the tradeoff and the
+    automated (not human) safeguards that remain."""
     found = OpenAiPollDiscovery(api_key=api_key, model=model).discover()
-    stats = {"found": len(found), "drafted": 0, "skipped_existing": 0, "skipped_incomplete": 0}
+    stats = {
+        "found": len(found),
+        "drafted": 0,
+        "skipped_existing": 0,
+        "skipped_incomplete": 0,
+        "skipped_implausible": 0,
+        "results_matched_to_list": 0,
+        "results_unmatched": 0,
+    }
     today = datetime.now(UTC).date()
 
     for item in found:
-        results = item.get("results") or []
-        if not item.get("pollster_name") or not item.get("source_url") or not results:
+        if not item.get("pollster_name"):
             stats["skipped_incomplete"] += 1
             continue
+        if not _looks_plausible(item):
+            stats["skipped_implausible"] += 1
+            continue
+        results = item["results"]
 
         pub_date = _parse_date(item.get("publication_date"), today)
         fieldwork_start = _parse_date(item.get("fieldwork_start"), pub_date)
@@ -212,7 +272,7 @@ def draft_polls_from_ai_discovery(
             sample_size=item.get("sample_size") or 0,
             mode=PollMode.UNKNOWN,
             population=PollPopulation.LIKELY_VOTERS,
-            manually_verified=False,  # NEVER True here — see module docstring
+            manually_verified=True,  # trusted automatically — see module docstring
             import_timestamp=datetime.now(UTC),
         )
         db.add(poll)
@@ -227,10 +287,12 @@ def draft_polls_from_ai_discovery(
         db.flush()
 
         for r in results:
+            matched_list = _resolve_electoral_list(db, election_id, r["list_or_party_label"])
+            stats["results_matched_to_list" if matched_list else "results_unmatched"] += 1
             db.add(
                 PollResult(
                     poll_question_id=question.id,
-                    electoral_list_id=None,  # AI-reported label only; not resolved to a canonical list
+                    electoral_list_id=matched_list.id if matched_list else None,
                     label=r["list_or_party_label"],
                     raw_response_pct=float(r["pct"]),
                     normalized_pct=None,

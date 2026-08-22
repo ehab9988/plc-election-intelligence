@@ -5,9 +5,19 @@ against political compatibility is stored here, sourced and dated."""
 from __future__ import annotations
 
 import uuid
-from datetime import date
+from datetime import date, datetime
 
-from sqlalchemy import Boolean, Date, Enum, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import (
+    Boolean,
+    Date,
+    DateTime,
+    Enum,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base, TimestampMixin, UUIDPrimaryKeyMixin
@@ -57,3 +67,25 @@ class CoalitionEvidence(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         Enum(VerificationConfidence, name="verification_confidence"),
         default=VerificationConfidence.UNVERIFIED,
     )
+
+
+class CoalitionFormationEstimate(UUIDPrimaryKeyMixin, TimestampMixin, Base):
+    """An AI-generated numeric estimate of the likelihood two parties end
+    up running on one shared electoral list. Explicitly NOT a calibrated
+    statistic the way the seat-majority probability is (that comes from
+    real Monte Carlo simulation over polling data) — this is a single
+    language model's synthesis of whatever it found via web search,
+    always labeled as an AI estimate wherever it's shown, never merged
+    into the mathematical feasibility number. Generated with no human
+    review step (product decision — see poll_discovery.py's module
+    docstring for the same tradeoff applied to polls, and
+    coalition_likelihood.py for this one)."""
+
+    __tablename__ = "coalition_formation_estimates"
+
+    party_a_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("parties.id"))
+    party_b_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("parties.id"))
+    likelihood_pct: Mapped[float] = mapped_column(Float)  # 0-100, the model's own estimate
+    reasoning: Mapped[str] = mapped_column(Text)
+    model: Mapped[str] = mapped_column(String(100))
+    generated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))

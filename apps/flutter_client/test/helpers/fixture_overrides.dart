@@ -29,5 +29,6 @@ List<Override> fixtureProviderOverrides() => [
       coalitionEvidenceProvider.overrideWith(
         (ref) async => fixture.demoCoalitionEvidence.map(CoalitionEvidence.fromJson).toList(),
       ),
+      coalitionFormationEstimatesProvider.overrideWith((ref) async => const <CoalitionFormationEstimate>[]),
       newsProvider.overrideWith((ref) async => fixture.demoNews.map(NewsArticle.fromJson).toList()),
     ];

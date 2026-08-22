@@ -36,6 +36,43 @@ class CoalitionEvidence {
       );
 }
 
+/// An AI-generated numeric estimate of how likely two parties are to run
+/// on one shared list — NOT a calibrated statistic the way
+/// [CoalitionSimulationResult.majorityProbability] is (that comes from
+/// real Monte Carlo simulation). A single language model's synthesized
+/// guess from a web search. Always render this with an explicit "AI
+/// estimate" label — never alongside the majority probability as if the
+/// two were the same kind of number. See docs/COALITION_MODEL.md.
+class CoalitionFormationEstimate {
+  final String id;
+  final String partyAId;
+  final String partyBId;
+  final double likelihoodPct;
+  final String reasoning;
+  final String model;
+  final DateTime generatedAt;
+
+  const CoalitionFormationEstimate({
+    required this.id,
+    required this.partyAId,
+    required this.partyBId,
+    required this.likelihoodPct,
+    required this.reasoning,
+    required this.model,
+    required this.generatedAt,
+  });
+
+  factory CoalitionFormationEstimate.fromJson(Map<String, dynamic> json) => CoalitionFormationEstimate(
+        id: json['id'] as String,
+        partyAId: json['party_a_id'] as String,
+        partyBId: json['party_b_id'] as String,
+        likelihoodPct: (json['likelihood_pct'] as num).toDouble(),
+        reasoning: json['reasoning'] as String,
+        model: json['model'] as String,
+        generatedAt: DateTime.parse(json['generated_at'] as String),
+      );
+}
+
 class CoalitionSimulationResult {
   final List<String> electoralListIds;
   final int majorityThreshold;

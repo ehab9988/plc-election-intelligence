@@ -883,6 +883,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'At least one source reports these parties running on one shared electoral list — not a probability, see the evidence below.'**
   String get jointListReportedTooltip;
+
+  /// No description provided for @aiFormationEstimatesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Coalition Estimates'**
+  String get aiFormationEstimatesTitle;
+
+  /// No description provided for @aiEstimateDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'A language model\'s own estimate from web search — not a calibrated statistic like the mathematical feasibility above. Treat as a rough guide, not a fact.'**
+  String get aiEstimateDisclaimer;
+
+  /// No description provided for @aiEstimateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'AI estimate'**
+  String get aiEstimateLabel;
 }
 
 class _AppLocalizationsDelegate

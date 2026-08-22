@@ -230,9 +230,11 @@ def discover_news_via_ai() -> dict:
 
 def discover_polls_via_ai() -> dict:
     """Uses OpenAI's web_search tool to find recently published polls and
-    drafts them as UNVERIFIED Poll rows for analyst review — see
-    poll_discovery.py's module docstring for why this can never move the
-    published forecast on its own."""
+    writes them as trusted, manually_verified=True Poll rows — no human
+    review step, by explicit product decision. This DOES feed the
+    published forecast on the next recompute. See poll_discovery.py's
+    module docstring for the accuracy tradeoff and the automated (not
+    human) sanity checks that remain."""
     if not settings.openai_api_key:
         return {"status": "skipped_no_api_key"}
 
@@ -270,11 +272,31 @@ def discover_parties_via_ai() -> dict:
         db.close()
 
 
+def estimate_coalition_likelihoods_via_ai() -> dict:
+    """Uses OpenAI's web_search tool to generate a CoalitionFormationEstimate
+    for every party pair with existing CoalitionEvidence — see
+    coalition_likelihood.py's module docstring for why this is kept
+    strictly separate from both the sourced evidence rows and the real
+    Monte Carlo majority probability."""
+    if not settings.openai_api_key:
+        return {"status": "skipped_no_api_key"}
+
+    from .coalition_likelihood import estimate_formation_likelihoods_via_ai
+
+    db = SessionLocal()
+    try:
+        return estimate_formation_likelihoods_via_ai(db, settings.openai_api_key, settings.openai_model)
+    finally:
+        db.close()
+
+
 def maybe_recompute_forecast() -> dict:
-    """Re-runs the forecast for the current election if a manually-verified
-    poll exists. Never triggers on unverified poll imports or unreviewed
-    NLP extractions — only on data an analyst (or an authoritative source)
-    has confirmed (section 53, 60)."""
+    """Re-runs the forecast for the current election if a
+    manually_verified poll exists. Since poll_discovery.py now sets that
+    flag automatically (no human review step), this triggers on
+    AI-discovered polls too, not just ones an analyst confirmed by
+    hand — the name is a holdover from when it meant something
+    stricter."""
     db = SessionLocal()
     try:
         election = db.scalar(select(Election).where(Election.is_current.is_(True)))

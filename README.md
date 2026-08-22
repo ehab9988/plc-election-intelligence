@@ -258,13 +258,20 @@ This continuously: fetches configured RSS `NewsSource` rows, extracts
 structured entities/events/coalition signals via Claude or an
 OpenAI-compatible model (set `NLP_PROVIDER=anthropic_compatible` +
 `ANTHROPIC_API_KEY`, or `NLP_PROVIDER=openai_compatible` +
-`OPENAI_API_KEY`, in `.env`), drafts `CoalitionEvidence` rows for analyst
-review, and re-runs the forecast whenever a new **manually-verified** poll
-appears — see `docs/DEPLOYMENT.md` "24/7 ingestion & forecasting" for the
-full schedule and what each task does. Nothing here fabricates a poll or
-news article that doesn't exist — the scheduler only processes real
-fetched content, and (per CRITICAL ACCURACY RULE #6/#53) auto-drafted
-coalition evidence is never marked verified without a human review step.
+`OPENAI_API_KEY`, in `.env`), drafts `CoalitionEvidence` rows, and
+re-runs the forecast whenever a new verified poll appears — either one
+an analyst entered by hand, or (if `OPENAI_API_KEY` is set) one
+`poll_discovery.py` found via web search and wrote as verified
+automatically, by explicit product decision to run with no human review
+step. Also runs `party_discovery.py` (new electoral lists/parties) and
+`coalition_likelihood.py` (AI-estimated, always labeled-as-such
+coalition-formation likelihoods, never a calibrated statistic) on the
+same schedule — see `docs/DEPLOYMENT.md` "24/7 ingestion & forecasting"
+and `docs/COALITION_MODEL.md` for the full picture. Nothing here
+fabricates a poll or news article that doesn't exist — every discovery
+step requires a real cited source — but see
+`docs/STATIC_GITHUB_DEPLOYMENT.md`'s "Honest limitations" for the actual
+accuracy tradeoff this no-review-step decision implies.
 
 ### Tests
 

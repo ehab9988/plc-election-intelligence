@@ -448,4 +448,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get jointListReportedTooltip =>
       'At least one source reports these parties running on one shared electoral list — not a probability, see the evidence below.';
+
+  @override
+  String get aiFormationEstimatesTitle => 'AI Coalition Estimates';
+
+  @override
+  String get aiEstimateDisclaimer =>
+      'A language model\'s own estimate from web search — not a calibrated statistic like the mathematical feasibility above. Treat as a rough guide, not a fact.';
+
+  @override
+  String get aiEstimateLabel => 'AI estimate';
 }

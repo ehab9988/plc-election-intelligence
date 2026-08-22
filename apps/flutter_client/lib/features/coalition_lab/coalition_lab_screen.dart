@@ -70,6 +70,8 @@ class _CoalitionLabScreenState extends ConsumerState<CoalitionLabScreen> {
     final l10n = context.l10n;
     final listsAsync = ref.watch(electoralListsProvider);
     final evidenceAsync = ref.watch(coalitionEvidenceProvider);
+    final estimatesAsync = ref.watch(coalitionFormationEstimatesProvider);
+    final partiesAsync = ref.watch(partiesProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -146,6 +148,49 @@ class _CoalitionLabScreenState extends ConsumerState<CoalitionLabScreen> {
                         ))
                     .toList(),
               ),
+            ),
+            const SizedBox(height: 24),
+            Text(l10n.aiFormationEstimatesTitle, style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 4),
+            Text(l10n.aiEstimateDisclaimer, style: Theme.of(context).textTheme.bodySmall),
+            const SizedBox(height: 8),
+            AsyncView(
+              value: estimatesAsync,
+              builder: (context, estimates) {
+                final parties = partiesAsync.valueOrNull ?? const [];
+                String nameFor(String id) {
+                  final matches = parties.where((p) => p.id == id);
+                  if (matches.isEmpty) return id;
+                  return context.primaryName(en: matches.first.nameEn, ar: matches.first.nameAr);
+                }
+
+                return Column(
+                  children: estimates
+                      .map((e) => Card(
+                            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                            child: ListTile(
+                              leading: const Icon(Icons.auto_awesome_outlined, size: 20),
+                              title: Text('${nameFor(e.partyAId)} × ${nameFor(e.partyBId)}'),
+                              subtitle: Text(e.reasoning, maxLines: 3, overflow: TextOverflow.ellipsis),
+                              trailing: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    '${e.likelihoodPct.round()}%',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(l10n.aiEstimateLabel, style: Theme.of(context).textTheme.labelSmall),
+                                ],
+                              ),
+                            ),
+                          ))
+                      .toList(),
+                );
+              },
             ),
           ],
         ),

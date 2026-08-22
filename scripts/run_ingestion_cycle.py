@@ -8,8 +8,11 @@ have access to (`*/15 * * * * python scripts/run_ingestion_cycle.py`).
 
 Runs, in order: ingest_all_sources -> discover_news_via_ai ->
 discover_polls_via_ai -> discover_parties_via_ai ->
-maybe_recompute_forecast. The three discover_*_via_ai steps no-op unless
-OPENAI_API_KEY is set. Coalition signal scanning
+estimate_coalition_likelihoods_via_ai -> maybe_recompute_forecast. The
+four *_via_ai steps no-op unless OPENAI_API_KEY is set, and (product
+decision — see poll_discovery.py's module docstring) run with no human
+review step: an AI-discovered poll is trusted immediately and can move
+the published forecast on its own. Coalition signal scanning
 (scan_coalition_signals) is heavier and does not need to run every
 cycle — pass --with-coalition-scan to include it (the GitHub Actions
 workflow does this once a day, not every scheduled run).
@@ -46,11 +49,14 @@ def main() -> int:
     print("Discovering news via OpenAI web search (no-op if OPENAI_API_KEY is unset)...", flush=True)
     results["discover_news_via_ai"] = jobs.discover_news_via_ai()
 
-    print("Discovering polls via OpenAI web search (drafts UNVERIFIED rows only)...", flush=True)
+    print("Discovering polls via OpenAI web search (trusted automatically, no review step)...", flush=True)
     results["discover_polls_via_ai"] = jobs.discover_polls_via_ai()
 
     print("Discovering electoral lists/parties via OpenAI web search...", flush=True)
     results["discover_parties_via_ai"] = jobs.discover_parties_via_ai()
+
+    print("Estimating coalition-formation likelihoods via OpenAI web search...", flush=True)
+    results["estimate_coalition_likelihoods_via_ai"] = jobs.estimate_coalition_likelihoods_via_ai()
 
     print("Checking whether a forecast recompute is warranted...", flush=True)
     results["maybe_recompute_forecast"] = jobs.maybe_recompute_forecast()
