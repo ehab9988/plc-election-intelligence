@@ -29,6 +29,11 @@ def discover_polls_via_ai_task() -> dict:
     return jobs.discover_polls_via_ai()
 
 
+@shared_task(name="ingestion.tasks.discover_parties_via_ai_task")
+def discover_parties_via_ai_task() -> dict:
+    return jobs.discover_parties_via_ai()
+
+
 @shared_task(name="ingestion.tasks.maybe_recompute_forecast_task")
 def maybe_recompute_forecast_task() -> dict:
     return jobs.maybe_recompute_forecast()

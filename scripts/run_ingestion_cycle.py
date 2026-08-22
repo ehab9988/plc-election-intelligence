@@ -1,19 +1,18 @@
 """Runs one ingestion cycle directly — no Celery, no Redis, no
-long-running process required. Built for a GitHub Actions scheduled
-workflow (see .github/workflows/ingestion-cron.yml and
-docs/FREE_TIER_DEPLOYMENT.md), which spins up a fresh runner per
-invocation and has nowhere to host a persistent broker/worker anyway.
-It is equally usable as a plain cron job on any machine you do have
-access to (`*/15 * * * * python scripts/run_ingestion_cycle.py`).
+long-running process required. Used by
+.github/workflows/publish-static-data.yml (the no-server deployment
+path — see docs/STATIC_GITHUB_DEPLOYMENT.md), which spins up a fresh
+runner per invocation and has nowhere to host a persistent broker/worker
+anyway. It is equally usable as a plain cron job on any machine you do
+have access to (`*/15 * * * * python scripts/run_ingestion_cycle.py`).
 
-Runs, in order: ingest_all_sources -> maybe_recompute_forecast. Coalition
-signal scanning (scan_coalition_signals) is heavier and does not need to
-run every cycle — pass --with-coalition-scan to include it (the GitHub
-Actions workflow does this once a day, not every 15-minute run).
-
-This script could not be executed in this repository's development
-sandbox (no working Python runtime — see README "What could not be
-verified").
+Runs, in order: ingest_all_sources -> discover_news_via_ai ->
+discover_polls_via_ai -> discover_parties_via_ai ->
+maybe_recompute_forecast. The three discover_*_via_ai steps no-op unless
+OPENAI_API_KEY is set. Coalition signal scanning
+(scan_coalition_signals) is heavier and does not need to run every
+cycle — pass --with-coalition-scan to include it (the GitHub Actions
+workflow does this once a day, not every scheduled run).
 """
 
 from __future__ import annotations
@@ -49,6 +48,9 @@ def main() -> int:
 
     print("Discovering polls via OpenAI web search (drafts UNVERIFIED rows only)...", flush=True)
     results["discover_polls_via_ai"] = jobs.discover_polls_via_ai()
+
+    print("Discovering electoral lists/parties via OpenAI web search...", flush=True)
+    results["discover_parties_via_ai"] = jobs.discover_parties_via_ai()
 
     print("Checking whether a forecast recompute is warranted...", flush=True)
     results["maybe_recompute_forecast"] = jobs.maybe_recompute_forecast()

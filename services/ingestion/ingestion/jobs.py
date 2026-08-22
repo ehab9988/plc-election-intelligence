@@ -248,6 +248,28 @@ def discover_polls_via_ai() -> dict:
         db.close()
 
 
+def discover_parties_via_ai() -> dict:
+    """Uses OpenAI's web_search tool to find electoral lists/parties not
+    yet in the database and drafts them for analyst review — see
+    party_discovery.py's module docstring for the registration_status
+    safety clamp (never claims an official outcome from AI alone)."""
+    if not settings.openai_api_key:
+        return {"status": "skipped_no_api_key"}
+
+    from .party_discovery import draft_electoral_lists_from_ai_discovery
+
+    db = SessionLocal()
+    try:
+        election = db.scalar(select(Election).where(Election.is_current.is_(True)))
+        if election is None:
+            return {"status": "no_current_election"}
+        return draft_electoral_lists_from_ai_discovery(
+            db, election.id, settings.openai_api_key, settings.openai_model
+        )
+    finally:
+        db.close()
+
+
 def maybe_recompute_forecast() -> dict:
     """Re-runs the forecast for the current election if a manually-verified
     poll exists. Never triggers on unverified poll imports or unreviewed
