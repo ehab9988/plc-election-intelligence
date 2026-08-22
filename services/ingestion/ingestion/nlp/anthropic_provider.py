@@ -43,8 +43,15 @@ Event categories (category): "party_alliance", "candidate_withdrawal", \
 "ceasefire_war_development", "corruption_allegation", "economic_event", \
 "campaign_launch", "polling_shock", "other".
 Relationship types (relationship_type): "member_of", "affiliated_with", \
-"electoral_list_of", "coalition_with", "split_from", "led_by", \
-"endorsed_by", "historical_affiliation".
+"electoral_list_of", "coalition_with", "joint_list_with", "split_from", \
+"led_by", "endorsed_by", "historical_affiliation". Use "joint_list_with" \
+ONLY when the text says the two parties are running (or have explicitly \
+announced they will run) on ONE shared, unified electoral list/ballot — \
+not just cooperating, allying, or discussing a future governing \
+coalition while still filing separately. Use "coalition_with" for that \
+broader case. If the text is ambiguous about which of the two it means, \
+use "coalition_with" and let a human reviewer decide — never guess \
+"joint_list_with" to sound more specific than the source actually is.
 
 For every entity, event, claim, and relationship you extract, include the \
 exact quoted or closely-paraphrased text from the article as evidence — \

@@ -283,10 +283,15 @@ def maybe_recompute_forecast() -> dict:
 
 def scan_coalition_signals() -> dict:
     """Scans recently-ingested articles' NLP extractions for
-    coalition_with relationships and drafts CoalitionEvidence rows for
-    analyst review. Never marks a draft as verified automatically —
-    coalition/alliance claims are exactly the kind of high-impact change
-    spec section 53 requires human review for."""
+    coalition_with and joint_list_with relationships and drafts
+    CoalitionEvidence rows for analyst review. Never marks a draft as
+    verified automatically — coalition/alliance claims are exactly the
+    kind of high-impact change spec section 53 requires human review
+    for, and "will these two parties run on one list" is deliberately
+    never scored as a probability — see docs/COALITION_MODEL.md. It's
+    surfaced only as this same kind of sourced, confidence-tagged
+    evidence, with implies_joint_list distinguishing it from a broader
+    coalition_with claim."""
     db = SessionLocal()
     stats = {"drafted": 0, "skipped_unresolved": 0}
     try:
@@ -306,7 +311,8 @@ def scan_coalition_signals() -> dict:
                 continue
             extraction = nlp.extract(article.permitted_snippet, article.language)
             for rel in extraction.relationships:
-                if rel.get("relationship_type") != "coalition_with":
+                rel_type = rel.get("relationship_type")
+                if rel_type not in ("coalition_with", "joint_list_with"):
                     continue
                 party_a = _resolve_party_mention(db, rel.get("entity_a", ""))
                 party_b = _resolve_party_mention(db, rel.get("entity_b", ""))
@@ -338,6 +344,7 @@ def scan_coalition_signals() -> dict:
                         party_a_id=party_a.id,
                         party_b_id=party_b.id,
                         evidence_type="supporting",
+                        implies_joint_list=rel_type == "joint_list_with",
                         statement_summary=article.headline,
                         statement_date=article.published_at.date(),
                         source_id=source.id,

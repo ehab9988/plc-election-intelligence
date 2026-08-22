@@ -102,7 +102,6 @@
   "mathematicalFeasibilityNote": "جدوى رياضية فقط — يُعرض التوافق السياسي بشكل منفصل ولا يُقدَّم أبدًا كاحتمال تشكيل ائتلاف.",
   "settingsApiBaseUrl": "رابط واجهة البرمجة",
   "settingsDataSource": "مصدر البيانات",
-  "settingsDataSourceDemo": "تجريبي (بيانات نموذجية مضمّنة)",
   "settingsDataSourceLiveApi": "واجهة برمجة مباشرة",
   "settingsDataSourceStatic": "ثابت (GitHub)",
   "settingsStaticBaseUrl": "رابط بيانات GitHub الثابتة",
@@ -112,5 +111,69 @@
   "reportForecastTitle": "تقرير التوقعات",
   "reportCoalitionTitle": "تقرير سيناريو الائتلاف",
   "notAnOfficialResult": "هذا توقع إحصائي وليس نتيجة رسمية.",
-  "reportDisclaimer": "تم إنشاؤه بواسطة تطبيق استخبارات الانتخابات التشريعية. كل رقم هو تقدير نموذجي له تاريخ قطع بيانات محدد ونطاق عدم يقين — راجع صفحة المنهجية للاطلاع على المنهجية الإحصائية الكاملة."
+  "reportDisclaimer": "تم إنشاؤه بواسطة تطبيق استخبارات الانتخابات التشريعية. كل رقم هو تقدير نموذجي له تاريخ قطع بيانات محدد ونطاق عدم يقين — راجع صفحة المنهجية للاطلاع على المنهجية الإحصائية الكاملة.",
+  "candidateDetailUnavailable": "تفاصيل المرشح تتطلب اتصالاً حيًا أو ببيانات ثابتة. يرجى ضبط مصدر البيانات من الإعدادات.",
+  "methodologyPollingAvgBody": "متوسط مرجّح لاستطلاعات الرأي التي تطرح نفس سؤال \"لو أجريت الانتخابات اليوم\". الوزن = الحداثة × حجم العينة × نوع الفئة السكانية × جودة جهة الاستطلاع. لا يتم أبدًا حساب متوسط استطلاعات صيغت بأسئلة مختلفة، ولا يُحتسب أي استطلاع مرتين.",
+  "methodologyForecastBody": "محاكاة مونت كارلو مبنية على متوسط الاستطلاعات، مع إضافة عدم يقين نمذجي ناتج عن تأثيرات الجهة المنظمة، ونسبة المشاركة، والناخبين غير الحاسمين. يُعرض الوسيط ونطاقات 50%/80%/95% — وليس رقمًا واحدًا يُقدَّم كحقيقة.",
+  "methodologySeatAllocationTitle": "توزيع المقاعد",
+  "methodologySeatAllocationBody": "تُوزَّع المقاعد باستخدام طريقة سانت ليغو وفق قواعد الانتخابات الرسمية المعتمدة حاليًا (132 مقعدًا، عتبة وطنية 1%). خط الأغلبية يُحسب دائمًا كـ: (إجمالي المقاعد ÷ 2) + 1 — أي 67 مقعدًا من أصل 132.",
+  "methodologyCandidateProbTitle": "احتمال فوز المرشح بمقعد",
+  "methodologyCandidateProbBody": "بما أن هذه انتخابات بنظام القائمة المغلقة، فإن الناخب يصوّت لقائمة وليس لمرشح فردي. احتمال فوز المرشح بمقعد هو احتمال أن تفوز قائمته بعدد مقاعد لا يقل عن ترتيبه ضمن القائمة، استنادًا إلى نفس عمليات المحاكاة المستخدمة في توقع المقاعد. لا يتم أبدًا حساب أو عرض نسبة تصويت فردية لمرشح.",
+  "methodologyCoalitionLabBody": "الجدوى الرياضية (احتمال وصول مجموعة من القوائم إلى الأغلبية) تُحسب مباشرة من بيانات المحاكاة. أما التوافق السياسي — مدى استعداد الأحزاب للتعاون — فهو تقييم منفصل مستند إلى أدلة، ولا يُعرض أبدًا كاحتمال معايَر ما لم تدعمه منهجية إحصائية فعلية.",
+  "methodologyUncertaintyTitle": "عدم اليقين وسلامة النموذج",
+  "methodologyUncertaintyBody": "إذا كان آخر استطلاع عالي الجودة قديمًا، يتسع نطاق عدم اليقين في التوقع بدلاً من أن يبقى ضيقًا بشكل مصطنع. يحمل كل توقع رقم إصدار النموذج، وإصدار مجموعة البيانات، وطابعًا زمنيًا لتاريخ قطع البيانات، بحيث يمكن إعادة إنتاجه ومراجعته.",
+  "methodologyFooter": "يطبّق هذا المنتج نفس المنهجية على كل حزب أو قائمة. لا يُوصي بكيفية التصويت ولا يُعدِّل النتائج لصالح أي اتجاه سياسي.",
+  "pollingAverageExplanation": "متوسط مرجّح لاستطلاعات الرأي التي تطرح نفس سؤال \"لو أجريت الانتخابات اليوم\". هذا ليس توقعًا — راجع صفحة المنهجية لمعرفة صيغة الترجيح.",
+  "modelSimulationsLabel": "النموذج {version} · {count} محاكاة",
+  "@modelSimulationsLabel": {
+    "placeholders": { "version": { "type": "String" }, "count": { "type": "int" } }
+  },
+  "whyThisChangedLabel": "سبب هذا التغيير: {reason}",
+  "@whyThisChangedLabel": {
+    "placeholders": { "reason": { "type": "String" } }
+  },
+  "medianSeatForecastLine": "توقع وسيط المقاعد. خط الأغلبية: {majority} من أصل {total} مقعدًا.",
+  "@medianSeatForecastLine": {
+    "placeholders": { "majority": { "type": "int" }, "total": { "type": "int" } }
+  },
+  "fieldworkLabel": "ميدان العمل {start}–{end}",
+  "@fieldworkLabel": {
+    "placeholders": { "start": { "type": "String" }, "end": { "type": "String" } }
+  },
+  "verifiedLabel": "موثّق",
+  "candidateListPendingForecast": "ستتوفر قائمة المرشحين واحتمالات فوزهم بمقاعد فردية بمجرد ربط القائمة الانتخابية لهذا الحزب بتوقع منشور.",
+  "settingsAlerts": "التنبيهات",
+  "settingsAlertsSubtitle": "متابعة الأحزاب والمرشحين وجهات الاستطلاع والمحافظات",
+  "settingsSubscription": "الاشتراك",
+  "settingsSubscriptionSubtitle": "مجاني · مميز · احترافي (وصول لواجهة البرمجة)",
+  "settingsPrivacy": "الخصوصية",
+  "updatedLabel": "تحديث",
+  "justNowLabel": "الآن",
+  "minutesAgoLabel": "قبل {minutes} دقيقة",
+  "@minutesAgoLabel": {
+    "placeholders": { "minutes": { "type": "int" } }
+  },
+  "hoursAgoLabel": "قبل {hours} ساعة",
+  "@hoursAgoLabel": {
+    "placeholders": { "hours": { "type": "int" } }
+  },
+  "forecastBadgeText": "توقع",
+  "seatsEightyRangeLabel": "مقعدًا · نطاق 80%: {low}–{high}",
+  "@seatsEightyRangeLabel": {
+    "placeholders": { "low": { "type": "int" }, "high": { "type": "int" } }
+  },
+  "largestListProbShort": "احتمال الصدارة",
+  "majorityProbShort": "احتمال الأغلبية",
+  "registrationStatusRumored": "إشاعة",
+  "registrationStatusConsidering": "قيد الدراسة",
+  "registrationStatusAnnouncedIntention": "أُعلنت النية",
+  "registrationStatusSubmittedRegistration": "قُدّم طلب التسجيل",
+  "registrationStatusProvisional": "مؤقت",
+  "registrationStatusOfficiallyApproved": "معتمد رسميًا",
+  "registrationStatusRejected": "مرفوض",
+  "registrationStatusWithdrawn": "منسحب",
+  "registrationStatusDisqualified": "مستبعد",
+  "confidenceLabel": "درجة الثقة",
+  "jointListReportedLabel": "قائمة مشتركة مُبلَّغ عنها",
+  "jointListReportedTooltip": "أفاد مصدر واحد على الأقل بأن هذين الحزبين سيخوضان الانتخابات بقائمة انتخابية واحدة مشتركة — هذا ليس احتمالاً إحصائيًا، راجع الأدلة أدناه."
 }

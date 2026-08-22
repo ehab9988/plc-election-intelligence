@@ -26,6 +26,7 @@ class CoalitionEvidenceOut(ORMModel):
     party_a_id: UUID
     party_b_id: UUID
     evidence_type: str
+    implies_joint_list: bool
     statement_summary: str
     source_id: UUID
     confidence: str

@@ -7,7 +7,7 @@ from __future__ import annotations
 import uuid
 from datetime import date
 
-from sqlalchemy import Date, Enum, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, Date, Enum, Float, ForeignKey, Integer, String, Text
 from .types import ARRAY, UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -44,6 +44,12 @@ class CoalitionEvidence(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     party_a_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("parties.id"))
     party_b_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("parties.id"))
     evidence_type: Mapped[str] = mapped_column(String(100))  # supporting | conflicting
+    # Distinct from evidence_type: whether this specific piece of evidence
+    # reports the two parties running (or announcing they will run) on ONE
+    # unified electoral list, vs. a broader political alliance/governing
+    # coalition that still files separately. Still never a probability —
+    # a categorical, sourced signal like every other field here.
+    implies_joint_list: Mapped[bool] = mapped_column(Boolean, default=False)
     statement_summary: Mapped[str] = mapped_column(Text)
     statement_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     source_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("sources.id"))

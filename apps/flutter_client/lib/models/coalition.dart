@@ -3,6 +3,12 @@ class CoalitionEvidence {
   final String partyAId;
   final String partyBId;
   final String evidenceType; // supporting | conflicting
+  // Distinct from evidenceType: reports the two parties running (or
+  // announcing they will run) on ONE shared electoral list, not just a
+  // broader political alliance. Still a sourced, confidence-tagged
+  // signal — never a fabricated formation probability. See
+  // docs/COALITION_MODEL.md.
+  final bool impliesJointList;
   final String statementSummary;
   final String sourceId;
   final String confidence;
@@ -12,6 +18,7 @@ class CoalitionEvidence {
     required this.partyAId,
     required this.partyBId,
     required this.evidenceType,
+    required this.impliesJointList,
     required this.statementSummary,
     required this.sourceId,
     required this.confidence,
@@ -22,6 +29,7 @@ class CoalitionEvidence {
         partyAId: json['party_a_id'] as String,
         partyBId: json['party_b_id'] as String,
         evidenceType: json['evidence_type'] as String,
+        impliesJointList: json['implies_joint_list'] as bool? ?? false,
         statementSummary: json['statement_summary'] as String,
         sourceId: json['source_id'] as String,
         confidence: json['confidence'] as String,

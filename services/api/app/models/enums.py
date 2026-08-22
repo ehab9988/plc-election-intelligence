@@ -53,6 +53,10 @@ class RelationshipType(str, enum.Enum):
     AFFILIATED_WITH = "affiliated_with"
     ELECTORAL_LIST_OF = "electoral_list_of"
     COALITION_WITH = "coalition_with"
+    # Distinct from COALITION_WITH: two parties running (or explicitly
+    # stated to be running) on ONE shared, unified electoral list, not
+    # just a governing/political alliance while still filing separately.
+    JOINT_LIST_WITH = "joint_list_with"
     SPLIT_FROM = "split_from"
     LED_BY = "led_by"
     ENDORSED_BY = "endorsed_by"

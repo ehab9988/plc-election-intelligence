@@ -131,7 +131,17 @@ class _CoalitionLabScreenState extends ConsumerState<CoalitionLabScreen> {
                               color: e.evidenceType == 'supporting' ? Colors.green : Colors.red,
                             ),
                             title: Text(e.statementSummary),
-                            subtitle: Text('Confidence: ${e.confidence}'),
+                            subtitle: Text('${l10n.confidenceLabel}: ${e.confidence}'),
+                            trailing: e.impliesJointList
+                                ? Tooltip(
+                                    message: l10n.jointListReportedTooltip,
+                                    child: Chip(
+                                      avatar: const Icon(Icons.link, size: 16),
+                                      label: Text(l10n.jointListReportedLabel),
+                                      visualDensity: VisualDensity.compact,
+                                    ),
+                                  )
+                                : null,
                           ),
                         ))
                     .toList(),
