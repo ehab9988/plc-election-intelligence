@@ -21,12 +21,14 @@ stack described in the product spec — not just a plan. It includes:
   `flutter build windows --release` succeeds. Includes working Arabic/RTL
   (verified by an automated locale-switch test) and PDF report export for
   parties, candidates, forecasts, and coalition scenarios.
-- A complete FastAPI + SQLAlchemy backend (36 tables across elections,
-  parties, people, polls, forecasts, coalitions, news, provenance, auth)
-  with a working forecast pipeline (polling average → Monte Carlo
-  simulation → seat/candidate/coalition probabilities), written and
-  internally consistent, but **not executed** in this build's sandbox —
-  see "What could not be verified" below.
+- A complete, **installed-and-tested** FastAPI + SQLAlchemy backend (36
+  tables across elections, parties, people, polls, forecasts, coalitions,
+  news, provenance, auth) with a working forecast pipeline (polling
+  average → Monte Carlo simulation → seat/candidate/coalition
+  probabilities) — 36/36 Python tests passing (`election_rules_py` 22,
+  `forecasting` 5, `api` 4, `ingestion` 5) — see "What could not be
+  verified" below for the one caveat that remains (no live Postgres in
+  this sandbox, so the ORM layer is verified against SQLite instead).
 - A Celery-based 24/7 ingestion scheduler (RSS fetch → dedupe → LLM-backed
   extraction → coalition-signal drafting → conditional forecast
   re-computation) with a Claude-backed and an OpenAI-compatible
@@ -38,8 +40,14 @@ stack described in the product spec — not just a plan. It includes:
   fabricated): Al Jazeera's Aug 19, 2026 reporting on Hamas/Islamic
   Jihad/PFLP/National Initiative/Dahlan-faction alliance talks, and
   Fatah's stated refusal to join a joint list with Hamas — see
-  `apps/flutter_client/lib/data/fixtures/demo_fixture.dart` and
   `scripts/seed_data.py`.
+- A **no-server deployment path**: `scripts/export_static_data.py` +
+  `.github/workflows/publish-static-data.yml` publish a static JSON
+  snapshot straight to this repo on a schedule, which the Flutter client
+  reads directly from `raw.githubusercontent.com` — no FastAPI process,
+  no Postgres, no hosting account of any kind. See
+  `docs/STATIC_GITHUB_DEPLOYMENT.md`. This is the client's default data
+  source.
 
 It is explicitly **not** a finished, production-hardened commercial
 product: several sections of the original spec (admin review UI, live
@@ -64,43 +72,64 @@ docker-compose.yml            postgres + redis + api
 
 ## What could not be verified in this build
 
-This build's development sandbox has:
-- **Flutter/Dart**: available and used to actually build/analyze/test the
-  client and the Dart electoral-math package.
-- **No working Python interpreter** (only a Windows Store execution-alias
-  stub), **no Docker**, **no Node**, **no Android SDK**.
+An earlier build of this repo was written in a sandbox with **no working
+Python interpreter, no Docker, no Node, no Android SDK** — only
+Flutter/Dart were available there, so the entire Python backend was
+written but never installed or executed. A later session had a real
+Python 3.13 interpreter (still no Docker, so no local Postgres/Redis) and
+used it to actually verify the backend:
 
-Consequences, stated plainly:
-- The Python backend (`services/api`, `services/forecasting`,
-  `services/ingestion`, `packages/election_rules_py`) was written
-  carefully — the Python electoral-math package is a direct line-by-line
-  port of the Dart package that **is** fully tested — but could not be
-  installed, run, or pytest-verified here. Every Python test file has a
-  header noting this.
-- No Alembic migration has been generated (needs a live Python + Postgres
-  to run `alembic revision --autogenerate`).
-- No Docker image was built or run.
-- No Android build was produced (no Android SDK available; `flutter
-  build windows --release` **was** run successfully as evidence the
-  shared codebase compiles for a real target).
+- Installed `packages/election_rules_py`, `services/forecasting`,
+  `services/api`, and `services/ingestion` into a virtualenv — all four
+  install cleanly with no dependency conflicts.
+- Ran `pytest` across all four: **36/36 passing**
+  (`election_rules_py` 22, `forecasting` 5, `api` 4, `ingestion` 5).
+- Fixed a real portability bug this surfaced: the ORM models used
+  `sqlalchemy.dialects.postgresql.UUID` / `JSONB` / `ARRAY` directly,
+  which don't compile under SQLite. Added
+  `services/api/app/models/types.py` — portable `UUID`/`JSONB`/`ARRAY`
+  `TypeDecorator`s that delegate to the native Postgres types when the
+  dialect is `postgresql` (zero behavior change in production) and fall
+  back to a portable representation otherwise (`CHAR(36)`, `JSON`,
+  JSON-encoded list). All 11 model files were updated to import from
+  `.types` instead of `sqlalchemy.dialects.postgresql` directly. This is
+  what lets `test_forecast_runner.py`'s in-memory-SQLite fixture actually
+  run.
 
-**Before relying on the backend, a developer with a real Python
-environment should**: install `services/api/requirements.txt`, generate
-and run the initial Alembic migration, run `pytest` across
-`packages/election_rules_py`, `services/forecasting`, and `services/api`,
+Still not verified anywhere, because no Docker/Postgres/Redis has been
+available in any sandbox so far:
+- No Alembic migration has been generated (needs a live Postgres to run
+  `alembic revision --autogenerate` meaningfully — generating one against
+  SQLite would risk baking in SQLite-specific DDL and silently mislabeling
+  it as Postgres-correct, so this was deliberately left undone rather than
+  faked).
+- No Docker image was built or run; no real Postgres/Redis integration
+  test (schema was only exercised against SQLite via the portable types
+  above — JSONB/ARRAY *storage semantics* like containment queries are
+  Postgres-only and untested here).
+- No Android build was produced (no Android SDK available in any sandbox
+  so far; `flutter build windows --release` **was** run successfully in
+  the original build as evidence the shared codebase compiles for a real
+  target).
+
+**Before relying on the backend in production, a developer with Docker
+or a real Postgres instance should**: bring up Postgres, generate and run
+the initial Alembic migration, re-run `pytest` against that real database
+(not just SQLite) to confirm the portable types round-trip identically,
 then run `scripts/seed_data.py` and hit `/api/v1/forecast/latest`. The
 Flutter client's Settings screen can then be pointed at that live API
-(toggle off "Demo mode").
+(Settings → Data source → "Live API").
 
 ## Getting started
 
 ### Prerequisites
 
-- Flutter 3.44+ / Dart 3.12+ (verified against this exact version in this
-  build)
-- Python 3.12+ (for the backend — not available in this build's sandbox)
-- Docker + Docker Compose (for Postgres/Redis — not available in this
-  build's sandbox)
+- Flutter 3.27+ / Dart 3.12+ (client requires Dart `^3.12.2`; verified
+  against Flutter 3.47.1 / Dart 3.13.1)
+- Python 3.13+ (for the backend; verified in this build — no Postgres
+  needed for local dev, see the SQLite quickstart below)
+- Docker + Docker Compose — only needed for the Postgres production path;
+  not required for local dev or the static-GitHub deployment path
 
 ### Flutter client (works today, out of the box)
 
@@ -109,7 +138,7 @@ cd apps/flutter_client
 flutter pub get
 flutter gen-l10n      # regenerates lib/l10n/generated/ if you edit the .arb files
 flutter analyze       # clean in this build
-flutter test          # 4/4 passing in this build
+flutter test          # 9/9 passing in this build
 
 # Windows desktop
 flutter run -d windows
@@ -120,13 +149,53 @@ flutter build windows --release
 flutter run -d <android-device-id>
 ```
 
-The client ships in **Demo mode** by default (Settings → Demo mode), so
-it renders real screens with the bundled August 2026 PCPSR fixture data
-even with no backend running — this is what `flutter test` exercises.
-Turn Demo mode off and set an API base URL once a live backend is
-reachable.
+There is no "demo mode" — the client always renders real data, from one
+of two sources (Settings → Data source):
+- **Static (GitHub)**, the default: reads the JSON snapshot published by
+  `.github/workflows/publish-static-data.yml` directly from
+  `raw.githubusercontent.com` — no server required. See
+  `docs/STATIC_GITHUB_DEPLOYMENT.md`.
+- **Live API**: a running `services/api` instance (see below).
 
-### Backend (written, not run in this sandbox — commands for a real environment)
+`flutter test` doesn't depend on either — the widget test suite overrides
+the data providers directly with an offline fixture
+(`test/fixtures/demo_fixture.dart`, `test/helpers/fixture_overrides.dart`)
+so it runs deterministically with no network.
+
+### Backend — quickest path: no Docker, no Postgres (verified working)
+
+For local dev, with no Docker or Postgres install available, the API can
+run directly against a SQLite file — the ORM's portable
+`UUID`/`JSONB`/`ARRAY` types (`app/models/types.py`) make this safe; it
+delegates to native Postgres types automatically when `DATABASE_URL`
+is a `postgresql+psycopg://...` URL instead.
+
+```bash
+cd services/api
+python -m venv .venv && source .venv/bin/activate   # or Windows equivalent
+pip install -r requirements.txt
+
+cat > .env <<'EOF'
+DATABASE_URL=sqlite:///./dev.db
+JWT_SECRET_KEY=local-dev-only-not-for-production
+EOF
+
+# Creates the schema (Base.metadata.create_all — no Alembic migration
+# needed for this path) and seeds one election, its verified 2026 rule
+# set, parties/lists/candidates, the PCPSR Aug 2026 poll fixture, and a
+# published 20,000-simulation forecast run:
+python ../../scripts/seed_data.py
+
+# Run the API:
+uvicorn app.main:app --reload
+# Swagger UI: http://localhost:8000/docs
+```
+
+Then in the Flutter client, Settings → Data source → **Live API** (the
+default API base URL, `http://localhost:8000/api/v1`, already matches)
+and Save.
+
+### Backend — production path: Postgres via Docker Compose
 
 ```bash
 cd services/api
@@ -138,15 +207,15 @@ cp ../../.env.example ../../.env   # edit secrets/DB URL as needed
 # Bring up Postgres + Redis:
 docker compose -f ../../docker-compose.yml up -d postgres redis
 
-# Generate + apply the initial migration (none exists yet in this repo):
+# Generate + apply the initial migration (none exists yet in this repo —
+# needs a real Postgres connection to autogenerate correctly; see "What
+# could not be verified" above for why this wasn't generated against
+# SQLite instead):
 alembic revision --autogenerate -m "initial schema"
 alembic upgrade head
 
-# Seed the vertical-slice fixture (election, rules, parties, lists,
-# candidates, the PCPSR Aug 2026 poll, and a published forecast run):
 python ../../scripts/seed_data.py
 
-# Run the API:
 uvicorn app.main:app --reload
 # Swagger UI: http://localhost:8000/docs
 ```
@@ -191,14 +260,16 @@ coalition evidence is never marked verified without a human review step.
 ### Tests
 
 ```bash
-# Verified in this build:
+# Verified with Flutter/Dart:
 cd packages/election_rules && dart pub get && dart test   # 24/24 passing
 cd apps/flutter_client && flutter test                     # 9/9 passing
 
-# Written but not executed in this build (needs a real Python env):
-cd packages/election_rules_py && pip install -e .[dev] && pytest
-cd services/forecasting && pip install -r requirements.txt pytest && pytest
-cd services/api && pip install -r requirements.txt && pytest
+# Verified with Python 3.13 (no Docker/Postgres/Redis, so against SQLite
+# for the ORM layer — see "What could not be verified" above):
+cd packages/election_rules_py && pip install -e . && pytest   # 22/22 passing
+cd services/forecasting && pip install -r requirements.txt pytest && pytest   # 5/5 passing
+cd services/api && pip install -r requirements.txt && pytest                  # 4/4 passing
+cd services/ingestion && pip install -r requirements.txt && pytest            # 5/5 passing
 ```
 
 ## Methodology, at a glance
@@ -228,6 +299,7 @@ Full docs: `docs/ARCHITECTURE.md`, `docs/DATA_MODEL.md`,
 `docs/POLLING_METHOD.md`, `docs/COALITION_MODEL.md`,
 `docs/DATA_SOURCES.md`, `docs/SOURCE_LICENSING.md`, `docs/API.md`,
 `docs/SECURITY.md`, `docs/DEPLOYMENT.md`, `docs/FREE_TIER_DEPLOYMENT.md`,
+`docs/STATIC_GITHUB_DEPLOYMENT.md`,
 `docs/MODEL_VALIDATION.md`.
 
 ## What's not built yet
