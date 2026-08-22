@@ -59,13 +59,22 @@ the fix once this matters.
 
 ## 3. 24/7 scheduler: GitHub Actions
 
-Already set up in this repo: `.github/workflows/ingestion-cron.yml` runs
-`scripts/run_ingestion_cycle.py` every 15 minutes (plus a daily deeper
-coalition-signal scan), with **zero setup cost on a public repo** — GitHub
-Actions minutes are unrestricted there. (Private repos get 2,000 free
-minutes/month on the Free plan; at a 15-minute cadence this project would
-use roughly that much, so either keep the repo public or widen the cron
-interval — see the comment at the top of the workflow file.)
+**Not currently set up in this repo** — this project uses
+`docs/STATIC_GITHUB_DEPLOYMENT.md`'s no-server path instead
+(`.github/workflows/publish-static-data.yml`), which needs no
+`DATABASE_URL` secret at all (its database is a SQLite file committed to
+the repo, not this section's hosted Postgres). An earlier
+`ingestion-cron.yml` workflow for *this* section's Postgres-backed path
+was added and then removed after it sat failing on every scheduled tick
+with no `DATABASE_URL` configured. Recreate it yourself if you actually
+want this path — it's a small variant of
+`publish-static-data.yml`: same dependency-install fix
+(`pip install -r requirements.txt` from within `services/forecasting`
+and `services/api`, not `pip install -e` alone — see that workflow's
+comments for why), but point `DATABASE_URL` at your Neon/Supabase
+instance via a repo secret instead of a committed SQLite file, and drop
+the "bootstrap on first run" / "commit and push" steps entirely (a
+real Postgres doesn't need either).
 
 Wire it up:
 1. Repo → Settings → Secrets and variables → Actions.
@@ -74,10 +83,12 @@ Wire it up:
    extraction instead of the free zero-dependency rules-based provider.
 3. Add a repo **variable** (not secret) `NLP_PROVIDER` set to `rules`,
    `anthropic_compatible`, or `openai_compatible`.
-4. That's it — the workflow starts running on its schedule immediately.
-   Trigger it manually first (Actions tab → "Ingestion Cycle" → Run
-   workflow) to confirm the secrets are correct before waiting for the
-   next scheduled tick.
+4. Trigger the workflow manually first (Actions tab → Run workflow) to
+   confirm the secrets are correct before waiting for the next scheduled
+   tick — this exact failure mode (a blank `DATABASE_URL` producing a
+   `sqlalchemy.exc.ArgumentError`) is what killed the previous attempt at
+   this workflow, silently, on every 15-minute tick, until someone
+   noticed.
 
 ### Honest limitations of this approach
 

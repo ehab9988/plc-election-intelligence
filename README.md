@@ -231,13 +231,22 @@ docker compose up --build
 
 **"Live 24/7 data" requires a deployed, always-running process — no AI
 agent session, including the one that wrote this code, can leave a
-background job running after it ends.** That doesn't require a paid
-server, though: see **`docs/FREE_TIER_DEPLOYMENT.md`** for a genuinely
-$0 path — free Postgres (Neon/Supabase) + free API hosting (Render) +
-GitHub Actions as the scheduler (unlimited/free on a public repo, already
-configured in `.github/workflows/ingestion-cron.yml`). The rest of this
-section covers the alternative if you do have a server to run a real
-Celery worker on:
+background job running after it ends.** This repo runs entirely on the
+genuinely $0 path by default: **`docs/STATIC_GITHUB_DEPLOYMENT.md`** —
+no server, no database host, just a GitHub Actions job
+(`.github/workflows/publish-static-data.yml`) on a schedule, committing
+its own SQLite database and a static JSON snapshot back to the repo.
+
+A second $0-ish path also exists on paper — free Postgres (Neon/Supabase)
++ free API hosting (Render) + GitHub Actions as scheduler, see
+**`docs/FREE_TIER_DEPLOYMENT.md`** — but its scheduler workflow
+(`ingestion-cron.yml`) was removed from this repo after it sat failing
+on every scheduled tick with no `DATABASE_URL` secret configured (nobody
+was using that path). Recreate it from `docs/FREE_TIER_DEPLOYMENT.md` if
+you actually want a hosted-Postgres deployment instead of the static one.
+
+The rest of this section covers the alternative if you do have a server
+to run a real Celery worker on:
 
 ```bash
 cd services/ingestion
@@ -324,9 +333,8 @@ Tracked honestly rather than silently assumed done:
   infrastructure and translations exist in the ARB files, remaining
   screens are a follow-up.
 - Drift-based structured offline cache (spec section 6 suggests Drift);
-  this build uses `shared_preferences` for simple config + the bundled
-  demo fixture for offline rendering, which is materially simpler than a
-  queryable local cache.
+  this build uses `shared_preferences` for simple config only — no local
+  data cache, which is materially simpler than a queryable local cache.
 - Automatic entity resolution (spec section 10): the ingestion worker's
   `_resolve_party_mention` is a simple exact/alias name match, not the
   fuzzy/transliteration-aware resolver a production deployment needs —
@@ -336,14 +344,13 @@ Tracked honestly rather than silently assumed done:
   snippets rather than reading persisted relationship rows, because this
   build's schema only stores entity mentions (`article_entities`), not
   relationships. Documented as a gap in `docs/DEPLOYMENT.md`, not hidden.
-- Both scheduler paths — the Celery worker (`services/ingestion/ingestion/celery_app.py`)
-  and the GitHub Actions cron workflow (`.github/workflows/ingestion-cron.yml`,
-  calling `scripts/run_ingestion_cycle.py`) — are written and internally
-  consistent but were never executed in this sandbox (no Python runtime,
-  no Postgres, no GitHub Actions runner available here). One of them
-  needs to actually be deployed/enabled for "ingest news 24/7, detect
-  coalitions, readjust forecasts" to happen. See "Dynamic /
-  continuously-updating data" above and `docs/FREE_TIER_DEPLOYMENT.md`.
+- The Celery worker path (`services/ingestion/ingestion/celery_app.py`) is
+  written and internally consistent but requires a real server to run on
+  and was not exercised here (no Postgres/Redis available in this
+  sandbox). The GitHub Actions path
+  (`.github/workflows/publish-static-data.yml`, calling
+  `scripts/run_ingestion_cycle.py`) **is** deployed and running — see
+  `docs/STATIC_GITHUB_DEPLOYMENT.md`.
 
 ## Renaming
 
