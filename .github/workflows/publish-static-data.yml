@@ -1,0 +1,106 @@
+name: Publish Static Data (no server, no external database)
+
+# The "static GitHub" deployment path: no FastAPI process, no Postgres,
+# no Docker, no paid hosting anywhere. State lives IN this repo as a
+# committed SQLite file (data/.state/plc_election.db) that each run reads,
+# updates via the same ingestion pipeline the paid-server path uses
+# (services/ingestion/ingestion/jobs.py), and writes back — then exports a
+# fresh JSON snapshot (scripts/export_static_data.py) to data/, which the
+# Flutter client fetches directly from raw.githubusercontent.com. See
+# docs/STATIC_GITHUB_DEPLOYMENT.md for the full design and its honest
+# limitations (git-as-database bloat over time, GitHub Actions scheduling
+# caveats — same caveats as docs/FREE_TIER_DEPLOYMENT.md's scheduler
+# section, which this reuses verbatim).
+#
+# Optional repository secrets (Settings -> Secrets and variables ->
+# Actions) — everything works with none set (falls back to the free
+# zero-dependency rules-based extraction provider, and simply does not
+# run AI news/poll discovery):
+#   ANTHROPIC_API_KEY        LLM-backed extraction of already-fetched RSS articles
+#   OPENAI_API_KEY           LLM-backed extraction AND active web-search discovery of
+#                            news + polls (services/ingestion/ingestion/sources/
+#                            openai_search_adapter.py, poll_discovery.py) — no
+#                            per-outlet feed URL needed. Discovered polls are always
+#                            stored UNVERIFIED and never move the published forecast
+#                            on their own; see poll_discovery.py's module docstring.
+# And this repository variable (same page, "Variables" tab):
+#   NLP_PROVIDER             rules | anthropic_compatible | openai_compatible (defaults to "rules")
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+    - cron: "0 3 * * *" # once daily: also run the heavier coalition-signal scan
+  workflow_dispatch:
+    inputs:
+      with_coalition_scan:
+        description: "Also run the coalition-signal scan"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-static-data
+  cancel-in-progress: false
+
+env:
+  DB_PATH: data/.state/plc_election.db
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install local packages
+        run: |
+          pip install -e packages/election_rules_py
+          pip install -e services/forecasting
+          pip install -e services/api
+          pip install -r services/ingestion/requirements-cron.txt
+
+      - name: Bootstrap the database on first run
+        env:
+          DATABASE_URL: "sqlite:///${{ github.workspace }}/${{ env.DB_PATH }}"
+        run: |
+          mkdir -p "$(dirname "$DB_PATH")"
+          if [ ! -f "$DB_PATH" ]; then
+            echo "No committed database yet — seeding the initial election/rules/parties/poll fixture."
+            python scripts/seed_data.py
+          fi
+
+      - name: Run ingestion cycle
+        env:
+          DATABASE_URL: "sqlite:///${{ github.workspace }}/${{ env.DB_PATH }}"
+          NLP_PROVIDER: ${{ vars.NLP_PROVIDER || 'rules' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 3 * * *" ] || [ "${{ github.event.inputs.with_coalition_scan }}" = "true" ]; then
+            python scripts/run_ingestion_cycle.py --with-coalition-scan
+          else
+            python scripts/run_ingestion_cycle.py
+          fi
+
+      - name: Export static JSON snapshot
+        env:
+          DATABASE_URL: "sqlite:///${{ github.workspace }}/${{ env.DB_PATH }}"
+        run: python scripts/export_static_data.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "Publish static data snapshot [skip ci]"
+            git push
+          fi
