@@ -87,7 +87,7 @@ EXTRACTION_SCHEMA = {
                     "date_mentioned": {"type": ["string", "null"]},
                     "confidence": {"type": "number"},
                 },
-                "required": ["category", "summary", "confidence"],
+                "required": ["category", "summary", "date_mentioned", "confidence"],
                 "additionalProperties": False,
             },
         },
