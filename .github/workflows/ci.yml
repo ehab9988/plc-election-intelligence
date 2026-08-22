@@ -55,8 +55,17 @@ jobs:
       - name: Install api
         # Same relative-path issue as above (requirements.txt has
         # `-e ../../packages/election_rules_py` and `-e ../forecasting`).
+        # Also editable-installs services/api itself (`pip install -e .`)
+        # so the `app` package it defines is importable regardless of the
+        # working directory `pytest` is later invoked from — mirrors how
+        # election_rules_py and forecasting already get installed as
+        # real packages elsewhere in this job. Without this, `pytest
+        # services/api/tests` from the repo root (below) fails with
+        # `ModuleNotFoundError: No module named 'app'`.
         working-directory: services/api
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install -e .
       - name: Lint (ruff)
         run: |
           pip install ruff
