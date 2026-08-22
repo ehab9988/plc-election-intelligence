@@ -70,6 +70,7 @@ class PollMode(str, enum.Enum):
     PHONE = "phone"
     ONLINE = "online"
     MIXED = "mixed"
+    UNKNOWN = "unknown"  # source did not report a mode — never guess one (e.g. AI-discovered draft polls)
 
 
 class UserRole(str, enum.Enum):

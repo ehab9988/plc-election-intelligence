@@ -41,8 +41,14 @@ def main() -> int:
 
     results: dict[str, dict] = {}
 
-    print("Ingesting configured news sources...", flush=True)
+    print("Ingesting configured RSS news sources...", flush=True)
     results["ingest_all_sources"] = jobs.ingest_all_sources()
+
+    print("Discovering news via OpenAI web search (no-op if OPENAI_API_KEY is unset)...", flush=True)
+    results["discover_news_via_ai"] = jobs.discover_news_via_ai()
+
+    print("Discovering polls via OpenAI web search (drafts UNVERIFIED rows only)...", flush=True)
+    results["discover_polls_via_ai"] = jobs.discover_polls_via_ai()
 
     print("Checking whether a forecast recompute is warranted...", flush=True)
     results["maybe_recompute_forecast"] = jobs.maybe_recompute_forecast()

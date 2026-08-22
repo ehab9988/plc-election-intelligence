@@ -28,6 +28,16 @@ celery_app.conf.beat_schedule = {
         "task": "ingestion.tasks.ingest_all_sources_task",
         "schedule": settings.ingestion_poll_interval_minutes * 60,
     },
+    # No-ops (return status "skipped_no_api_key") unless OPENAI_API_KEY is
+    # set — see jobs.discover_news_via_ai / discover_polls_via_ai.
+    "discover-news-via-ai": {
+        "task": "ingestion.tasks.discover_news_via_ai_task",
+        "schedule": settings.ingestion_poll_interval_minutes * 60,
+    },
+    "discover-polls-via-ai": {
+        "task": "ingestion.tasks.discover_polls_via_ai_task",
+        "schedule": settings.forecast_recompute_interval_minutes * 60,
+    },
     "recompute-forecast-if-warranted": {
         "task": "ingestion.tasks.maybe_recompute_forecast_task",
         "schedule": settings.forecast_recompute_interval_minutes * 60,

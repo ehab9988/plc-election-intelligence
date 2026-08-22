@@ -79,6 +79,65 @@ def _resolve_party_mention(db, mention_text: str) -> Party | None:
     return db.get(Party, alias.party_id) if alias else None
 
 
+def _store_documents(db, news_source_id, documents, nlp, recent_articles: list, stats: dict) -> None:
+    """Shared dedupe -> NLP-extraction -> storage loop, used by both
+    ingest_all_sources() (RSS, one NewsSource per feed) and
+    discover_news_via_ai() (OpenAI web search, one synthetic NewsSource
+    for everything it finds — see _get_or_create_ai_news_source)."""
+    for doc in documents:
+        if any(
+            is_probable_duplicate(doc.canonical_url, doc.headline, a.canonical_url, a.headline, doc.language)
+            for a in recent_articles
+        ):
+            stats["duplicates"] += 1
+            continue
+
+        extraction: ExtractionResult = nlp.extract(doc.full_text, doc.language)
+
+        article = Article(
+            news_source_id=news_source_id,
+            headline=doc.headline,
+            author=doc.author,
+            published_at=doc.published_at,
+            canonical_url=doc.canonical_url,
+            permitted_snippet=doc.full_text[:400] if doc.full_text else None,
+            language=doc.language,
+            nlp_confidence=extraction.confidence,
+            human_reviewed=False,
+        )
+        db.add(article)
+        db.flush()
+        recent_articles.append(article)
+        stats["stored"] += 1
+
+        for entity in extraction.entities:
+            # Only "party" mentions are resolvable in this reference
+            # implementation (_resolve_party_mention). Person/
+            # electoral_list resolution needs a real entity-resolution
+            # system (spec section 10) this build does not include —
+            # skip rather than store a row pointing entity_id at the
+            # wrong table.
+            if entity.get("entity_type") != "party":
+                continue
+            resolved = _resolve_party_mention(db, entity.get("mention_text", ""))
+            if resolved is None:
+                continue
+            db.add(
+                ArticleEntity(
+                    article_id=article.id,
+                    entity_type="party",
+                    entity_id=resolved.id,
+                    mention_text=entity.get("mention_text", ""),
+                    extraction_confidence=float(entity.get("confidence", 0.0)),
+                )
+            )
+
+        if any(
+            requires_human_review(extraction, event.get("category")) for event in extraction.events
+        ) or not extraction.events:
+            stats["flagged_for_review"] += 1
+
+
 def ingest_all_sources() -> dict:
     """Fetches configured RSS sources, dedupes, stores permitted metadata
     only (never full article text — section 8 licensing rule), and runs
@@ -109,65 +168,85 @@ def ingest_all_sources() -> dict:
                 logger.exception("Failed to fetch RSS source %s; leaving prior data untouched.", news_source.name)
                 continue
             stats["fetched"] += len(documents)
-
-            for doc in documents:
-                if any(
-                    is_probable_duplicate(doc.canonical_url, doc.headline, a.canonical_url, a.headline, doc.language)
-                    for a in recent_articles
-                ):
-                    stats["duplicates"] += 1
-                    continue
-
-                extraction: ExtractionResult = nlp.extract(doc.full_text, doc.language)
-
-                article = Article(
-                    news_source_id=news_source.id,
-                    headline=doc.headline,
-                    author=doc.author,
-                    published_at=doc.published_at,
-                    canonical_url=doc.canonical_url,
-                    permitted_snippet=doc.full_text[:400] if doc.full_text else None,
-                    language=doc.language,
-                    nlp_confidence=extraction.confidence,
-                    human_reviewed=False,
-                )
-                db.add(article)
-                db.flush()
-                recent_articles.append(article)
-                stats["stored"] += 1
-
-                for entity in extraction.entities:
-                    # Only "party" mentions are resolvable in this
-                    # reference implementation (_resolve_party_mention).
-                    # Person/electoral_list resolution needs a real
-                    # entity-resolution system (spec section 10) this
-                    # build does not include — skip rather than store a
-                    # row pointing entity_id at the wrong table.
-                    if entity.get("entity_type") != "party":
-                        continue
-                    resolved = _resolve_party_mention(db, entity.get("mention_text", ""))
-                    if resolved is None:
-                        continue
-                    db.add(
-                        ArticleEntity(
-                            article_id=article.id,
-                            entity_type="party",
-                            entity_id=resolved.id,
-                            mention_text=entity.get("mention_text", ""),
-                            extraction_confidence=float(entity.get("confidence", 0.0)),
-                        )
-                    )
-
-                if any(
-                    requires_human_review(extraction, event.get("category"))
-                    for event in extraction.events
-                ) or not extraction.events:
-                    stats["flagged_for_review"] += 1
+            _store_documents(db, news_source.id, documents, nlp, recent_articles, stats)
 
         db.commit()
     finally:
         db.close()
     return stats
+
+
+def _get_or_create_ai_news_source(db) -> NewsSource:
+    existing = db.scalar(select(NewsSource).where(NewsSource.ingestion_method == "openai_search"))
+    if existing:
+        return existing
+    source = NewsSource(
+        name="OpenAI web search",
+        language="en",
+        ingestion_method="openai_search",
+        feed_url=None,
+        respects_robots_txt=True,
+        license_notes=(
+            "Discovered via the OpenAI web_search tool, not a curated feed — "
+            "see sources/openai_search_adapter.py."
+        ),
+        active=True,
+    )
+    db.add(source)
+    db.flush()
+    return source
+
+
+def discover_news_via_ai() -> dict:
+    """Uses OpenAI's web_search tool to find and ingest recent Palestinian
+    election news with no per-outlet feed_url configured — only
+    OPENAI_API_KEY is required. See sources/openai_search_adapter.py.
+    Reuses the exact same dedupe -> NLP-extraction -> storage logic
+    ingest_all_sources() uses for RSS sources (_store_documents)."""
+    if not settings.openai_api_key:
+        return {"status": "skipped_no_api_key"}
+
+    from .sources.openai_search_adapter import OpenAiSearchNewsAdapter
+
+    db = SessionLocal()
+    stats = {"fetched": 0, "duplicates": 0, "stored": 0, "flagged_for_review": 0}
+    try:
+        news_source = _get_or_create_ai_news_source(db)
+        nlp = _nlp_provider()
+        recent_articles = db.scalars(select(Article).order_by(Article.published_at.desc()).limit(500)).all()
+
+        try:
+            documents = OpenAiSearchNewsAdapter(api_key=settings.openai_api_key, model=settings.openai_model).fetch()
+        except Exception:
+            logger.exception("OpenAI news discovery failed; leaving prior data untouched.")
+            return {"status": "search_failed"}
+        stats["fetched"] = len(documents)
+        _store_documents(db, news_source.id, documents, nlp, recent_articles, stats)
+
+        db.commit()
+    finally:
+        db.close()
+    return stats
+
+
+def discover_polls_via_ai() -> dict:
+    """Uses OpenAI's web_search tool to find recently published polls and
+    drafts them as UNVERIFIED Poll rows for analyst review — see
+    poll_discovery.py's module docstring for why this can never move the
+    published forecast on its own."""
+    if not settings.openai_api_key:
+        return {"status": "skipped_no_api_key"}
+
+    from .poll_discovery import draft_polls_from_ai_discovery
+
+    db = SessionLocal()
+    try:
+        election = db.scalar(select(Election).where(Election.is_current.is_(True)))
+        if election is None:
+            return {"status": "no_current_election"}
+        return draft_polls_from_ai_discovery(db, election.id, settings.openai_api_key, settings.openai_model)
+    finally:
+        db.close()
 
 
 def maybe_recompute_forecast() -> dict:
