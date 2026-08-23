@@ -72,6 +72,18 @@
     "importance_score": null
   },
   {
+    "id": "338e9b3f-7824-4d50-b6c3-b9ad6eb7766d",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "President Abbas Issues Decree-Law Amending General Elections Law",
+    "author": null,
+    "published_at": "2026-08-12T00:00:00",
+    "canonical_url": "https://www.elections.ps/TabId/1083/ArtMID/9183/ArticleID/5357/CEC-We-received-a-Decree-Law-amending-the-General-Elections-Law%E2%80%A6-Continuing-implementation-according-to-the-timeline.aspx",
+    "permitted_snippet": "The Central Elections Commission received a Decree-Law amending the General Elections Law, reinstating the number of Legislative Council members to 132 and introducing provisions for women's representation and a 1% electoral threshold.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "ad278a85-f9b1-4678-998e-9a26da754c3d",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Palestinian President Restores Parliament to 132 Seats, Reverses Expansion",
@@ -79,6 +91,18 @@
     "published_at": "2026-08-11T00:00:00",
     "canonical_url": "https://www.aa.com.tr/en/middle-east/palestinian-president-restores-parliament-to-132-seats-reverses-expansion/4024144",
     "permitted_snippet": "President Mahmoud Abbas issued a decree restoring the Palestinian Legislative Council's seats to 132, reversing a previous expansion to 200 seats. The new decree retains provisions such as lowering the minimum age for parliamentary candidates from 28 to 23, requiring women to comprise at least 33% of candidates on electoral lists, and maintaining a 1% electoral threshold.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "8c340177-395a-424b-8895-9bd6c1a2f30d",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "President Abbas Confirms Legislative Elections on November 28, 2026",
+    "author": null,
+    "published_at": "2026-08-03T00:00:00",
+    "canonical_url": "https://president.ps/Eng/NewsPage/493022",
+    "permitted_snippet": "President Mahmoud Abbas reaffirms that the Palestinian legislative elections will proceed as scheduled on November 28, 2026, highlighting the importance of these elections for Palestinian democracy.",
     "image_url": null,
     "language": "en",
     "importance_score": null
