@@ -1,5 +1,17 @@
 [
   {
+    "id": "15c76150-2349-49ab-bb05-5d5430d464c4",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas in talks with Mohammed Dahlan, Democratic Reform Bloc confirms",
+    "author": null,
+    "published_at": "2026-08-23T00:00:00",
+    "canonical_url": "https://www.jpost.com/middle-east/article-906310",
+    "permitted_snippet": "Hamas is exploring potential alliances with figures and factions once considered to be on the opposite end of the Palestinian political spectrum, including former Fatah figure Mohammed Dahlan and the Democratic Front for the Liberation of Palestine, ahead of the Palestinian Legislative Council elections, the terror group and other factions confirmed.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "63181bca-f68a-4c09-9c27-03a0e3854046",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Palestinian factions explore broad alliance for November elections",
@@ -67,6 +79,30 @@
     "published_at": "2026-08-13T00:00:00",
     "canonical_url": "https://storychase.co/news/hamas-announces-electoral-participation-as-palestinian-factions-pursue-unprecedented-coalition/",
     "permitted_snippet": "Hamas has declared its intention to participate in the upcoming Palestinian legislative elections scheduled for November 2026, aiming to form a broad national coalition with various factions, including the breakaway Fatah faction led by Mohammed Dahlan.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "397952d1-3bf7-4785-b006-e5f6055a3840",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas to join Palestinian elections under broad coalition",
+    "author": null,
+    "published_at": "2026-08-13T00:00:00",
+    "canonical_url": "https://en.yenisafak.com/world/hamas-to-join-palestinian-elections-under-broad-coalition-3721847",
+    "permitted_snippet": "Senior Hamas official Hussam Badran said the group will participate in upcoming Palestinian elections under the broadest possible coalition, rejecting attempts to impose political conditions on candidates as President Mahmoud Abbas scheduled legislative polls for November 2026.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "3937f26d-f8a2-44b5-b4a5-9aff42bf88d6",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas to run in planned Palestinian elections with al-Aqsa Mosque as priority",
+    "author": null,
+    "published_at": "2026-08-13T00:00:00",
+    "canonical_url": "https://www.jpost.com/middle-east/article-905406",
+    "permitted_snippet": "Hamas plans to participate in the upcoming Palestinian elections, a senior official from the Iran-backed terrorist organization told Hamas-operated Al-Aqsa TV on Wednesday.",
     "image_url": null,
     "language": "en",
     "importance_score": null
