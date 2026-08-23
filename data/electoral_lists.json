@@ -138,5 +138,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "f7f60c62-ff86-4d37-ae3c-00902723f0f3",
+    "list_name_ar": "الائتلاف الوطني الفلسطيني من أجل العدالة والديمقراطية",
+    "list_name_en": "Palestinian National Coalition for Justice and Democracy",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
