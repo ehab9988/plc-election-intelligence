@@ -38,5 +38,45 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "3a74b078-e41e-449a-a8de-dab6fd0d0d41",
+    "list_name_ar": "الحرية",
+    "list_name_en": "Freedom",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "06b5d136-a524-4865-996d-ee48cb243899",
+    "list_name_ar": "اليسار الموحد",
+    "list_name_en": "United Left",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "45734f8d-56cf-46e7-90a4-cbf9e2178303",
+    "list_name_ar": "معًا نستطيع",
+    "list_name_en": "Together We Can",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "65a385f1-063a-4276-b8e3-451d7217032d",
+    "list_name_ar": "المستقبل",
+    "list_name_en": "The Future",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

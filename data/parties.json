@@ -60,6 +60,18 @@
     "verification_confidence": "low"
   },
   {
+    "id": "c3e2f6c9-785c-433f-ab68-467edba6042a",
+    "name_ar": "مستقل",
+    "name_en": "Independent",
+    "abbreviation": "Ind",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
     "name_ar": "حركة المقاومة الإسلامية - حماس",
     "name_en": "Islamic Resistance Movement (Hamas)",
@@ -82,6 +94,18 @@
     "registration_status": "considering",
     "registration_status_verified_at": null,
     "verification_confidence": "medium"
+  },
+  {
+    "id": "17c55428-294c-4535-9d89-5cf20cc5d650",
+    "name_ar": "الاتحاد الديمقراطي الفلسطيني",
+    "name_en": "Palestinian Democratic Union",
+    "abbreviation": "PDU",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   },
   {
     "id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
