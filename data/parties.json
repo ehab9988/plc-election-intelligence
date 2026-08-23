@@ -1,9 +1,45 @@
 [
   {
+    "id": "2be79270-f8d7-4e89-97c3-b119dafed2c0",
+    "name_ar": "الحركة العربية للتغيير",
+    "name_en": "Arab Movement for Change",
+    "abbreviation": "Ta'al",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
+    "id": "4532b23c-b329-49db-95f1-c2912aaa930b",
+    "name_ar": "الجبهة الديمقراطية للسلام والمساواة",
+    "name_en": "Democratic Front for Peace and Equality",
+    "abbreviation": "Hadash",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "ffd8a254-3ed9-4465-8c07-5fd4a12fe6c6",
     "name_ar": "الجبهة الديمقراطية لتحرير فلسطين",
     "name_en": "Democratic Front for the Liberation of Palestine",
     "abbreviation": "DFLP",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
+    "id": "0b06ab8d-7619-4602-8340-5d37aeaa9f05",
+    "name_ar": "التجمع الوطني الديمقراطي",
+    "name_en": "Democratic National Assembly",
+    "abbreviation": "Balad",
     "logo_url": null,
     "description_ar": null,
     "description_en": null,

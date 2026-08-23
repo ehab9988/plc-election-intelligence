@@ -8,5 +8,15 @@
     "statement_summary": "Hamas held meetings with Palestinian Islamic Jihad on a broad electoral alliance. Hamas official Husam Badran: \"We do not need permission or a guarantee from any party to participate in the Palestinian elections.\"",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
+  },
+  {
+    "id": "70713e4f-27ba-4e96-a841-8ce2393c12d7",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "0e6cdf89-c775-4684-9cb7-c5e54e787f74",
+    "confidence": "low"
   }
 ]

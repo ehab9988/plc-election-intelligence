@@ -78,5 +78,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "e0e451f8-84cc-440c-8b25-dfd5cbb5ed28",
+    "list_name_ar": "لجنة الوفاق",
+    "list_name_en": "Lajnat al-Wifaq",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

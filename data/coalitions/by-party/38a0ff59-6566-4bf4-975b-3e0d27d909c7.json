@@ -8,5 +8,55 @@
     "statement_summary": "Fatah spokesperson Munther al-Hayek: \"organisational bases of the Fatah movement refuse to participate with Hamas in a single list while the door remains open to alliances with the rest of the factions.\"",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "high"
+  },
+  {
+    "id": "775c0616-c505-4460-aae4-1b9c3752acd6",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "4654f4ac-50e4-4e11-b0fb-8cc9c7888cde",
+    "confidence": "low"
+  },
+  {
+    "id": "fe300608-4040-4561-8858-205ebe89a399",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah and Hamas Explore Potential Alliance Ahead of November Elections",
+    "source_id": "0247a1fa-216a-4c17-ae8f-5c6b92e925f0",
+    "confidence": "low"
+  },
+  {
+    "id": "e4359cd0-8c0e-4b5f-9a77-77a68ce58943",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas congratulates Fatah, urges broad Palestinian dialogue",
+    "source_id": "45ab5dfa-b308-44ba-9f7b-8f1a1a38af20",
+    "confidence": "low"
+  },
+  {
+    "id": "3d08f202-961e-41dc-8462-4f5c1be9dd42",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas Calls For Direct Meeting With Fatah Movement To Agree On National Strategy",
+    "source_id": "5ba220ab-bb68-49f5-a3ff-ab73b18c69fc",
+    "confidence": "low"
+  },
+  {
+    "id": "85d5cb3b-be0b-4fb0-bbdf-e110cdb262ad",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas Seeks Direct Meeting with Fatah to Agree on National Strategy",
+    "source_id": "7323563a-2167-4a50-8df8-a094377144ef",
+    "confidence": "low"
   }
 ]

@@ -8,5 +8,15 @@
     "statement_summary": "Democratic Reform leader Osama al-Farra confirmed Dahlan's faction decided to participate, favoring a \"broad national alliance\" comprising factions, professionals, and community figures.",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
+  },
+  {
+    "id": "340903a0-d49f-4f6c-9721-84260c6d2218",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "72c3ee41-1538-43e5-9038-30e96ed486bc",
+    "confidence": "low"
   }
 ]
