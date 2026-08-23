@@ -24,6 +24,18 @@
     "importance_score": null
   },
   {
+    "id": "6bb06093-6647-4e20-a466-6edd5176dd23",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Palestinian Voter Registration Closes Ahead of Legislative Elections",
+    "author": null,
+    "published_at": "2026-08-18T00:00:00",
+    "canonical_url": "https://www.sadanews.ps/en/news/326803.html",
+    "permitted_snippet": "The Central Elections Commission announced that voter registration for the 2026 legislative elections will close on August 19, urging unregistered citizens to complete the process.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "56ce35c9-6c1c-44eb-9f03-7c0cfa84286d",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Palestinian Voter Registration Begins Ahead of 2026 Legislative Elections",
