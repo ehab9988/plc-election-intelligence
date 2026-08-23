@@ -2113,5 +2113,50 @@
     "reasoning": "Hamas has initiated discussions with various Palestinian factions, including the Palestinian National Initiative (PNI), to form a broad national coalition for the upcoming legislative elections. While these talks are ongoing, no formal agreement has been announced. Given the PNI's history of seeking democratic reforms and Hamas's current efforts to build a wide-ranging alliance, there is a moderate likelihood of them running on a shared electoral list.",
     "model": "gpt-4o-mini",
     "generated_at": "2026-08-23T23:19:07.455767"
+  },
+  {
+    "id": "d6a6d587-6728-42e0-ba8b-14e560042713",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "likelihood_pct": 30.0,
+    "reasoning": "Hamas and Palestinian Islamic Jihad (PIJ) have historically maintained a complex relationship, characterized by both cooperation and competition. While they share ideological similarities and have coordinated military actions, they have also experienced internal rivalries and differing political strategies. For instance, PIJ has often operated with a degree of autonomy, sometimes making strategic decisions independently of Hamas. Given these dynamics and the absence of recent public indications of a formal electoral alliance, it seems unlikely that they will run on a single shared list in the upcoming Palestinian Legislative Council election.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:45:50.591634"
+  },
+  {
+    "id": "36103a8a-4edc-4be2-b251-c194f92c3356",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "likelihood_pct": 5.0,
+    "reasoning": "Hamas and Fatah have a longstanding history of rivalry and have not formed a unified electoral list in recent years. Their most recent agreement, in December 2024, involved establishing a committee of independent professionals to govern Gaza temporarily, but did not include a shared electoral list. ([huffingtonpost.es](https://www.huffingtonpost.es/global/hamas-fatah-pactan-formacion-comite-independiente-gestionara-gazabr.html?utm_source=openai)) Given this history and the absence of significant recent cooperation, the likelihood of them running on a single electoral list is low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:45:54.445355"
+  },
+  {
+    "id": "9e7e8f1c-dcac-43f7-8b14-6b2a68339658",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "likelihood_pct": 60.0,
+    "reasoning": "Hamas and the Popular Front for the Liberation of Palestine (PFLP) have engaged in discussions about forming a unity government, as evidenced by their participation in the 2024 Beijing Declaration, which aimed to strengthen Palestinian national unity. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2024_Beijing_Declaration?utm_source=openai)) Additionally, in October 2024, Hamas announced an agreement with other Palestinian factions, including the PFLP, to propose a comprehensive national meeting to implement previous national dialogues. ([waradana.com](https://waradana.com/english/article/174730-hamas-discusses-unity-government-with-palestinian-factions?utm_source=openai)) However, despite these collaborative efforts, there is no concrete evidence indicating that Hamas and the PFLP have agreed to run on a single electoral list for the upcoming Palestinian Legislative Council elections. Given their historical differences and the complexities of Palestinian politics, while a coalition is possible, the likelihood of them running on one shared list remains uncertain.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:45:59.562782"
+  },
+  {
+    "id": "496bb91c-945f-45f1-9e11-50fd52239940",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "likelihood_pct": 60.0,
+    "reasoning": "Hamas is actively seeking alliances with various factions, including former Fatah member Mohammed Dahlan and the Democratic Front for the Liberation of Palestine (DFLP), ahead of the November 28, 2026, Palestinian Legislative Council elections. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) The Democratic Reform Bloc, led by Dahlan, has confirmed these discussions, indicating a potential collaboration. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) However, the Democratic Reform Bloc has not publicly committed to a shared electoral list with Hamas, and the complexities of Palestinian politics make such alliances challenging. Given these factors, there is a moderate likelihood of Hamas and the Democratic Reform Bloc running on a single electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:46:03.894676"
+  },
+  {
+    "id": "4b6c1287-0135-43f6-bab1-41f46e0901a9",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "likelihood_pct": 30.0,
+    "reasoning": "Despite multiple reconciliation attempts, including the 2022 Algiers agreement and the 2023 Cairo meeting, Fatah and Hamas have consistently failed to form a unified electoral list. The 2023 Cairo meeting resulted in the formation of a 'reconciliation committee' and promises to hold further dialogue, but no concrete agreement was reached. ([fdd.org](https://www.fdd.org/analysis/2023/07/31/fatah-hamas-reconciliation-talks-result-in-no-agreement/?utm_source=openai)) Additionally, the 2024 Beijing Declaration called for an interim national reconciliation government to focus on Gaza's post-war reconstruction, but no specific timetable or details were provided. ([lemonde.fr](https://www.lemonde.fr/en/international/article/2024/07/23/china-mediates-between-palestinian-hamas-and-fatah-in-beijing-declaration_6696010_4.html?utm_source=openai)) These repeated failures suggest that, despite ongoing efforts, a unified electoral list remains unlikely.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:46:07.923502"
   }
 ]

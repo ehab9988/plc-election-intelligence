@@ -218,5 +218,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "e8402ca0-4437-40a1-a6d3-070ad6cecb7f",
+    "list_name_ar": "التحالف الفلسطيني للتغيير",
+    "list_name_en": "Palestinian Alliance for Change",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
