@@ -1,5 +1,17 @@
 [
   {
+    "id": "bef07461-7b1b-49ef-a0da-dd2811880111",
+    "name_ar": "ألوية الناصر صلاح الدين",
+    "name_en": "Al-Nasser Salah al-Din Brigades",
+    "abbreviation": "Nasser Salah al-Din Brigades",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "2be79270-f8d7-4e89-97c3-b119dafed2c0",
     "name_ar": "الحركة العربية للتغيير",
     "name_en": "Arab Movement for Change",
@@ -142,6 +154,30 @@
     "registration_status": "announced_intention",
     "registration_status_verified_at": null,
     "verification_confidence": "medium"
+  },
+  {
+    "id": "b0ad34dc-e143-40a9-b8af-136e15e3e280",
+    "name_ar": "تيار الإصلاح الديمقراطي في حركة فتح",
+    "name_en": "Mohammed Dahlan's Reformist Fatah Bloc",
+    "abbreviation": "Dahlan Bloc",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
+    "id": "82d95fe0-e9b7-41a2-8996-61f9716d98ff",
+    "name_ar": "ناصر القدوة",
+    "name_en": "Nasser al-Qudwa",
+    "abbreviation": "Nasser al-Qudwa",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   },
   {
     "id": "27bb53a1-9525-41b7-a98d-4a58d121c658",

@@ -208,5 +208,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "de028706-27e6-4f1e-a21c-0a16fcf2cb6a",
+    "list_name_ar": "تحالف حماس وحلفاؤها",
+    "list_name_en": "Hamas and Allies Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
