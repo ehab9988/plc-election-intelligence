@@ -118,5 +118,25 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "7e905145-66b4-4798-b774-60d741350096",
+    "list_name_ar": "المبادرة الوطنية الفلسطينية",
+    "list_name_en": "Palestinian National Initiative",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "f975d80f-31b0-4dfd-a824-1f15e6b24304",
+    "list_name_ar": "الائتلاف الوطني من أجل العدالة والديمقراطية",
+    "list_name_en": "National Coalition for Justice and Democracy",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

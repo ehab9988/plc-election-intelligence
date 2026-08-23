@@ -120,6 +120,18 @@
     "verification_confidence": "medium"
   },
   {
+    "id": "27bb53a1-9525-41b7-a98d-4a58d121c658",
+    "name_ar": "الائتلاف الوطني من أجل العدالة والديمقراطية",
+    "name_en": "National Coalition for Justice and Democracy",
+    "abbreviation": "Wa'ad",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
     "name_ar": "المبادرة الوطنية الفلسطينية",
     "name_en": "National Initiative",
