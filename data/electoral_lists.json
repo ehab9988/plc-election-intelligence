@@ -98,5 +98,25 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "76bf2b5d-6f6f-4558-a67e-0ef19b49cc80",
+    "list_name_ar": "التغيير الديمقراطي",
+    "list_name_en": "Democratic Change",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "a32c27ae-a8c6-4c90-805d-ed2c9361fa17",
+    "list_name_ar": "نبض الشعب",
+    "list_name_en": "The People's Pulse",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
