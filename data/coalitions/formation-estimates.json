@@ -2059,5 +2059,59 @@
     "reasoning": "The Palestinian National Initiative (PNI), led by Mustafa Barghouti, has historically positioned itself as a 'democratic third force' in Palestinian politics, opposing both Fatah and Hamas. The PNI has advocated for democratic reforms and has been critical of Hamas's governance in Gaza. While the PNI signed the 2024 Beijing Declaration with Hamas and other factions, this agreement focused on national unity and did not specifically address electoral alliances. Given the PNI's longstanding stance against Hamas's approach, it is unlikely they would form a shared electoral list.",
     "model": "gpt-4o-mini",
     "generated_at": "2026-08-23T22:48:38.172551"
+  },
+  {
+    "id": "723bbc4f-6c1b-40d9-a642-83396d7da1ce",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "likelihood_pct": 20.0,
+    "reasoning": "Hamas and Palestinian Islamic Jihad (PIJ) have historically coordinated military operations, notably through the Joint Operations Room established in 2018. However, their political and strategic differences have prevented them from forming a unified electoral list. For instance, in 2023, Hamas publicly supported PIJ's actions but also urged restraint to avoid major escalations. Additionally, PIJ's leadership has been influenced by external actors like Iran, which may not align with Hamas's interests. Given these factors, a shared electoral list appears unlikely.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:18:49.046017"
+  },
+  {
+    "id": "208c2265-4296-49d7-a179-91d2fa3ab4fa",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "likelihood_pct": 10.0,
+    "reasoning": "Hamas and Fatah have a longstanding history of rivalry, with the 2007 split leading to separate administrations in Gaza and the West Bank. Recent developments indicate Hamas is seeking alliances with other factions, such as former Fatah member Mohammed Dahlan and the Democratic Front for the Liberation of Palestine (DFLP), but not with Fatah itself. Additionally, Fatah has achieved significant victories in recent local elections, suggesting a desire to maintain its political independence. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai))",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:18:51.998714"
+  },
+  {
+    "id": "cc66ef5a-c087-49dc-a756-2125211d0672",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "likelihood_pct": 30.0,
+    "reasoning": "Hamas and the Popular Front for the Liberation of Palestine (PFLP) have historically maintained a complex relationship, characterized by both cooperation and competition. While they have coordinated military operations, such as during the October 7, 2023, assault on Israel, their ideological differences and competition for political influence have often led to tensions. For instance, in July 2023, Palestinian leaders from rival factions, including Hamas and the PFLP, met in Egypt to form a reconciliation committee aimed at ending a 17-year rift. ([swissinfo.ch](https://www.swissinfo.ch/spa/grupos-palestinos-rivales-forman-un-comit%C3%A9-de-reconciliaci%C3%B3n/48700838?utm_source=openai)) However, the success of such reconciliation efforts has been limited, and there is no substantial evidence indicating that Hamas and the PFLP are currently planning to run on a shared electoral list. Given these factors, the likelihood of them forming a joint electoral list appears low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:18:55.957755"
+  },
+  {
+    "id": "91cb85a0-d588-4b63-9352-6c96d102681a",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "likelihood_pct": 0.0,
+    "reasoning": "The Democratic Reform party, also known as the Democratic Reform Current, is a faction that split from Fatah in 2018. It is led by former Fatah member Nasser al-Qudwa. Given Hamas's longstanding rivalry with Fatah and its offshoots, it is highly unlikely that Hamas would form a coalition with the Democratic Reform party. No public information indicates any discussions or intentions between Hamas and the Democratic Reform party to run on a shared electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:18:59.699324"
+  },
+  {
+    "id": "8b98f5d0-4071-46c9-b8e7-1f54162d586e",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "likelihood_pct": 5.0,
+    "reasoning": "Fatah and Hamas have a longstanding history of political rivalry and have not formed a shared electoral list in recent elections. Hamas is currently engaging in talks with former Fatah member Mohammed Dahlan and other factions to form a broad national coalition for the upcoming Palestinian Legislative Council elections. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) Given this context and the absence of any public indications of a potential alliance between Fatah and Hamas, the likelihood of them running on a shared electoral list appears minimal.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:19:03.302458"
+  },
+  {
+    "id": "5cc248f2-3787-4d0a-a069-1d13645699f4",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "likelihood_pct": 60.0,
+    "reasoning": "Hamas has initiated discussions with various Palestinian factions, including the Palestinian National Initiative (PNI), to form a broad national coalition for the upcoming legislative elections. While these talks are ongoing, no formal agreement has been announced. Given the PNI's history of seeking democratic reforms and Hamas's current efforts to build a wide-ranging alliance, there is a moderate likelihood of them running on a shared electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T23:19:07.455767"
   }
 ]
