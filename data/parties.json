@@ -12,6 +12,18 @@
     "verification_confidence": "low"
   },
   {
+    "id": "7500b926-dc12-4d66-8a32-095c801d19f6",
+    "name_ar": "بلد",
+    "name_en": "Balad",
+    "abbreviation": "Balad",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "4532b23c-b329-49db-95f1-c2912aaa930b",
     "name_ar": "الجبهة الديمقراطية للسلام والمساواة",
     "name_en": "Democratic Front for Peace and Equality",
@@ -82,6 +94,18 @@
     "registration_status": "announced_intention",
     "registration_status_verified_at": null,
     "verification_confidence": "medium"
+  },
+  {
+    "id": "917d32f4-0e95-49a1-9e72-1033684af30e",
+    "name_ar": "حدش",
+    "name_en": "Hadash",
+    "abbreviation": "Hadash",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   },
   {
     "id": "49c04c57-41ca-4960-9096-b00982539317",
@@ -202,6 +226,18 @@
     "registration_status": "considering",
     "registration_status_verified_at": null,
     "verification_confidence": "medium"
+  },
+  {
+    "id": "3cdb0089-4684-41ff-aec1-1e6a748cf549",
+    "name_ar": "تعال",
+    "name_en": "Ta’al",
+    "abbreviation": "Ta’al",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   },
   {
     "id": "b1da0f9f-63da-4a0c-a820-e9b7856c53d0",
