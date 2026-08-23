@@ -240,6 +240,18 @@
     "importance_score": null
   },
   {
+    "id": "7a7618e0-2f0a-44d0-9b30-0ccdfc78dae8",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas names Khalil al-Hayya as new leader after run-off with Khaled Meshaal",
+    "author": null,
+    "published_at": "2026-07-20T00:00:00",
+    "canonical_url": "https://www.aljazeera.com/news/2026/7/20/hamas-names-khalil-al-hayya-as-new-leader-after-run-off-with-khaled-meshaal",
+    "permitted_snippet": "Hamas has named Khalil al-Hayya as its new leader, succeeding Yahya Sinwar who was killed by the Israeli army in October 2024.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "04b5e073-8baa-40a1-b6e4-711d2f2d893b",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Abbas Sets Nov. 28 for Palestinian Legislative Elections",
@@ -271,6 +283,18 @@
     "published_at": "2026-07-06T00:00:00",
     "canonical_url": "https://www.theguardian.com/world/2026/jul/06/hamas-offers-hand-over-authority-gaza-us-backed-administration",
     "permitted_snippet": "Hamas has announced the dissolution of its government in Gaza, preparing to transfer power to a UN-backed technical committee as part of a U.S.-brokered ceasefire deal.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "26a3ba5a-5e28-4593-a566-ce3b5313c4b1",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas dissolves its government in Gaza to transfer power to a U.N.-backed committee",
+    "author": null,
+    "published_at": "2026-07-06T00:00:00",
+    "canonical_url": "https://www.latimes.com/world-nation/story/2026-07-06/hamas-dissolves-its-government-in-gaza-to-transfer-power-to-u-n-backed-committee",
+    "permitted_snippet": "Hamas announced it had dissolved its government in Gaza and is preparing to transfer power to a technical committee backed by the United Nations as part of a U.S.-brokered ceasefire deal.",
     "image_url": null,
     "language": "en",
     "importance_score": null
