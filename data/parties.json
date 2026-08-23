@@ -180,6 +180,18 @@
     "verification_confidence": "low"
   },
   {
+    "id": "cf3aeda2-1dfc-42c3-9dcd-06f26834e686",
+    "name_ar": "الجبهة الشعبية لتحرير فلسطين - القيادة العامة",
+    "name_en": "Palestinian Popular Struggle Front",
+    "abbreviation": "PPSF",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
     "name_ar": "الجبهة الشعبية لتحرير فلسطين",
     "name_en": "Popular Front for the Liberation of Palestine",
