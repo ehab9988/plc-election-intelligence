@@ -168,5 +168,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "cf3b2d5e-cf5a-4f3c-9fed-f36b23ad3e3a",
+    "list_name_ar": "تحالف حماس والجهاد الإسلامي",
+    "list_name_en": "Hamas and Islamic Jihad Alliance",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

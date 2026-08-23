@@ -1528,5 +1528,59 @@
     "reasoning": "The Palestinian National Initiative (PNI), led by Mustafa Barghouti, has historically positioned itself as a 'democratic third force' in Palestinian politics, critical of both Fatah and Hamas. The PNI has advocated for democratic reforms within the Palestinian Authority and has engaged in discussions with various factions, including Hamas, to form unity governments. However, these efforts have often faced challenges, and the PNI has not been part of Hamas's recent national coalition initiatives. Given the PNI's critical stance towards Hamas and its focus on democratic reforms, it is unlikely that they will run on a shared electoral list with Hamas in the upcoming elections.",
     "model": "gpt-4o-mini",
     "generated_at": "2026-08-23T17:46:03.932976"
+  },
+  {
+    "id": "12cc107d-ba76-4c1a-a48d-594ce8850a3a",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "likelihood_pct": 20.0,
+    "reasoning": "Hamas and Palestinian Islamic Jihad (PIJ) have historically maintained separate operational structures and leadership, despite occasional coordination against common adversaries. For instance, in October 2023, Hezbollah hosted a meeting in Beirut with senior figures from both Hamas and PIJ to discuss coordinated actions against Israel. ([apnews.com](https://apnews.com/article/5e09b939ca225562370f779360af62d3?utm_source=openai)) However, there is no substantial evidence indicating that they have formed a unified electoral list for the upcoming Palestinian Legislative Council elections. Given their distinct organizational identities and the competitive nature of Palestinian politics, it is unlikely they will run on a single shared list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T18:25:03.303109"
+  },
+  {
+    "id": "627a90b9-0359-477c-a01e-c4daca8c61a2",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "likelihood_pct": 5.0,
+    "reasoning": "Hamas and Fatah have a longstanding history of rivalry, marked by a significant split in 2007 when Hamas took control of Gaza, leading to separate administrations in the West Bank and Gaza. Recent developments indicate that Hamas is seeking alliances with other factions, including former Fatah member Mohammed Dahlan and the Democratic Front for the Liberation of Palestine, ahead of the upcoming Palestinian Legislative Council elections. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) Additionally, Hamas has expressed intentions to participate in the elections within a broad national coalition, aiming to include a wide spectrum of national figures. ([english.palinfo.com](https://english.palinfo.com/news/2026/08/13/368264/?utm_source=openai)) Given this context, the likelihood of Hamas and Fatah running on a single shared electoral list appears low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T18:25:06.659584"
+  },
+  {
+    "id": "e1607a98-a46a-4329-9ef7-4cb3fa4b2a9d",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "likelihood_pct": 20.0,
+    "reasoning": "The Popular Front for the Liberation of Palestine (PFLP) has historically been part of the Palestine Liberation Organization (PLO), which has been in conflict with Hamas since the 2007 split. Recent developments indicate that Fatah is actively working to prevent the PFLP from joining a Hamas-led electoral alliance ahead of the November 2026 legislative elections. ([newarab.com](https://www.newarab.com/news/fatah-moves-counter-broad-hamas-dahlan-election-alliance?utm_source=openai)) Given these longstanding tensions and the current political dynamics, it is unlikely that Hamas and the PFLP will run on a shared electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T18:25:10.673610"
+  },
+  {
+    "id": "384e8e83-dbec-45ac-82d9-db410abcdd39",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "likelihood_pct": 20.0,
+    "reasoning": "Hamas and the Democratic Reform Bloc, led by Mohammed Dahlan, have engaged in discussions about unity and national position, as reported by The Jerusalem Post. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) However, these talks have not yet resulted in a formal electoral alliance. Given the historical tensions between Hamas and Dahlan's faction, and the lack of a concrete agreement, the likelihood of them running on a shared electoral list appears low at this time.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T18:25:13.810843"
+  },
+  {
+    "id": "efc61963-f4d9-46a0-b1cc-48d66af3ec48",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "likelihood_pct": 10.0,
+    "reasoning": "Fatah and Hamas have a longstanding history of rivalry, marked by violent clashes and political disagreements. Despite multiple reconciliation attempts, including the 2022 Algiers agreement to hold elections within a year, these efforts have largely stalled. The outbreak of the Gaza war in October 2023 further strained relations, making a unified electoral list highly improbable. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Fatah%E2%80%93Hamas_reconciliation_process?utm_source=openai))",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T18:25:17.423821"
+  },
+  {
+    "id": "5fb1e48e-2ca7-487d-962b-fe10a458b4e1",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "likelihood_pct": 10.0,
+    "reasoning": "The Palestinian National Initiative (PNI), led by Mustafa Barghouti, positions itself as a 'democratic third force' in Palestinian politics, opposing both Fatah and Hamas. Historically, the PNI has been critical of Hamas, viewing it as extremist and fundamentalist. For instance, the PNI's platform states that it opposes Hamas, describing it as 'extremist and fundamentalist.' ([en.wikipedia.org](https://en.wikipedia.org/wiki/Palestinian_National_Initiative?utm_source=openai)) Given this longstanding ideological opposition, it is highly unlikely that Hamas and the PNI would form a shared electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-23T18:25:21.053302"
   }
 ]
