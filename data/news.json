@@ -96,6 +96,18 @@
     "importance_score": null
   },
   {
+    "id": "3318aa73-c267-4f68-a9e6-32f9b0552dbb",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "PalThink for Strategic Studies Explores Legislative Elections and the Emergence of New Political Movements",
+    "author": null,
+    "published_at": "2026-08-05T00:00:00",
+    "canonical_url": "https://palthink.org/en/2026/08/13079/",
+    "permitted_snippet": "PalThink convened discussions on the importance of holding legislative elections as scheduled, focusing on renewing constitutional legitimacy and encouraging new political movements.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "8c340177-395a-424b-8895-9bd6c1a2f30d",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "President Abbas Confirms Legislative Elections on November 28, 2026",
@@ -163,6 +175,18 @@
     "published_at": "2026-06-14T00:00:00",
     "canonical_url": "https://www.sadanews.ps/en/news/310280.html",
     "permitted_snippet": "President Mahmoud Abbas issued a law amending the General Elections Law, increasing the number of Legislative Council members to 200 and introducing other electoral reforms.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "f7f86bb0-f4fb-4ff4-8347-f9964e2c70ff",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Fatah Opens Leadership Election to Former Convicts",
+    "author": null,
+    "published_at": "2026-06-01T00:00:00",
+    "canonical_url": "https://www.thejc.com/news/israel/fatah-leadership-election-former-terror-convicts-goxe1ls2",
+    "permitted_snippet": "Fatah extends voting rights to former convicts, including those released from life sentences, in its leadership elections.",
     "image_url": null,
     "language": "en",
     "importance_score": null

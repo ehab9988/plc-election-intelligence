@@ -88,5 +88,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "8cf5830e-fe64-4825-aadc-665efb5f4c04",
+    "list_name_ar": "الائتلاف الوطني بقيادة حماس",
+    "list_name_en": "Hamas-led National Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
