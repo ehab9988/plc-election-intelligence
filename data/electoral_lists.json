@@ -198,5 +198,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "fef69d55-d821-4203-93df-cb9350ed5d8f",
+    "list_name_ar": "حماس",
+    "list_name_en": "Hamas",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
