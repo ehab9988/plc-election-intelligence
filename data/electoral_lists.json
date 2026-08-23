@@ -158,5 +158,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "45d46b7b-a61d-411b-b2a9-8e53cf42b144",
+    "list_name_ar": "الائتلاف الوطني من أجل العدالة والديمقراطية بقيادة حماس",
+    "list_name_en": "Hamas-led National Coalition for Justice and Democracy",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
