@@ -2536,5 +2536,59 @@
     "reasoning": "The Palestinian National Initiative (PNI), led by Mustafa Barghouti, has historically positioned itself as a 'democratic third force' in Palestinian politics, opposing both Fatah and Hamas. The PNI has advocated for democratic reforms within the Palestinian National Authority and has campaigned for a national emergency government that includes all factions, including Hamas. However, the PNI has consistently criticized Hamas for its extremism and fundamentalism, making a shared electoral list unlikely. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Palestinian_National_Initiative?utm_source=openai))",
     "model": "gpt-4o-mini",
     "generated_at": "2026-08-24T07:57:06.610143"
+  },
+  {
+    "id": "50a01058-ba60-4e9b-b7d1-01b62ead0080",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "likelihood_pct": 10.0,
+    "reasoning": "Hamas and Palestinian Islamic Jihad (PIJ) have historically maintained separate political and military operations, with limited collaboration. Recent developments, such as the formation of a coalition involving Hamas, the Democratic Reform Movement led by Muhammad Dahlan, PIJ, and the Qudwa Movement, suggest a strategic alliance to challenge the Fatah electoral bloc. However, this coalition appears to be a pragmatic response to political dynamics rather than a merger of Hamas and PIJ into a single electoral list. Given their distinct organizational structures and strategic priorities, the likelihood of Hamas and PIJ running on a single shared list remains low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-24T08:45:48.323743"
+  },
+  {
+    "id": "1702a76b-fac8-45b2-9720-38c26f753015",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "likelihood_pct": 10.0,
+    "reasoning": "Despite the July 2024 Beijing Declaration, which aimed to end divisions and strengthen Palestinian unity, and subsequent efforts like the December 2024 agreement to form a technocratic committee for Gaza's post-war governance, Hamas and Fatah have not established a unified electoral list for the upcoming November 2026 Palestinian Legislative Council elections. Instead, Hamas is reportedly forming alliances with other factions, including former Fatah member Mohammed Dahlan, indicating a preference for separate electoral strategies. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) Given these developments and the historical challenges in their relationship, the likelihood of Hamas and Fatah running on a single shared list appears low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-24T08:45:51.439645"
+  },
+  {
+    "id": "c1a7285c-67ba-4915-9f1b-3fb527f3ca10",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "likelihood_pct": 10.0,
+    "reasoning": "Hamas is actively seeking alliances with various Palestinian factions, including former Fatah figure Mohammed Dahlan and the Democratic Front for the Liberation of Palestine (DFLP), ahead of the November 2026 legislative elections. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) However, there is no public indication of discussions or intentions between Hamas and the Popular Front for the Liberation of Palestine (PFLP) to form a joint electoral list. Given the PFLP's far-left orientation and Hamas's right-wing stance, historical ideological differences further reduce the likelihood of such a coalition.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-24T08:45:54.927470"
+  },
+  {
+    "id": "8cb6e667-f1bd-4c3f-ac38-d0e4c257f74b",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "likelihood_pct": 10.0,
+    "reasoning": "The Democratic Reform party, a faction within Hamas, has historically operated as a distinct entity, often participating in elections separately from Hamas's main political wing. This pattern suggests a low likelihood of them running on a shared electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-24T08:45:58.234664"
+  },
+  {
+    "id": "914e9ca3-f403-4aa8-8cb6-030e9f7ed196",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "likelihood_pct": 5.0,
+    "reasoning": "Fatah and Hamas have a longstanding history of rivalry, with the 2006 legislative elections resulting in Hamas's victory and subsequent division of governance between the two factions. Recent developments indicate Hamas is seeking alliances with other factions, such as former Fatah member Mohammed Dahlan and the Democratic Front for the Liberation of Palestine (DFLP), but not with Fatah itself. Given this entrenched division and the absence of any public moves towards reconciliation or joint electoral lists, the likelihood of Fatah and Hamas running on a shared list in the upcoming 2026 Palestinian Legislative Council elections is minimal.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-24T08:46:01.357063"
+  },
+  {
+    "id": "f0472f87-0367-41ae-837d-e9c33faf6bdc",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "likelihood_pct": 10.0,
+    "reasoning": "The Palestinian National Initiative (PNI), led by Mustafa Barghouti, positions itself as a 'democratic third force' in Palestinian politics, opposing both Fatah and Hamas. The PNI has historically criticized Hamas for its extremism and fundamentalism. Given these ideological differences and the PNI's commitment to secularism and democratic socialism, a coalition with Hamas appears unlikely. Additionally, the PNI has previously failed to unite with other leftist factions, indicating challenges in forming alliances. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Palestinian_National_Initiative?utm_source=openai))",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-24T08:46:04.340916"
   }
 ]
