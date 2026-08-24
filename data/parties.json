@@ -96,6 +96,18 @@
     "verification_confidence": "low"
   },
   {
+    "id": "71a5854a-ae72-45c9-a317-1410308b7077",
+    "name_ar": "حزب الإصلاح الديمقراطي",
+    "name_en": "Democratic Reform Party",
+    "abbreviation": "DRP",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "008ca231-8b48-47d3-905c-63a2d48a688f",
     "name_ar": "فتح",
     "name_en": "Fatah",

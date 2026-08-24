@@ -308,5 +308,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "4f247adc-babe-44d5-8b98-1c2a1f08f41c",
+    "list_name_ar": "التحالف الديمقراطي بقيادة فتح",
+    "list_name_en": "Fatah-led Democratic Reform Party Alliance",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
