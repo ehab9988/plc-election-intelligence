@@ -36,6 +36,18 @@
     "importance_score": null
   },
   {
+    "id": "c4d3efba-a8fa-4c32-9fcb-8c30ed7db4ba",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Fatah delegation heads to Cairo as Hamas affirms commitment to legislative elections",
+    "author": null,
+    "published_at": "2026-08-22T00:00:00",
+    "canonical_url": "https://www.china.org.cn/world/Off_the_Wire/2026-08/22/content_118659958.shtml",
+    "permitted_snippet": "A delegation from the Palestinian National Liberation Movement (Fatah) headed to Cairo on Saturday, while the Islamic Resistance Movement (Hamas) affirmed its commitment to participating in the legislative elections scheduled for November as part of the broadest possible national coalition.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "9d14b9f0-d8d0-4a7a-a77b-a2535e2e6d34",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "تحالف عريض يضم \"حماس\" و\"الجهاد\" ودحلان والقدوة لخوض الانتخابات",
@@ -55,6 +67,18 @@
     "published_at": "2026-08-21T00:00:00",
     "canonical_url": "https://www.thenationalnews.com/news/mena/2026/08/21/alliances-forged-ahead-of-first-palestinian-elections-in-two-decades/",
     "permitted_snippet": "Several Palestinian factions, including Hamas and Mohammed Dahlan's Democratic Reform Bloc, are forming unexpected alliances ahead of the November legislative elections, aiming to challenge the status quo.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "eb32a2a4-5baf-4861-8606-2d06070d410c",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Legislative Elections (2026) – European Council on Foreign Relations",
+    "author": null,
+    "published_at": "2026-08-21T00:00:00",
+    "canonical_url": "https://ecfr.eu/special/mapping_palestinian_politics/legislative-elections-2026/",
+    "permitted_snippet": "Elections for the Palestinian Legislative Council (PLC) are scheduled to take place on 28 November 2026 in the West Bank, East Jerusalem, and the Gaza Strip. The registration of electoral lists – which represent a party, coalition of parties, or a group of voters – will take place between 26 September and 7 October. PLC candidates must “commit to the Palestine Liberation Organisation as the only l",
     "image_url": null,
     "language": "en",
     "importance_score": null
