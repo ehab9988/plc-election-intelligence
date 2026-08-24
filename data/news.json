@@ -324,6 +324,18 @@
     "importance_score": null
   },
   {
+    "id": "d24a5669-8856-4196-bc32-0ef9d9b9fac4",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Palestinian President Mahmoud Abbas Issues Decree-Law Amending the General Elections Law",
+    "author": null,
+    "published_at": "2026-06-14T00:00:00",
+    "canonical_url": "https://president.ps/Eng/NewsPage/492947",
+    "permitted_snippet": "President Mahmoud Abbas issued a decree-law amending the General Elections Law, increasing the number of seats in the Palestinian Legislative Council to 200, lowering the electoral threshold to 1%, and raising the minimum number of candidates on each electoral list from 16 to 20. The amendment also introduced measures to enhance women's representation and lowered the minimum age for candidacy from",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "f7f86bb0-f4fb-4ff4-8347-f9964e2c70ff",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Fatah Opens Leadership Election to Former Convicts",
