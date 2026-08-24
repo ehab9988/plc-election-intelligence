@@ -278,5 +278,25 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "aaefbabf-aee4-45bd-bc37-e8b6a476dcfb",
+    "list_name_ar": "الجبهة الشعبية لتحرير فلسطين",
+    "list_name_en": "Popular Front for the Liberation of Palestine",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "77b3ce66-f183-4d19-aa59-366675cf93d3",
+    "list_name_ar": "الجبهة الديمقراطية لتحرير فلسطين",
+    "list_name_en": "Democratic Front for the Liberation of Palestine",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
