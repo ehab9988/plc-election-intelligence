@@ -84,6 +84,18 @@
     "verification_confidence": "medium"
   },
   {
+    "id": "becdbe58-7036-4ba7-87e0-e851c9fb9cfd",
+    "name_ar": "التيار الإصلاحي الديمقراطي",
+    "name_en": "Democratic Reform Current",
+    "abbreviation": "DRC",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "008ca231-8b48-47d3-905c-63a2d48a688f",
     "name_ar": "فتح",
     "name_en": "Fatah",

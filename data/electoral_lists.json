@@ -268,5 +268,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "86ae8b92-ea4e-4a41-b47b-cde293592d2e",
+    "list_name_ar": "تحالف حماس والتيار الإصلاحي الديمقراطي",
+    "list_name_en": "Hamas and Democratic Reform Current Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
