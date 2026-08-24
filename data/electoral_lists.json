@@ -328,5 +328,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "fb90492a-6224-4445-b9af-cfe89824ae72",
+    "list_name_ar": "التيار الإصلاحي الديمقراطي",
+    "list_name_en": "Democratic Reform Current",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
