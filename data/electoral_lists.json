@@ -228,5 +228,45 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "4c71b5e4-c295-4cbf-bfa6-ebbadbd90f5b",
+    "list_name_ar": "حماس (القدس وعدنا)",
+    "list_name_en": "Hamas (Jerusalem is Our Promise)",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "0a936f83-de7b-456a-9471-88ad305579b8",
+    "list_name_ar": "الجبهة الشعبية لتحرير فلسطين (نبض الشعب)",
+    "list_name_en": "Popular Front for the Liberation of Palestine (The People's Pulse)",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "932167d8-a7d3-4910-b612-fe5fd897703b",
+    "list_name_ar": "الجبهة الديمقراطية لتحرير فلسطين (التغيير الديمقراطي)",
+    "list_name_en": "Democratic Front for the Liberation of Palestine (Democratic Change)",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "3e7aa23c-f409-4252-a48b-87c698a1dd64",
+    "list_name_ar": "تحالف التغيير",
+    "list_name_en": "The Alliance for Change",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
