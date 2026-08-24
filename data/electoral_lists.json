@@ -318,5 +318,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "94e7b568-3ff7-43cc-b95a-1bc6341ddcf0",
+    "list_name_ar": "فتح",
+    "list_name_en": "Fatah",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
