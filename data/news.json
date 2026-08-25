@@ -492,6 +492,18 @@
     "importance_score": null
   },
   {
+    "id": "131e6c0c-fce7-45c4-bed0-92aad5829e57",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Abbas loyalists sweep Palestinian elections, including some seats in Gaza",
+    "author": null,
+    "published_at": "2026-04-26T00:00:00",
+    "canonical_url": "https://www.aljazeera.com/news/2026/4/26/abbas-loyals-sweep-palestine-elections-in-occupied-west-bank-gaza-city",
+    "permitted_snippet": "Loyalists of President Mahmoud Abbas won most races in Palestinian municipal elections, including some seats in Gaza, marking the first vote in the Gaza Strip in nearly two decades.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
     "id": "b87a6a2f-050a-4b0b-9a60-86b868a094a5",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Palestinians Vote in West Bank and Central Gaza Municipal Elections, the First Since War Started",
