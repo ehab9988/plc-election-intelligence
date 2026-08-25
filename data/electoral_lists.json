@@ -398,5 +398,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "159322b8-6582-402b-9281-6e6efaac9dfd",
+    "list_name_ar": "الائتلاف المدني للانتخابات",
+    "list_name_en": "Civil Coalition for Elections",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

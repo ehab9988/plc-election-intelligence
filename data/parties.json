@@ -334,5 +334,17 @@
     "registration_status": "considering",
     "registration_status_verified_at": null,
     "verification_confidence": "low"
+  },
+  {
+    "id": "bf3f1ff3-d102-46c4-adc7-205a09ebad99",
+    "name_ar": "منظمات المجتمع المدني المختلفة",
+    "name_en": "Various civil society organizations",
+    "abbreviation": null,
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
   }
 ]
