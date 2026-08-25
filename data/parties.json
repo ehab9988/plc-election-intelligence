@@ -84,6 +84,18 @@
     "verification_confidence": "medium"
   },
   {
+    "id": "cce386d7-3ef5-4e79-b4ab-1e0d6ef1aed7",
+    "name_ar": "كتلة الإصلاح الديمقراطي",
+    "name_en": "Democratic Reform Bloc",
+    "abbreviation": null,
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "becdbe58-7036-4ba7-87e0-e851c9fb9cfd",
     "name_ar": "التيار الإصلاحي الديمقراطي",
     "name_en": "Democratic Reform Current",

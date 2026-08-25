@@ -368,5 +368,25 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "6e86f010-3990-47cf-b065-797e6dfff917",
+    "list_name_ar": "حماس وكتلة الإصلاح الديمقراطي",
+    "list_name_en": "Hamas and Democratic Reform Bloc",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "4e9af484-e177-4582-8de3-3dee94f52988",
+    "list_name_ar": "حماس وحركة الجهاد الإسلامي",
+    "list_name_en": "Hamas and Islamic Jihad Movement",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
