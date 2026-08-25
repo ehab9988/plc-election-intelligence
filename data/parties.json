@@ -192,6 +192,18 @@
     "verification_confidence": "low"
   },
   {
+    "id": "1be0214d-4872-46bf-a526-6bd53964fdbd",
+    "name_ar": "جماعة فتح بقيادة محمد دحلان",
+    "name_en": "Mohammed Dahlan-led Fatah Faction",
+    "abbreviation": null,
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "82d95fe0-e9b7-41a2-8996-61f9716d98ff",
     "name_ar": "ناصر القدوة",
     "name_en": "Nasser al-Qudwa",

@@ -128,5 +128,135 @@
     "statement_summary": "Hamas Seeks Direct Meeting with Fatah to Agree on National Strategy",
     "source_id": "7323563a-2167-4a50-8df8-a094377144ef",
     "confidence": "low"
+  },
+  {
+    "id": "b0be2ddd-49cd-4fe6-9a2d-d4c5fe451694",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "A Coalition of Necessity or a Coalition to Overthrow the Fatah Electoral Bloc? A Critical Reading of the Coalition of Hamas, Dahlan, Jihad, and Qudwa",
+    "source_id": "f1a2f9ef-3719-404b-b1ef-6b05c74d88c8",
+    "confidence": "low"
+  },
+  {
+    "id": "5053ecc0-f3a4-40b4-b1b8-5cef09640be1",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b0ad34dc-e143-40a9-b8af-136e15e3e280",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas in talks with Mohammed Dahlan, Democratic Reform Bloc confirms",
+    "source_id": "f3987d79-e399-4776-bfd7-f0a48e35358f",
+    "confidence": "low"
+  },
+  {
+    "id": "dbb66ed1-28f9-45c4-abfb-38f20c006337",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ffd8a254-3ed9-4465-8c07-5fd4a12fe6c6",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas in talks with Mohammed Dahlan, Democratic Reform Bloc confirms",
+    "source_id": "292d7d39-f933-49a2-9941-b4bc13ee0462",
+    "confidence": "low"
+  },
+  {
+    "id": "f3c8121f-8f0e-4f4f-9169-f33c62cc7f00",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah moves to counter broad Hamas-Dahlan election alliance",
+    "source_id": "d2c3e3c9-358f-462d-9ec0-08f82a10721e",
+    "confidence": "low"
+  },
+  {
+    "id": "83e4e8dc-b8e9-493f-a6b9-4baa9df95614",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "0a8e3b3b-0530-4682-bbbe-12184b372c8b",
+    "confidence": "low"
+  },
+  {
+    "id": "0f5558fd-2a9f-4dec-a4af-92b3538bc333",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "be4d3a99-13d0-4865-8932-143d4522123c",
+    "confidence": "low"
+  },
+  {
+    "id": "6e64ec7f-6f13-4290-a495-ce759e19a3a9",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "30032602-7f61-4205-bc22-0402a915e19a",
+    "confidence": "low"
+  },
+  {
+    "id": "767f8fb7-2e45-47b8-aab4-7272b926792e",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "7d251322-2d14-4a4d-897f-bf20f523fdae",
+    "confidence": "low"
+  },
+  {
+    "id": "c338291b-4c40-4561-9de8-84c08cc6487b",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah and Hamas Explore Potential Alliance Ahead of November Elections",
+    "source_id": "787c3190-8bce-4895-b859-5b35a67c25e9",
+    "confidence": "low"
+  },
+  {
+    "id": "e3ce035b-19b2-4741-8cd3-58c38639b206",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas Announces Electoral Participation as Palestinian Factions Pursue Unprecedented Coalition",
+    "source_id": "679f8947-98dc-4e7c-a721-8ff7a5a5c4c6",
+    "confidence": "low"
+  },
+  {
+    "id": "f270277e-3274-4fdb-bc00-b6f47a000c97",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas congratulates Fatah, urges broad Palestinian dialogue",
+    "source_id": "e3c27fb0-6e5f-43cb-b67b-735263636009",
+    "confidence": "low"
+  },
+  {
+    "id": "0c3ff8a0-b061-472a-b6f9-1ea07fc74162",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas Calls For Direct Meeting With Fatah Movement To Agree On National Strategy",
+    "source_id": "1576999c-02d9-47eb-89eb-f0ed2d23e35d",
+    "confidence": "low"
+  },
+  {
+    "id": "3580901c-fecf-4daf-9f4d-12457c2f4e2a",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas Seeks Direct Meeting with Fatah to Agree on National Strategy",
+    "source_id": "9829057a-2324-468f-a0e9-a1ff1d1099a1",
+    "confidence": "low"
   }
 ]

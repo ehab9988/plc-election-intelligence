@@ -8,5 +8,25 @@
     "statement_summary": "Hamas held meetings with the PFLP on a broad electoral alliance.",
     "source_id": "9f6355ee-a100-48d5-8ff5-6fb2067b8dcd",
     "confidence": "medium"
+  },
+  {
+    "id": "b0be2ddd-49cd-4fe6-9a2d-d4c5fe451694",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "A Coalition of Necessity or a Coalition to Overthrow the Fatah Electoral Bloc? A Critical Reading of the Coalition of Hamas, Dahlan, Jihad, and Qudwa",
+    "source_id": "f1a2f9ef-3719-404b-b1ef-6b05c74d88c8",
+    "confidence": "low"
+  },
+  {
+    "id": "f3c8121f-8f0e-4f4f-9169-f33c62cc7f00",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah moves to counter broad Hamas-Dahlan election alliance",
+    "source_id": "d2c3e3c9-358f-462d-9ec0-08f82a10721e",
+    "confidence": "low"
   }
 ]

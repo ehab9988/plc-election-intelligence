@@ -338,5 +338,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "725609ff-0544-479e-9a3b-75ca3a3a4d06",
+    "list_name_ar": "التحالف الوطني الواسع بقيادة حماس",
+    "list_name_en": "Hamas-led Broad National Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
