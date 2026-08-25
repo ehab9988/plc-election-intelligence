@@ -108,6 +108,18 @@
     "importance_score": null
   },
   {
+    "id": "60e6da85-99c9-43fa-861a-3caf0b3d749c",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Hamas and Fatah's hardliners meet in Cairo to discuss common electoral list",
+    "author": null,
+    "published_at": "2026-08-19T00:00:00",
+    "canonical_url": "https://www.ansa.it/sito/notizie/mondo/2026/08/19/hamas-e-i-falchi-di-fatah-al-cairo-per-discutere-di-una-lista-elettorale-comune_ba8b1170-ebc8-4586-be3c-2c11d29c13f6.html",
+    "permitted_snippet": "Representatives of Hamas and the Democratic Reform Bloc of Mohammed Dahlan, the hardline wing of Fatah, met in Cairo to assess the formation of a unified list for the legislative elections scheduled for November 28, the first in 20 years.",
+    "image_url": null,
+    "language": "it",
+    "importance_score": null
+  },
+  {
     "id": "6bb06093-6647-4e20-a466-6edd5176dd23",
     "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
     "headline": "Palestinian Voter Registration Closes Ahead of Legislative Elections",
@@ -463,6 +475,18 @@
     "published_at": "2026-04-26T00:00:00",
     "canonical_url": "https://www.jpost.com/middle-east/article-894145",
     "permitted_snippet": "Fatah claimed to have achieved a 'sweeping victory' in the 2026 council elections, winning most local councils, including Jenin, where the Palestinian Authority was previously accused of losing control to Hamas-linked Palestinian Islamic Jihad.",
+    "image_url": null,
+    "language": "en",
+    "importance_score": null
+  },
+  {
+    "id": "f05db3cc-f916-40bc-adb1-f45f46370553",
+    "news_source_id": "2fb7d0b3-d2e9-4959-aa6a-81bcd19461e7",
+    "headline": "Palestinian Officials Positive About Local Elections in West Bank and Part of Gaza",
+    "author": null,
+    "published_at": "2026-04-26T00:00:00",
+    "canonical_url": "https://www.youtube.com/watch?v=2EeUz0Sx6R4",
+    "permitted_snippet": "Palestinian officials expressed optimism about the success of local elections held in the West Bank and parts of Gaza, viewing them as a step toward national unity.",
     "image_url": null,
     "language": "en",
     "importance_score": null
