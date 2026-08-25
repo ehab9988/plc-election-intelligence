@@ -348,5 +348,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "530ab78a-0d4f-4803-b05d-29e889ef9cec",
+    "list_name_ar": "الائتلاف بقيادة فتح",
+    "list_name_en": "Fatah-led Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
