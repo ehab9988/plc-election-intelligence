@@ -358,5 +358,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "ea3d4ac0-92a2-4a24-b0e1-f94a814aa174",
+    "list_name_ar": "التحالف الوطني العريض",
+    "list_name_en": "Broad National Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
