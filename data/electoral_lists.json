@@ -408,5 +408,35 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "aa06a59a-8625-47e9-9226-33cc51d7f538",
+    "list_name_ar": "فتح وكتلة الإصلاح الديمقراطي لدحلان المصالحة",
+    "list_name_en": "Fatah and Dahlan's Democratic Reform Bloc Reconciliation",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "b1fbe20a-baba-471c-83e0-b306cb59beaa",
+    "list_name_ar": "حماس والفصائل الفلسطينية ائتلاف انتخابي واسع",
+    "list_name_en": "Hamas and Palestinian Factions Broad Electoral Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "9ff01358-bf88-49ec-9b7c-c6104f508fc0",
+    "list_name_ar": "مشاركة حماس في الائتلاف الوطني",
+    "list_name_en": "Hamas Participation in National Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
