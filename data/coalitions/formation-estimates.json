@@ -6820,5 +6820,86 @@
     "reasoning": "Fatah and the Popular Front for the Liberation of Palestine (PFLP) have historically maintained a complex relationship, characterized by both cooperation and tension. While they have occasionally collaborated within the Palestine Liberation Organization (PLO), their differing ideologies and approaches to the Israeli-Palestinian conflict have often led to disagreements. For instance, the PFLP has consistently opposed the Oslo Accords and has been critical of Fatah's engagement in negotiations with Israel. Additionally, the PFLP has boycotted participation in both the PLO Executive Committee and the Palestinian National Council as of 2025. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Popular_Front_for_the_Liberation_of_Palestine?utm_source=openai)) Given these longstanding ideological differences and the PFLP's history of political isolation, it is unlikely that Fatah and the PFLP will form a shared electoral list in the upcoming Palestinian Legislative Council election.",
     "model": "gpt-4o-mini",
     "generated_at": "2026-08-26T09:38:32.749170"
+  },
+  {
+    "id": "501cc400-c47c-4097-ade6-6ff37bb9b67b",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "likelihood_pct": 20.0,
+    "reasoning": "Hamas and Palestinian Islamic Jihad (PIJ) have a history of collaboration, particularly in military operations against Israel. However, strategic, ideological, and interpersonal differences have long prevented any real rapprochement between the two groups. PIJ remains clandestine, with a compartmentalized cell structure, in contrast to the mass mobilization favored by Hamas. Additionally, PIJ has always remained clandestine, with a compartmentalized cell structure, in contrast to the mass mobilization favored by Hamas. These factors suggest that while they may coordinate on specific issues, a unified electoral list is unlikely.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:32:49.561708"
+  },
+  {
+    "id": "a856f4c5-4ea7-4c11-a749-026322f046d1",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "likelihood_pct": 5.0,
+    "reasoning": "Hamas and Fatah have a longstanding history of rivalry, including violent conflicts, and have not formed a unified electoral list in the past. Recent developments, such as Hamas's exploration of alliances with former Fatah figure Mohammed Dahlan and other factions, suggest a focus on broader unity rather than direct cooperation with Fatah. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) Given this context, the likelihood of Hamas and Fatah running on a shared electoral list is low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:32:53.818165"
+  },
+  {
+    "id": "75fa7712-5c13-4f55-a0c6-8575d659c4a2",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ffd8a254-3ed9-4465-8c07-5fd4a12fe6c6",
+    "likelihood_pct": 20.0,
+    "reasoning": "Hamas and the Democratic Front for the Liberation of Palestine (DFLP) have historically maintained a complex relationship, characterized by both cooperation and ideological differences. While they have collaborated militarily, such as during the October 7, 2023, attacks on Israel, their differing ideologies—Hamas's Sunni Islamist orientation versus DFLP's secular Marxist-Leninist stance—have often led to tensions. Additionally, their divergent political goals and visions for Palestinian governance further complicate the prospects of a unified electoral list. Given these factors, the likelihood of Hamas and DFLP running on a single electoral list appears low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:32:57.635638"
+  },
+  {
+    "id": "ebf96069-3aa8-4929-b0bc-d8dcf2451c4c",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "likelihood_pct": 60.0,
+    "reasoning": "In July 2024, Hamas and the Popular Front for the Liberation of Palestine (PFLP) were among 14 Palestinian factions that signed the Beijing Declaration, aiming to end internal divisions and strengthen national unity. ([en.wikipedia.org](https://en.wikipedia.org/wiki/2024_Beijing_Declaration?utm_source=openai)) Subsequently, in August 2026, Hamas announced its intention to participate in the upcoming Palestinian Legislative Council elections under the broadest possible national coalition, without imposing political conditions. ([aa.com.tr](https://www.aa.com.tr/en/middle-east/hamas-says-it-will-take-part-in-palestinian-elections-under-broadest-possible-coalition/4025785?utm_source=openai)) Additionally, reports from August 2026 indicate that Hamas, PFLP, and other factions are discussing the possibility of running together on a unified electoral list. ([albawaba.com](https://www.albawaba.com/news/hamas-and-islamic-jihad-move-build-1635472?utm_source=openai)) Given these developments, there is a moderate likelihood that Hamas and PFLP will run on a shared electoral list in the upcoming elections.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:33:00.941143"
+  },
+  {
+    "id": "d0745fb3-4df5-4105-899d-83eb640b7430",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b0ad34dc-e143-40a9-b8af-136e15e3e280",
+    "likelihood_pct": 70.0,
+    "reasoning": "Hamas and Mohammed Dahlan's Democratic Reform Bloc have engaged in multiple discussions about forming a unified electoral list for the upcoming Palestinian Legislative Council elections scheduled for November 28, 2026. These talks have included meetings in Cairo and Alamein, aiming to establish a broad national alliance. ([almanassa.com](https://almanassa.com/en/news/33488?utm_source=openai)) While no final agreements have been reached, the ongoing negotiations indicate a strong possibility of collaboration. However, given the complex political dynamics and historical rivalries, the likelihood of a complete merger into a single electoral list is not guaranteed.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:33:04.038619"
+  },
+  {
+    "id": "881dcd17-8818-48e8-98ef-c9fe51ddd92a",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b987e43e-0b57-4062-b1f7-bfc2232e21c0",
+    "likelihood_pct": 60.0,
+    "reasoning": "Hamas and the Democratic Reform Bloc, led by Mohammed Dahlan, have engaged in discussions about potential alliances ahead of the upcoming Palestinian Legislative Council elections. A recent meeting between Hamas chief Khalil al-Hayya and Dahlan in Egypt focused on 'unity of the national position,' indicating a willingness to collaborate. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) However, the Democratic Reform Bloc has also been in talks with other factions, such as the Democratic Front for the Liberation of Palestine (DFLP), suggesting a competitive political landscape. ([jpost.com](https://www.jpost.com/middle-east/article-906310?utm_source=openai)) Given these dynamics, while there is a foundation for cooperation, the likelihood of Hamas and the Democratic Reform Bloc running on a single shared list is moderate, as both parties may prefer to maintain distinct political identities.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:33:09.341247"
+  },
+  {
+    "id": "3b1f1ec9-9e39-40d2-95f7-b624271eb89e",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "likelihood_pct": 5.0,
+    "reasoning": "Fatah and Hamas have a longstanding history of rivalry, marked by violent conflicts and political disagreements. Despite occasional reconciliation talks, such as the 2014 Fatah-Hamas Agreements and the 2024 Cairo agreement to form a committee to govern Gaza, these efforts have not led to a unified electoral list. Given their entrenched differences and the absence of significant progress toward unity, the likelihood of Fatah and Hamas running on a shared electoral list is minimal.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:33:12.437258"
+  },
+  {
+    "id": "c89e2fd0-b416-4567-874f-a687b6a6c107",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "likelihood_pct": 10.0,
+    "reasoning": "The Palestinian National Initiative (PNI) and Hamas have historically maintained distinct political ideologies and approaches. The PNI positions itself as a 'democratic third force,' advocating for secularism and democratic socialism, and has been critical of both Fatah and Hamas. Hamas, on the other hand, is an Islamist movement with a focus on political Islam. While both parties signed the 2024 Beijing Declaration aimed at ending division and strengthening Palestinian national unity, this agreement does not necessarily indicate a shared electoral list. Given their differing ideologies and historical positions, it is unlikely that Hamas and the PNI will run on a single electoral list.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:33:15.502033"
+  },
+  {
+    "id": "60e19dc9-bcdf-4403-a0a6-14942670efb6",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "likelihood_pct": 10.0,
+    "reasoning": "The Fatah Movement and the Popular Front for the Liberation of Palestine (PFLP) have historically maintained separate political paths, with Fatah being a secular nationalist movement and the PFLP adhering to Marxist-Leninist ideology. Recent interactions, such as the February 2026 meeting between Fatah and the Democratic Front for the Liberation of Palestine, indicate ongoing dialogue among factions within the Palestine Liberation Organization (PLO). ([en.fatehnews.org](https://en.fatehnews.org/2026/02/fatah-and-democratic-front-for-the-liberation-of-palestine-hold-leadership-meeting-in-cairo/?utm_source=openai)) However, there is no substantial evidence of direct collaboration or coalition-building between Fatah and the PFLP. Given their ideological differences and lack of recent cooperative initiatives, the likelihood of them running on a shared electoral list appears low.",
+    "model": "gpt-4o-mini",
+    "generated_at": "2026-08-26T10:33:19.162016"
   }
 ]
