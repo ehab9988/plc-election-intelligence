@@ -252,6 +252,18 @@
     "verification_confidence": "medium"
   },
   {
+    "id": "da9a80bc-56d0-4d43-92aa-c1c4e76d2f04",
+    "name_ar": "التحالف الفلسطيني",
+    "name_en": "Palestinian Alliance",
+    "abbreviation": null,
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "17c55428-294c-4535-9d89-5cf20cc5d650",
     "name_ar": "الاتحاد الديمقراطي الفلسطيني",
     "name_en": "Palestinian Democratic Union",

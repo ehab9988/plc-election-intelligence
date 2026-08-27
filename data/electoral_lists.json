@@ -438,5 +438,25 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "a17c7068-7cf1-4c81-94a2-e67b388e64fc",
+    "list_name_ar": "الإصلاح الديمقراطي",
+    "list_name_en": "Democratic Reform",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
+  },
+  {
+    "id": "f1c9efb7-be7e-472e-81d0-d5c802d04fa4",
+    "list_name_ar": "التحالف الفلسطيني",
+    "list_name_en": "Palestinian Alliance",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
