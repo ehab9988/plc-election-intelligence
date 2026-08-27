@@ -458,5 +458,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "fcf1231d-4238-4a48-a1ef-e368b7f59c37",
+    "list_name_ar": "تحالف حماس والفصائل الفلسطينية",
+    "list_name_en": "Hamas and Palestinian Factions Coalition",
+    "list_number": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
