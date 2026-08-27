@@ -28,5 +28,15 @@
     "statement_summary": "Palestinian factions explore broad alliance for November elections",
     "source_id": "be4d3a99-13d0-4865-8932-143d4522123c",
     "confidence": "low"
+  },
+  {
+    "id": "45cecee7-392e-4dd2-9bd6-47e260643051",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "d2cb4078-05e3-416d-b33e-f2497f2e1b82",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "759b111c-d0c0-4301-a14e-02d512f6883e",
+    "confidence": "low"
   }
 ]
