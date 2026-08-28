@@ -38,5 +38,45 @@
     "statement_summary": "Hamas and Fatah's hardliners meet in Cairo to discuss common electoral list",
     "source_id": "07743b41-c75a-467d-9965-34b018b0cb6b",
     "confidence": "low"
+  },
+  {
+    "id": "83ac4d97-2f7d-4e53-9631-c335bb63a8b4",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "cce386d7-3ef5-4e79-b4ab-1e0d6ef1aed7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah, Dahlan bloc hold reconciliation talks ahead of Palestinian elections",
+    "source_id": "dd8ba6dc-03a1-4de3-87df-1361b0b0e77c",
+    "confidence": "low"
+  },
+  {
+    "id": "524403b5-b957-4bcf-874f-6e7b928157dd",
+    "party_a_id": "cce386d7-3ef5-4e79-b4ab-1e0d6ef1aed7",
+    "party_b_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah, Dahlan bloc hold reconciliation talks ahead of Palestinian elections",
+    "source_id": "b67499cc-794f-40b9-9fe9-020b69803386",
+    "confidence": "low"
+  },
+  {
+    "id": "353d48dd-a9e0-4d6d-a0a7-93299240d236",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "cce386d7-3ef5-4e79-b4ab-1e0d6ef1aed7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Alliances forged ahead of first Palestinian elections in two decades",
+    "source_id": "4d25f3d0-7f73-4b4a-b453-fe05b27e9845",
+    "confidence": "low"
+  },
+  {
+    "id": "1dc832ac-9e5c-48ce-aba3-f64118816ef3",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "cce386d7-3ef5-4e79-b4ab-1e0d6ef1aed7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas and Fatah's hardliners meet in Cairo to discuss common electoral list",
+    "source_id": "6d5ff3e0-7c9d-4883-ab38-2baa09930ee7",
+    "confidence": "low"
   }
 ]

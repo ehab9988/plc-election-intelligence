@@ -38,5 +38,35 @@
     "statement_summary": "Fatah moves to counter broad Hamas-Dahlan election alliance",
     "source_id": "b9eec06c-5ce9-40ac-887b-63560a250ffb",
     "confidence": "low"
+  },
+  {
+    "id": "65de68ef-8c3b-40b9-a426-a5d0752c9704",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b0ad34dc-e143-40a9-b8af-136e15e3e280",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian Authority fears Hamas, Dahlan alliance could weaken Abbas ahead of elections",
+    "source_id": "d267299c-51ab-4b74-98d0-594f55dcd322",
+    "confidence": "low"
+  },
+  {
+    "id": "edd5073b-ec19-49f0-841e-04f9751da869",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b0ad34dc-e143-40a9-b8af-136e15e3e280",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas in talks with Mohammed Dahlan, Democratic Reform Bloc confirms",
+    "source_id": "2f418537-8e67-480d-931d-35b9b55499ba",
+    "confidence": "low"
+  },
+  {
+    "id": "92750b82-1e64-4dca-b6cf-f52c20627d55",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "b0ad34dc-e143-40a9-b8af-136e15e3e280",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah moves to counter broad Hamas-Dahlan election alliance",
+    "source_id": "95faa6e3-1769-4901-a551-895524630ce7",
+    "confidence": "low"
   }
 ]
