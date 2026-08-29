@@ -478,5 +478,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "3f8f8f77-5883-4708-a48a-021f29bb940a",
+    "list_name_ar": "الائتلاف الانتخابي الفلسطيني الواسع",
+    "list_name_en": "Broad Palestinian Electoral Coalition",
+    "list_number": null,
+    "registration_status": "announced_intention",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]
