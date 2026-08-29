@@ -468,5 +468,15 @@
     "registration_status_verified_at": null,
     "cec_reference": null,
     "color_hex": null
+  },
+  {
+    "id": "24464178-d6f6-4ebc-b713-30d131826c80",
+    "list_name_ar": "الائتلاف الفلسطيني الواسع",
+    "list_name_en": "Broad Palestinian Coalition",
+    "list_number": null,
+    "registration_status": "considering",
+    "registration_status_verified_at": null,
+    "cec_reference": null,
+    "color_hex": null
   }
 ]

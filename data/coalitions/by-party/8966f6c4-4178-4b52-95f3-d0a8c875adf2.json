@@ -68,5 +68,25 @@
     "statement_summary": "Fatah moves to counter broad Hamas-Dahlan election alliance",
     "source_id": "3558ca41-5750-407a-9dcd-0dfd9f3bc69e",
     "confidence": "low"
+  },
+  {
+    "id": "61a0ac3b-583a-4531-8049-75d60f7fcbdd",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "A Coalition of Necessity or a Coalition to Overthrow the Fatah Electoral Bloc? A Critical Reading of the Coalition of Hamas, Dahlan, Jihad, and Qudwa",
+    "source_id": "371c2495-89e1-4082-bf7b-f32621ad22cf",
+    "confidence": "low"
+  },
+  {
+    "id": "50164c68-84ac-4f58-b83c-822d4d52f43b",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "8966f6c4-4178-4b52-95f3-d0a8c875adf2",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah moves to counter broad Hamas-Dahlan election alliance",
+    "source_id": "fa43817f-6e96-4585-a139-9ced7d672713",
+    "confidence": "low"
   }
 ]

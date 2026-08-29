@@ -48,5 +48,25 @@
     "statement_summary": "Palestinian factions explore broad alliance for November elections",
     "source_id": "044ab180-b746-478f-a3e2-401d2159ed93",
     "confidence": "low"
+  },
+  {
+    "id": "6a3cc8a0-84fb-45ba-afd8-b212cec72556",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Palestinian factions explore broad alliance for November elections",
+    "source_id": "8c1349c6-7152-4aae-a925-693618095a0c",
+    "confidence": "low"
+  },
+  {
+    "id": "d274b2d1-5c96-43cd-910e-557dbd8ac9d5",
+    "party_a_id": "38a0ff59-6566-4bf4-975b-3e0d27d909c7",
+    "party_b_id": "ab2d2103-4d34-4ec2-a190-615dccd377f7",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah Claims 'Sweeping Victory' in 2026 Palestinian Local Elections",
+    "source_id": "04f5d811-edb9-4735-8b35-7a5fedf34a94",
+    "confidence": "low"
   }
 ]

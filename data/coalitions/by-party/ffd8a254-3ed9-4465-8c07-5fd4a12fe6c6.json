@@ -28,5 +28,15 @@
     "statement_summary": "Hamas in talks with Mohammed Dahlan, Democratic Reform Bloc confirms",
     "source_id": "225a9903-3a76-4392-a728-ee9f97a42223",
     "confidence": "low"
+  },
+  {
+    "id": "d68e23a4-2ce5-462e-8595-bc558d9fd21d",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "ffd8a254-3ed9-4465-8c07-5fd4a12fe6c6",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Hamas in talks with Mohammed Dahlan, Democratic Reform Bloc confirms",
+    "source_id": "942409d6-0c2a-4ef4-a1a9-ce224f28ff6a",
+    "confidence": "low"
   }
 ]

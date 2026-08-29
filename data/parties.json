@@ -144,6 +144,18 @@
     "verification_confidence": "medium"
   },
   {
+    "id": "695fcb9e-9972-4bf1-9d18-79493735f76a",
+    "name_ar": "حركة فتح (جناح محمد دحلان)",
+    "name_en": "Fatah Movement (Mohammed Dahlan-led faction)",
+    "abbreviation": "Fatah-Dahlan",
+    "logo_url": null,
+    "description_ar": null,
+    "description_en": null,
+    "registration_status": "rumored",
+    "registration_status_verified_at": null,
+    "verification_confidence": "low"
+  },
+  {
     "id": "917d32f4-0e95-49a1-9e72-1033684af30e",
     "name_ar": "حدش",
     "name_en": "Hadash",

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "927a9a13-bc57-42ec-a42b-cbebaa06ad9b",
+    "party_a_id": "b72d50ad-eff1-4433-b98e-1adb8b27c0c9",
+    "party_b_id": "27bb53a1-9525-41b7-a98d-4a58d121c658",
+    "evidence_type": "supporting",
+    "implies_joint_list": false,
+    "statement_summary": "Fatah delegation heads to Cairo as Hamas affirms commitment to legislative elections",
+    "source_id": "836aafed-f18b-4aa1-8a4d-de5a8e282170",
+    "confidence": "low"
+  }
+]
